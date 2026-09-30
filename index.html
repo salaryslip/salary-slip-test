@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./graduation-hat.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./graduation-hat.png">
   <link rel="apple-touch-icon" href="./graduation-hat.png">
-<!-- Inline Data-URI Manifest (404 Error कायमची बंद होईल) -->
+  <!-- Inline Data-URI Manifest -->
   <link rel="manifest" href='data:application/manifest+json,{"id":"teacher-salary-portal","name":"Teacher Salary Slip Portal","short_name":"वेतन पत्रक","start_url":".","display":"standalone","background_color":"%230f172a","theme_color":"%232563eb","icons":[{"src":"./graduation-hat.png","sizes":"192x192","type":"image/png"},{"src":"./graduation-hat.png","sizes":"512x512","type":"image/png"}]}'>
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -47,6 +47,117 @@
       background-color: var(--bg-gradient);
       color: var(--text-main);
       overflow-x: hidden;
+    }
+
+    /* =========================================================
+       सुधारणा ३: मॉडर्न पेज प्रीलोडर (MODERN PRELOADER STYLES)
+       ========================================================= */
+    .page-loader-wrap {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .page-loader-wrap.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      max-width: 90%;
+    }
+
+    .loader-icon-box {
+      width: 78px;
+      height: 78px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1.5px solid rgba(56, 189, 248, 0.4);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #38bdf8;
+      font-size: 2.1rem;
+      position: relative;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .loader-pulse-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 26px;
+      border: 2px solid #38bdf8;
+      animation: pulseLoaderRing 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes pulseLoaderRing {
+      0% { transform: scale(0.92); opacity: 0.9; }
+      50% { transform: scale(1.18); opacity: 0; }
+      100% { transform: scale(0.92); opacity: 0; }
+    }
+
+    .loader-title {
+      color: #ffffff;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .loader-subtitle {
+      color: #94a3b8;
+      font-size: 0.86rem;
+      margin-bottom: 22px;
+    }
+
+    .loader-bar {
+      width: 190px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loader-bar-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 45%;
+      background: linear-gradient(90deg, #2563eb, #38bdf8);
+      border-radius: 999px;
+      animation: loaderBarMove 1.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes loaderBarMove {
+      0% { left: 0%; width: 25%; }
+      50% { width: 55%; }
+      100% { left: 75%; width: 25%; }
+    }
+
+    /* =========================================================
+       सुधारणा १: ॲप इन्स्टॉल झाल्यावर (STANDALONE मोडमध्ये) बटण लपवणे
+       ========================================================= */
+    @media all and (display-mode: standalone) {
+      #pwaInstallBtn {
+        display: none !important;
+      }
     }
 
     /* =========================================================
@@ -245,21 +356,29 @@
     .hero-actions {
       display: flex;
       justify-content: center;
-      gap: 14px;
+      align-items: center;
+      gap: 16px;
       flex-wrap: wrap;
       margin-bottom: 45px;
     }
 
+    /* =========================================================
+       सुधारणा २: सर्व Hero बटनांची रुंदी आणि फॉरमॅटिंग एकसमान करणे
+       ========================================================= */
     .btn-hero {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      padding: 12px 22px;
+      padding: 13px 24px;
+      min-width: 210px; /* एकसमान किमान रुंदी */
       border-radius: 12px;
       font-weight: 700;
       font-size: 0.92rem;
       text-decoration: none;
       transition: all 0.25s ease;
+      box-sizing: border-box;
+      font-family: inherit;
     }
 
     .btn-hero.primary {
@@ -1327,6 +1446,15 @@
       .news-ticker-wrap { height: 38px; font-size: 0.78rem; }
       .ticker-badge { padding: 0 10px; font-size: 0.72rem; }
       .btn-lang { padding: 3px 8px; font-size: 0.7rem; }
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .btn-hero {
+        width: 100%;
+        max-width: 290px; /* मोबाईलवर तिन्ही बटणे तंतोतंत एकाच आकाराची */
+      }
       .metrics-grid { grid-template-columns: 1fr; }
       .showcase-slide.dev-testimonial-slide {
         flex-direction: column;
@@ -1350,6 +1478,23 @@
   </style>
 </head>
 <body>
+
+  <!-- =========================================================
+       सुधारणा ३: मॉडर्न पेज प्रीलोडर HTML
+       ========================================================= -->
+  <div id="pageLoader" class="page-loader-wrap" aria-hidden="true">
+    <div class="loader-content">
+      <div class="loader-icon-box">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <div class="loader-pulse-ring"></div>
+      </div>
+      <div class="loader-title">Teacher Salary Portal</div>
+      <div class="loader-subtitle" id="loaderSubtitle">माहिती लोड होत आहे, कृपया प्रतीक्षा करा...</div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- =========================================================
        IMPORTANT CIRCULARS / GR MARQUEE TICKER + LANGUAGE SWITCHER
@@ -1410,7 +1555,7 @@
         <a href="#aboutSection" class="btn-hero secondary">
           <span data-i18n="btn_explore_features">Explore Features</span> <i class="fa-solid fa-circle-info"></i>
         </a>
-        <!-- Install App Button -->
+        <!-- Install App Button (Auto-hidden in Standalone App) -->
         <button id="pwaInstallBtn" class="btn-hero install" onclick="installApp()" aria-label="Install App">
           <i class="fa-solid fa-mobile-screen"></i> <span id="pwaBtnText">ॲप इन्स्टॉल करा</span>
         </button>
@@ -1879,7 +2024,7 @@
   </button>
 
   <!-- =========================================================
-       SCRIPTS: DYNAMIC NOTICES + BILINGUAL + PDF EXPORT + PWA
+       SCRIPTS: DYNAMIC NOTICES + BILINGUAL + PDF EXPORT + PWA + LOADER
        ========================================================= -->
   <script>
     // ===== INDIAN NUMBER / CURRENCY FORMATTER =====
@@ -1974,6 +2119,7 @@
         btn_access_slip: "Access Salary Slip",
         btn_explore_features: "Explore Features",
         btn_install_app: "Install App",
+        loader_text: "Loading portal details, please wait...",
         role_ceo: "CEO, Zilla Parishad Solapur",
         quote_ceo: "\"Digital governance brings transparency and accountability. This salary slip portal ensures all teachers receive authenticated, timely monthly statements with absolute accuracy.\"",
         role_eo: "Education Officer (Primary), Solapur",
@@ -2046,6 +2192,7 @@
         btn_access_slip: "वेतन पत्रक पहा",
         btn_explore_features: "वैशिष्ट्ये पहा",
         btn_install_app: "ॲप इन्स्टॉल करा",
+        loader_text: "माहिती लोड होत आहे, कृपया प्रतीक्षा करा...",
         role_ceo: "मुख्य कार्यकारी अधिकारी, जि. प. सोलापूर",
         quote_ceo: "\"डिजिटल प्रशासनामुळे पारदर्शकता आणि अचूकता वाढते. या वेतन पोर्टलद्वारे जिल्ह्यातील शिक्षकांना अधिकृत व वेळेवर मासिक वेतन पत्रक थेट उपलब्ध होत आहे.\"",
         role_eo: "शिक्षणाधिकारी (प्राथमिक), जि. प. सोलापूर",
@@ -2135,6 +2282,9 @@
 
       const pwaBtnText = document.getElementById('pwaBtnText');
       if (pwaBtnText) pwaBtnText.textContent = t.btn_install_app;
+
+      const loaderSubtitle = document.getElementById('loaderSubtitle');
+      if (loaderSubtitle) loaderSubtitle.textContent = t.loader_text;
 
       const uInput = document.getElementById('username');
       if (uInput) uInput.placeholder = lang === 'en' ? 'Enter Employee ID' : 'कर्मचारी आयडी टाका';
@@ -2958,14 +3108,29 @@
     }
 
     // =========================================================
-    // ===== PWA INSTALLATION & SHORTCUT LOGIC =====
+    // सुधारणा १: PWA INSTALLATION, SHORTCUT & AUTO-HIDE LOGIC
     // =========================================================
     let deferredPrompt = null;
     const installBtn = document.getElementById('pwaInstallBtn');
 
+    // ॲप इन्स्टॉल झालेले आहे का हे तपासणे
+    function isAppAlreadyInstalled() {
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+      const isMarked = localStorage.getItem('pwa_is_installed') === 'true';
+      return isStandalone || isMarked;
+    }
+
+    // जर ॲपमध्ये उघडले असेल तर सुरुवातीलाच बटण लपवणे
+    if (isAppAlreadyInstalled()) {
+      if (installBtn) installBtn.style.display = 'none';
+    }
+
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
+      if (installBtn && !isAppAlreadyInstalled()) {
+        installBtn.style.display = 'inline-flex';
+      }
     });
 
     async function installApp() {
@@ -2974,6 +3139,7 @@
         const { outcome } = await deferredPrompt.userChoice;
         if (outcome === 'accepted') {
           if (installBtn) installBtn.style.display = 'none';
+          localStorage.setItem('pwa_is_installed', 'true');
         }
         deferredPrompt = null;
       } else {
@@ -3000,10 +3166,11 @@
 
     window.addEventListener('appinstalled', () => {
       if (installBtn) installBtn.style.display = 'none';
+      localStorage.setItem('pwa_is_installed', 'true');
       deferredPrompt = null;
     });
-    // सर्विस वर्कर नोंदणी
-    // ===== INLINE SERVICE WORKER (404 / NO SW FOUND FIX) =====
+
+    // ===== INLINE SERVICE WORKER =====
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         const swScript = `
@@ -3023,11 +3190,27 @@
             console.log('Service Worker Registered Successfully via Blob:', reg.scope);
           })
           .catch((err) => {
-            // जर ब्राउझर Blob अडवत असेल, तर बाह्य फाईलचा प्रयत्न करा
             navigator.serviceWorker.register('./sw.js').catch(() => {});
           });
       });
     }
+
+    // =========================================================
+    // सुधारणा ३: प्रीलोडर फेड-आऊट लॉजिक (PRELOADER AUTO-HIDE)
+    // =========================================================
+    function hidePageLoader() {
+      const loader = document.getElementById('pageLoader');
+      if (loader && !loader.classList.contains('fade-out')) {
+        loader.classList.add('fade-out');
+      }
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(hidePageLoader, 400); // स्मूथ ट्रान्झिशनसाठी ४०० मिलीसेकंद
+    });
+
+    // सुरक्षेसाठी: नेटवर्क धीमे असले तरी कमाल २ सेकंदात पेज वापरायला उपलब्ध होईल
+    setTimeout(hidePageLoader, 2000);
   </script>
 </body>
 </html>
