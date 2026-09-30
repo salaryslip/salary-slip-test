@@ -3001,6 +3001,18 @@
       if (installBtn) installBtn.style.display = 'none';
       deferredPrompt = null;
     });
+    // सर्विस वर्कर नोंदणी
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => {
+            console.log('Service Worker यशस्वीरित्या रजिस्टर झाले:', reg.scope);
+          })
+          .catch((err) => {
+            console.log('Service Worker नोंदणी अयशस्वी:', err);
+          });
+      });
+    }
   </script>
 </body>
 </html>
