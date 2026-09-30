@@ -9,7 +9,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./graduation-hat.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./graduation-hat.png">
   <link rel="apple-touch-icon" href="./graduation-hat.png">
-  <link rel="manifest" href="./manifest.json">
+<!-- Inline Data-URI Manifest (404 Error कायमची बंद होईल) -->
+  <link rel="manifest" href='data:application/manifest+json,{"id":"teacher-salary-portal","name":"Teacher Salary Slip Portal","short_name":"वेतन पत्रक","start_url":".","display":"standalone","background_color":"%230f172a","theme_color":"%232563eb","icons":[{"src":"./graduation-hat.png","sizes":"192x192","type":"image/png"},{"src":"./graduation-hat.png","sizes":"512x512","type":"image/png"}]}'>
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -3002,14 +3003,28 @@
       deferredPrompt = null;
     });
     // सर्विस वर्कर नोंदणी
+    // ===== INLINE SERVICE WORKER (404 / NO SW FOUND FIX) =====
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
+        const swScript = `
+          self.addEventListener('install', (e) => self.skipWaiting());
+          self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
+          self.addEventListener('fetch', (e) => {
+            if (e.request.method === 'GET') {
+              e.respondWith(fetch(e.request).catch(() => new Response('Offline')));
+            }
+          });
+        `;
+        const blob = new Blob([swScript], { type: 'application/javascript' });
+        const swBlobUrl = URL.createObjectURL(blob);
+
+        navigator.serviceWorker.register(swBlobUrl)
           .then((reg) => {
-            console.log('Service Worker यशस्वीरित्या रजिस्टर झाले:', reg.scope);
+            console.log('Service Worker Registered Successfully via Blob:', reg.scope);
           })
           .catch((err) => {
-            console.log('Service Worker नोंदणी अयशस्वी:', err);
+            // जर ब्राउझर Blob अडवत असेल, तर बाह्य फाईलचा प्रयत्न करा
+            navigator.serviceWorker.register('./sw.js').catch(() => {});
           });
       });
     }
