@@ -916,7 +916,7 @@
       animation: scaleIn 0.25s ease forwards;
     }
 
-    /* PWA Install Modal / Instructions Sheet */
+    /* PWA Install Guide Modal */
     #pwaGuideModal {
       display: none;
       position: fixed;
@@ -934,7 +934,7 @@
       background: #ffffff;
       border-radius: 20px;
       padding: 26px 22px;
-      max-width: 370px;
+      max-width: 380px;
       width: 100%;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
       text-align: center;
@@ -966,19 +966,19 @@
       font-size: 0.88rem;
       color: #64748b;
       line-height: 1.55;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .pwa-step-card {
       background: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 14px;
       text-align: left;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: #1e293b;
       margin-bottom: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
@@ -1409,7 +1409,7 @@
         <a href="#aboutSection" class="btn-hero secondary">
           <span data-i18n="btn_explore_features">Explore Features</span> <i class="fa-solid fa-circle-info"></i>
         </a>
-        <!-- Install App Button (Visible to all) -->
+        <!-- Install App Button -->
         <button id="pwaInstallBtn" class="btn-hero install" onclick="installApp()" aria-label="Install App">
           <i class="fa-solid fa-mobile-screen"></i> <span id="pwaBtnText">ॲप इन्स्टॉल करा</span>
         </button>
@@ -1731,13 +1731,14 @@
         <div class="pwa-modal-icon">
           <i class="fa-solid fa-mobile-screen"></i>
         </div>
-        <h3 id="pwaGuideTitle">ॲप इन्स्टॉल करा</h3>
-        <p>हे पोर्टल तुमच्या मोबाईलच्या होम स्क्रीनवर थेट ॲपसारखे सेव्ह करण्यासाठी खालील पायऱ्या वापरा:</p>
+        <h3 id="pwaGuideTitle">मोबाईल स्क्रीनवर सेव्ह करा</h3>
+        <p>हे पोर्टल ॲपसारखे स्क्रीनवर सेव्ह करण्यासाठी खालील पर्याय वापरा:</p>
         
         <div class="pwa-step-card" id="pwaStepContent">
-          <strong>Chrome / Android:</strong><br>
+          <strong>Android / Chrome वापरकर्ते:</strong><br>
           १. उजव्या कोपऱ्यातील ३ डॉट्सवर (<strong>&vellip;</strong>) क्लिक करा.<br>
-          २. <strong>"Install app"</strong> किंवा <strong>"Add to Home screen"</strong> निवडा.
+          २. <strong>"Add to Home screen"</strong> किंवा <strong>"Create shortcut"</strong> निवडा.<br>
+          ३. <strong>"Add"</strong> वर क्लिक करा, ॲप स्क्रीनवर तयार होईल.
         </div>
 
         <button class="btn-action" style="background:#2563eb;" onclick="closePwaGuide()">
@@ -2956,21 +2957,18 @@
     }
 
     // =========================================================
-    // ===== BULLETPROOF PWA INSTALLATION LOGIC (NO SW FILE NEEDED) =====
+    // ===== PWA INSTALLATION & SHORTCUT LOGIC =====
     // =========================================================
     let deferredPrompt = null;
     const installBtn = document.getElementById('pwaInstallBtn');
 
-    // १. ब्राउझरचा मूळ इन्स्टॉल प्रॉम्ट कॅप्चर करणे
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();
       deferredPrompt = e;
     });
 
-    // २. इन्स्टॉल बटणावर क्लिक झाल्यावर
     async function installApp() {
       if (deferredPrompt) {
-        // जर ब्राऊझर प्रॉम्ट तयार असेल तर थेट दाखवा
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
         if (outcome === 'accepted') {
@@ -2978,7 +2976,6 @@
         }
         deferredPrompt = null;
       } else {
-        // जर प्रॉम्ट तयार नसेल किंवा आयफोन/सफारी असेल तर मदत डायलॉग उघडा
         openPwaGuide();
       }
     }
@@ -2988,9 +2985,9 @@
       const stepBox = document.getElementById('pwaStepContent');
       if (stepBox) {
         if (isIOS) {
-          stepBox.innerHTML = `<strong>Apple / iOS Safari:</strong><br>१. तळाशी असलेल्या Share (<strong><i class="fa-solid fa-arrow-up-from-bracket"></i></strong>) चिन्हावर टॅप करा.<br>२. खाली स्क्रोल करून <strong>"Add to Home Screen"</strong> निवडा.`;
+          stepBox.innerHTML = `<strong>Apple / iOS Safari:</strong><br>१. तळाशी असलेल्या Share (<strong><i class="fa-solid fa-arrow-up-from-bracket"></i></strong>) बटणावर टॅप करा.<br>२. मेनूमधून <strong>"Add to Home Screen"</strong> निवडा.`;
         } else {
-          stepBox.innerHTML = `<strong>Android / Chrome / Edge:</strong><br>१. वर उजव्या कोपऱ्यातील तीन डॉट्स (<strong>&vellip;</strong>) वर क्लिक करा.<br>२. मेनूमधील <strong>"Install app"</strong> किंवा <strong>"Add to Home screen"</strong> वर टॅप करा.`;
+          stepBox.innerHTML = `<strong>Android / Chrome वापरकर्ते:</strong><br>१. वर उजव्या कोपऱ्यातील तीन डॉट्सवर (<strong>&vellip;</strong>) क्लिक करा.<br>२. मेनूमधील <strong>"Add to Home screen"</strong> किंवा <strong>"Create shortcut"</strong> निवडा.<br>३. <strong>"Add"</strong> वर क्लिक करा. पोर्टल थेट ॲपसारखे स्क्रीनवर येईल.`;
         }
       }
       document.getElementById('pwaGuideModal').style.display = 'flex';
@@ -3004,24 +3001,6 @@
       if (installBtn) installBtn.style.display = 'none';
       deferredPrompt = null;
     });
-
-    // ३. व्हर्च्युअल इन-मेमरी सर्विस वर्कर (sw.js फाईलशिवाय काम करेल)
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        try {
-          const swCode = `
-            self.addEventListener('install', (e) => self.skipWaiting());
-            self.addEventListener('activate', (e) => self.clients.claim());
-            self.addEventListener('fetch', (e) => {
-              // Pass-through network requests
-            });
-          `;
-          const blob = new Blob([swCode], { type: 'application/javascript' });
-          const swUrl = URL.createObjectURL(blob);
-          navigator.serviceWorker.register(swUrl).catch(() => {});
-        } catch (err) {}
-      });
-    }
   </script>
 </body>
 </html>
