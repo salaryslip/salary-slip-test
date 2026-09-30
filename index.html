@@ -244,7 +244,7 @@
     .hero-actions {
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
       margin-bottom: 45px;
     }
@@ -253,7 +253,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 12px 24px;
+      padding: 12px 22px;
       border-radius: 12px;
       font-weight: 700;
       font-size: 0.92rem;
@@ -281,6 +281,19 @@
 
     .btn-hero.secondary:hover {
       background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-hero.install {
+      background: #16a34a;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 25px -4px rgba(22, 163, 74, 0.45);
+    }
+
+    .btn-hero.install:hover {
+      background: #15803d;
       transform: translateY(-2px);
     }
 
@@ -1331,9 +1344,9 @@
         <a href="#aboutSection" class="btn-hero secondary">
           <span data-i18n="btn_explore_features">Explore Features</span> <i class="fa-solid fa-circle-info"></i>
         </a>
-        <!-- नवीन PWA Install बटण -->
-        <button id="pwaInstallBtn" class="btn-hero" style="display:none; background:#16a34a; color:#fff; border:none; cursor:pointer;" onclick="installApp()">
-          <i class="fa-solid fa-mobile-screen"></i> <span>ॲप इन्स्टॉल करा</span>
+        <!-- Install App Button (Visible and Responsive) -->
+        <button id="pwaInstallBtn" class="btn-hero install" onclick="installApp()" aria-label="Install App">
+          <i class="fa-solid fa-mobile-screen"></i> <span id="pwaBtnText">ॲप इन्स्टॉल करा</span>
         </button>
       </div>
 
@@ -1345,7 +1358,6 @@
         <button class="slider-nav next" onclick="moveShowcase(1)" aria-label="Next Slide">
           <i class="fa-solid fa-chevron-right"></i>
         </button>
-
 
         <div class="showcase-slider">
           <div class="showcase-track" id="showcaseTrack">
@@ -1779,7 +1791,7 @@
   </button>
 
   <!-- =========================================================
-       SCRIPTS: DYNAMIC NOTICES + BILINGUAL + PDF EXPORT
+       SCRIPTS: DYNAMIC NOTICES + BILINGUAL + PDF EXPORT + PWA
        ========================================================= -->
   <script>
     // ===== INDIAN NUMBER / CURRENCY FORMATTER =====
@@ -1873,6 +1885,7 @@
         hero_desc: "Instant access to monthly salary statements, gross allowances, deductions, and downloadable PDF pay slips anytime.",
         btn_access_slip: "Access Salary Slip",
         btn_explore_features: "Explore Features",
+        btn_install_app: "Install App",
         role_ceo: "CEO, Zilla Parishad Solapur",
         quote_ceo: "\"Digital governance brings transparency and accountability. This salary slip portal ensures all teachers receive authenticated, timely monthly statements with absolute accuracy.\"",
         role_eo: "Education Officer (Primary), Solapur",
@@ -1944,6 +1957,7 @@
         hero_desc: "मासिक वेतन पत्रक, मूळ भत्ते, कपातीचा तपशील आणि डिजिटल स्वाक्षरीयुक्त PDF वेतन पत्रक एका क्लिकवर प्राप्त करा.",
         btn_access_slip: "वेतन पत्रक पहा",
         btn_explore_features: "वैशिष्ट्ये पहा",
+        btn_install_app: "ॲप इन्स्टॉल करा",
         role_ceo: "मुख्य कार्यकारी अधिकारी, जि. प. सोलापूर",
         quote_ceo: "\"डिजिटल प्रशासनामुळे पारदर्शकता आणि अचूकता वाढते. या वेतन पोर्टलद्वारे जिल्ह्यातील शिक्षकांना अधिकृत व वेळेवर मासिक वेतन पत्रक थेट उपलब्ध होत आहे.\"",
         role_eo: "शिक्षणाधिकारी (प्राथमिक), जि. प. सोलापूर",
@@ -2030,6 +2044,9 @@
 
       const langBtnText = document.getElementById('langBtnText');
       if (langBtnText) langBtnText.textContent = t.lang_btn;
+
+      const pwaBtnText = document.getElementById('pwaBtnText');
+      if (pwaBtnText) pwaBtnText.textContent = t.btn_install_app;
 
       const uInput = document.getElementById('username');
       if (uInput) uInput.placeholder = lang === 'en' ? 'Enter Employee ID' : 'कर्मचारी आयडी टाका';
@@ -2857,12 +2874,16 @@
         // सर्व्हर व्यस्त असल्यास ब्राऊझरचा मूळ पर्याय
         showPrintSlip();
       }
-      // ===== PWA INSTALL (ADD TO HOME SCREEN) LOGIC =====
-    let deferredPrompt;
+    } // 👈 downloadPdfSlip येथे व्यवस्थित बंद झाले आहे
+
+    // =========================================================
+    // ===== PWA INSTALL (ADD TO HOME SCREEN) LOGIC =====
+    // =========================================================
+    let deferredPrompt = null;
     const installBtn = document.getElementById('pwaInstallBtn');
 
     window.addEventListener('beforeinstallprompt', (e) => {
-      // ब्राऊझरचा डीफॉल्ट बॅनर थांबवून आपले बटण दाखवणे
+      // ब्राउझरचा डीफॉल्ट मिनी-इन्फोबार थांबवणे
       e.preventDefault();
       deferredPrompt = e;
       if (installBtn) {
@@ -2871,22 +2892,40 @@
     });
 
     async function installApp() {
-      if (!deferredPrompt) return;
-      
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      
-      if (outcome === 'accepted') {
-        if (installBtn) installBtn.style.display = 'none';
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          if (installBtn) installBtn.style.display = 'none';
+        }
+        deferredPrompt = null;
+      } else {
+        // ज्या ब्राउझरमध्ये थेट प्रॉम्ट नसतो (उदा. iOS Safari किंवा प्रॉम्ट तयार नसताना)
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isIOS) {
+          alert(currentLang === 'en' 
+            ? "To install: Tap the Share button at bottom and select 'Add to Home Screen'." 
+            : "ॲप इन्स्टॉल करण्यासाठी: Safari मधील Share चिन्हावर टॅप करा आणि 'Add to Home Screen' निवडा.");
+        } else {
+          alert(currentLang === 'en' 
+            ? "To install: Open browser menu (three dots at top right) and tap 'Install App' or 'Add to Home screen'." 
+            : "ॲप इन्स्टॉल करण्यासाठी: ब्राउझरच्या उजव्या बाजूच्या ३ डॉट्सवर क्लिक करा आणि 'Install app' किंवा 'Add to Home screen' निवडा.");
+        }
       }
-      deferredPrompt = null;
     }
 
-    // ॲप यशस्वीरीत्या इन्स्टॉल झाल्यावर बटण लपवणे
     window.addEventListener('appinstalled', () => {
       if (installBtn) installBtn.style.display = 'none';
       deferredPrompt = null;
     });
+
+    // PWA साठी सर्विस वर्कर (Service Worker) नोंदणी
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch((err) => {
+          console.log('ServiceWorker registration skipped/failed:', err);
+        });
+      });
     }
   </script>
 </body>
