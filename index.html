@@ -2214,18 +2214,18 @@
           <div style="overflow-x:auto; margin-bottom:15px; border-radius:12px; border:1px solid #e2e8f0;">
             <table style="width:100%; border-collapse:collapse; font-size:0.78rem; text-align:right;">
               <thead>
-                <tr style="background:#0f172a; color:#ffffff;">
-                  <th style="padding:8px 6px; text-align:left;">महिना</th>
-                  <th style="padding:8px 6px;">मूळ वेतन</th>
-                  <th style="padding:8px 6px;">महागाई</th>
-                  <th style="padding:8px 6px;">घरभाडे</th>
-                  <th style="padding:8px 6px;">वा.भत्ता</th>
-                  <th style="padding:8px 6px;">फरक</th>
-                  <th style="padding:8px 6px; background:#1e293b;">एकूण वेतन</th>
-                  <th style="padding:8px 6px;">व्‍य.कर</th>
-                  <th style="padding:8px 6px;">गटविमा</th>
-                  <th style="padding:8px 6px;">भ.नि.नि.</th>
-                  <th style="padding:8px 6px; background:#1e293b;">आयकर</th>
+                <tr style="background:#020617; color:#ffffff;">
+                  <th style="padding:10px 6px; text-align:left; font-weight:800; font-size:0.82rem; color:#ffffff; letter-spacing:0.02em;">महिना</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#ffffff;">मूळ वेतन</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#ffffff;">महागाई</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#ffffff;">घरभाडे</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#ffffff;">वा.भत्ता</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#ffffff;">फरक</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#38bdf8; background:#0f172a;">एकूण वेतन</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#ffffff;">व्‍य.कर</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#ffffff;">गटविमा</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#ffffff;">भ.नि.नि.</th>
+                  <th style="padding:10px 6px; font-weight:800; font-size:0.82rem; color:#f87171; background:#0f172a;">आयकर</th>
                 </tr>
               </thead>
               <tbody>
@@ -2341,6 +2341,24 @@
             .regime-col { flex: 1; text-align: center; }
             .pan-box-container { display: inline-flex !important; gap: 2px !important; vertical-align: middle !important; }
 			.pan-cell { display: inline-block !important; width: 14px !important; height: 16px !important; border: 1px solid #000 !important; background: #fff !important; }
+			table thead tr {
+  			background-color: #000000 !important;
+  			-webkit-print-color-adjust: exact;
+  			print-color-adjust: exact;
+			}
+
+			table thead th {
+  			color: #ffffff !important;
+  			font-weight: 800 !important;
+  			font-size: 11px !important;
+  			padding: 6px 4px !important;
+  			border: 1px solid #000000 !important;
+  			text-align: right;
+			}
+
+			table thead th:first-child {
+  			text-align: left !important;
+			}
           </style>
         </head>
         <body>
