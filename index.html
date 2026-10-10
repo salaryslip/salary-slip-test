@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
   <meta name="referrer" content="no-referrer">
   <meta charset="UTF-8">
@@ -39,314 +39,104 @@
       font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg-gradient);
-      color: var(--text-main);
-      overflow-x: hidden;
-    }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg-gradient); color: var(--text-main); overflow-x: hidden; }
 
     /* मॉडर्न पेज प्रीलोडर */
     .page-loader-wrap {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #0f172a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      position: fixed; inset: 0; width: 100vw; height: 100vh;
+      background: #0f172a; display: flex; align-items: center; justify-content: center;
+      z-index: 999999; transition: opacity 0.5s ease, visibility 0.5s ease;
     }
-
-    .page-loader-wrap.fade-out {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .loader-content {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 24px;
-      max-width: 90%;
-    }
-
+    .page-loader-wrap.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-content { text-align: center; display: flex; flex-direction: column; align-items: center; padding: 24px; max-width: 90%; }
     .loader-icon-box {
-      width: 78px;
-      height: 78px;
-      background: rgba(37, 99, 235, 0.15);
-      border: 1.5px solid rgba(56, 189, 248, 0.4);
-      border-radius: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #38bdf8;
-      font-size: 2.1rem;
-      position: relative;
-      margin-bottom: 20px;
+      width: 78px; height: 78px; background: rgba(37, 99, 235, 0.15);
+      border: 1.5px solid rgba(56, 189, 248, 0.4); border-radius: 22px;
+      display: flex; align-items: center; justify-content: center;
+      color: #38bdf8; font-size: 2.1rem; position: relative; margin-bottom: 20px;
       box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
     }
-
     .loader-pulse-ring {
-      position: absolute;
-      inset: -6px;
-      border-radius: 26px;
-      border: 2px solid #38bdf8;
-      animation: pulseLoaderRing 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-      opacity: 0.8;
+      position: absolute; inset: -6px; border-radius: 26px; border: 2px solid #38bdf8;
+      animation: pulseLoaderRing 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite; opacity: 0.8;
     }
-
     @keyframes pulseLoaderRing {
       0% { transform: scale(0.92); opacity: 0.9; }
       50% { transform: scale(1.18); opacity: 0; }
       100% { transform: scale(0.92); opacity: 0; }
     }
-
-    .loader-title {
-      color: #ffffff;
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      margin-bottom: 4px;
-    }
-
-    .loader-subtitle {
-      color: #94a3b8;
-      font-size: 0.86rem;
-      margin-bottom: 22px;
-    }
-
-    .loader-bar {
-      width: 190px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 999px;
-      overflow: hidden;
-      position: relative;
-    }
-
+    .loader-title { color: #ffffff; font-size: 1.3rem; font-weight: 800; margin-bottom: 4px; }
+    .loader-subtitle { color: #94a3b8; font-size: 0.86rem; margin-bottom: 22px; }
+    .loader-bar { width: 190px; height: 4px; background: rgba(255, 255, 255, 0.12); border-radius: 999px; overflow: hidden; position: relative; }
     .loader-bar-fill {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 45%;
-      background: linear-gradient(90deg, #2563eb, #38bdf8);
-      border-radius: 999px;
+      position: absolute; top: 0; left: 0; height: 100%; width: 45%;
+      background: linear-gradient(90deg, #2563eb, #38bdf8); border-radius: 999px;
       animation: loaderBarMove 1.4s ease-in-out infinite alternate;
     }
+    @keyframes loaderBarMove { 0% { left: 0%; width: 25%; } 50% { width: 55%; } 100% { left: 75%; width: 25%; } }
 
-    @keyframes loaderBarMove {
-      0% { left: 0%; width: 25%; }
-      50% { width: 55%; }
-      100% { left: 75%; width: 25%; }
-    }
-
-    /* ॲप इन्स्टॉल झाल्यावर बटण लपवणे */
     @media all and (display-mode: standalone) {
-      #pwaInstallBtn {
-        display: none !important;
-      }
+      #pwaInstallBtn { display: none !important; }
     }
 
     /* TICKER */
     .news-ticker-wrap {
-      background: #0f172a;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      font-size: 0.85rem;
-      height: 42px;
-      overflow: hidden;
+      background: #0f172a; border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex; align-items: center; position: sticky; top: 0;
+      z-index: 1000; font-size: 0.85rem; height: 42px; overflow: hidden;
     }
-
     .ticker-badge {
-      background: #dc2626;
-      color: #ffffff;
-      font-weight: 700;
-      padding: 0 16px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      white-space: nowrap;
-      z-index: 2;
-      box-shadow: 4px 0 15px rgba(0, 0, 0, 0.35);
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
+      background: #dc2626; color: #ffffff; font-weight: 700; padding: 0 16px;
+      height: 100%; display: flex; align-items: center; gap: 7px; white-space: nowrap;
+      z-index: 2; box-shadow: 4px 0 15px rgba(0, 0, 0, 0.35); font-size: 0.78rem;
     }
-
     .ticker-badge i { animation: bellRing 1.5s infinite; }
-    @keyframes bellRing {
-      0%, 100% { transform: rotate(0); }
-      20%, 60% { transform: rotate(15deg); }
-      40%, 80% { transform: rotate(-15deg); }
-    }
-
+    @keyframes bellRing { 0%, 100% { transform: rotate(0); } 20%, 60% { transform: rotate(15deg); } 40%, 80% { transform: rotate(-15deg); } }
     .ticker-content { flex: 1; overflow: hidden; white-space: nowrap; }
-    .ticker-track {
-      display: inline-block;
-      white-space: nowrap;
-      padding-left: 100%;
-      animation: tickerMarquee 32s linear infinite;
-    }
+    .ticker-track { display: inline-block; white-space: nowrap; padding-left: 100%; animation: tickerMarquee 32s linear infinite; }
     .ticker-track:hover { animation-play-state: paused; }
     @keyframes tickerMarquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
-
-    .ticker-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: #cbd5e1;
-      margin-right: 42px;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .ticker-item { display: inline-flex; align-items: center; gap: 8px; color: #cbd5e1; margin-right: 42px; text-decoration: none; }
     .ticker-item:hover { color: #38bdf8; }
-    .ticker-item span.gr-date {
-      color: #94a3b8;
-      font-size: 0.75rem;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 2px 7px;
-      border-radius: 6px;
-    }
+    .ticker-item span.gr-date { color: #94a3b8; font-size: 0.75rem; background: rgba(255, 255, 255, 0.08); padding: 2px 7px; border-radius: 6px; }
 
     .lang-switcher-wrap {
-      padding: 0 14px;
-      z-index: 2;
-      background: #0f172a;
-      box-shadow: -4px 0 15px rgba(0, 0, 0, 0.35);
-      height: 100%;
-      display: flex;
-      align-items: center;
+      padding: 0 14px; z-index: 2; background: #0f172a;
+      box-shadow: -4px 0 15px rgba(0, 0, 0, 0.35); height: 100%;
+      display: flex; align-items: center;
     }
-
     .btn-lang {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      padding: 4px 14px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
+      background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff; padding: 4px 14px; border-radius: 999px; font-size: 0.78rem;
+      font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px;
     }
-    .btn-lang:hover { background: #2563eb; border-color: #38bdf8; }
+    .btn-lang:hover { background: #2563eb; }
 
     /* HERO */
     .hero-wrapper {
       position: relative;
       background: linear-gradient(135deg, rgba(8, 24, 58, 0.94) 0%, rgba(15, 23, 42, 0.90) 100%),
                   url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
-      color: #ffffff;
-      padding: 60px 20px 95px;
-      overflow: hidden;
+      color: #ffffff; padding: 60px 20px 95px; overflow: hidden;
     }
-
-    .hero-glow-orb {
-      position: absolute;
-      top: -150px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 700px;
-      height: 350px;
-      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.35), transparent 70%);
-      pointer-events: none;
-      filter: blur(50px);
-    }
-
-    .hero-container {
-      max-width: 1140px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
+    .hero-container { max-width: 1140px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 8px 18px;
-      border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(12px);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #93c5fd;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      display: inline-flex; align-items: center; gap: 9px; padding: 8px 18px;
+      border-radius: 9999px; background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(12px);
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #93c5fd; margin-bottom: 20px;
     }
-
-    .hero-title {
-      font-size: clamp(2.1rem, 5vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1.18;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-      color: #ffffff;
-    }
-
-    .hero-subtitle {
-      display: block;
-      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #38bdf8;
-      margin-top: 8px;
-    }
-
-    .hero-desc {
-      font-size: clamp(0.92rem, 1.8vw, 1.05rem);
-      color: #e2e8f0;
-      max-width: 680px;
-      margin: 16px auto 30px;
-      line-height: 1.65;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 45px;
-    }
+    .hero-title { font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.18; margin-bottom: 12px; color: #ffffff; }
+    .hero-subtitle { display: block; font-size: clamp(0.95rem, 1.8vw, 1.15rem); font-weight: 600; text-transform: uppercase; color: #38bdf8; margin-top: 8px; }
+    .hero-desc { font-size: clamp(0.92rem, 1.8vw, 1.05rem); color: #e2e8f0; max-width: 680px; margin: 16px auto 30px; line-height: 1.65; }
+    .hero-actions { display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 45px; }
 
     .btn-hero {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 13px 24px;
-      min-width: 210px;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 0.92rem;
-      text-decoration: none;
-      transition: all 0.25s ease;
-      box-sizing: border-box;
-      font-family: inherit;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 13px 24px; min-width: 210px; border-radius: 12px; font-weight: 700;
+      font-size: 0.92rem; text-decoration: none; transition: all 0.25s ease; box-sizing: border-box;
     }
-
     .btn-hero.primary { background: #2563eb; color: #ffffff; box-shadow: 0 10px 25px -4px rgba(37, 99, 235, 0.5); }
     .btn-hero.primary:hover { background: #1d4ed8; transform: translateY(-2px); }
     .btn-hero.secondary { background: rgba(255, 255, 255, 0.12); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.25); backdrop-filter: blur(8px); }
@@ -354,256 +144,52 @@
     .btn-hero.install { background: #16a34a; color: #ffffff; border: none; cursor: pointer; box-shadow: 0 10px 25px -4px rgba(22, 163, 74, 0.45); }
     .btn-hero.install:hover { background: #15803d; transform: translateY(-2px); }
 
-    /* Slider Container */
-    .slider-card-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 20px;
-      backdrop-filter: blur(16px);
-      padding: 8px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-      position: relative;
-    }
-
-    .showcase-slider {
-      position: relative;
-      overflow: hidden;
-      border-radius: 14px;
-      background: #0f172a;
-    }
-
-    .showcase-track {
-      display: flex;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .showcase-slide {
-      min-width: 100%;
-      box-sizing: border-box;
-      padding: 30px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 22px;
-      text-align: left;
-    }
-
-    .showcase-slide.dev-testimonial-slide {
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.88) 100%);
-      border: 1px solid rgba(59, 130, 246, 0.25);
-      backdrop-filter: blur(12px);
-      text-align: left;
-      border-radius: 14px;
-      padding: 26px 32px;
-      gap: 26px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
-
-    .dev-avatar-wrap {
-      width: 105px;
-      height: 105px;
-      border-radius: 50%;
-      border: 3px solid #38bdf8;
-      overflow: hidden;
-      flex-shrink: 0;
-      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.35);
-      background: #1e293b;
-    }
-
-    .dev-avatar-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-    .dev-content { flex: 1; }
-    .dev-content h3 { font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0 0 2px 0; }
-    .dev-content .dev-role { font-size: 0.85rem; color: #38bdf8; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; display: block; margin-bottom: 6px; }
-    .dev-divider { width: 44px; height: 3px; background: linear-gradient(90deg, #38bdf8, transparent); border-radius: 2px; margin-bottom: 10px; }
-    .dev-content p { font-size: 0.88rem; color: #cbd5e1; line-height: 1.6; margin: 0; }
-
-    .slider-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s ease;
-      z-index: 10;
-    }
-    .slider-nav:hover { background: #2563eb; }
-    .slider-nav.prev { left: 16px; }
-    .slider-nav.next { right: 16px; }
-
-    .slider-progress-bar { height: 3px; background: rgba(255, 255, 255, 0.1); width: 100%; position: absolute; bottom: 0; left: 0; }
-    .slider-progress-fill { height: 100%; width: 0%; background: #38bdf8; transition: width 0.1s linear; }
-
-    /* METRICS */
-    .metrics-section { width: min(1140px, 94%); margin: -50px auto 40px; position: relative; z-index: 10; }
-    .metrics-container {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 24px;
-      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08);
-      padding: 32px 30px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .metric-card {
-      background: #f8fafc;
-      border: 1px solid #eef2f6;
-      border-radius: 16px;
-      padding: 18px 20px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-    .metric-card:hover { transform: translateY(-3px); border-color: #cbd5e1; }
-    .metric-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-    .metric-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-    .metric-icon.blue { background: #e0f2fe; color: #0284c7; }
-    .metric-icon.green { background: #dcfce7; color: #16a34a; }
-    .metric-icon.amber { background: #fef3c7; color: #d97706; }
-    .metric-icon.purple { background: #f3e8ff; color: #9333ea; }
-    .metric-card h3 { font-size: 1.85rem; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
-    .metric-card p { font-size: 0.8rem; font-weight: 600; color: #64748b; text-transform: uppercase; margin: 0; }
-
-    .graph-card {
-      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
-      border: 1px solid #e2e8f0;
-      border-radius: 18px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .graph-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-    .graph-header h4 { font-size: 0.95rem; font-weight: 700; color: #1e293b; }
-    .graph-tag { font-size: 0.72rem; font-weight: 700; color: #16a34a; background: #dcfce7; padding: 3px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 5px; }
-    .graph-tag i { font-size: 0.6rem; animation: pulseDot 1.5s infinite; }
-    @keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
-    .svg-graph-wrap { width: 100%; height: 140px; position: relative; }
-    .svg-graph-wrap svg { width: 100%; height: 100%; overflow: visible; }
-    .graph-line { fill: none; stroke: #2563eb; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawLine 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-    .graph-area { fill: url(#graphGradient); opacity: 0; animation: fadeInArea 1s ease forwards 1s; }
-    @keyframes drawLine { to { stroke-dashoffset: 0; } }
-    @keyframes fadeInArea { to { opacity: 1; } }
-    .graph-footer-labels { display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.72rem; font-weight: 600; color: #94a3b8; }
-
     /* PORTAL FORM */
-    .salary-portal-section {
-      width: min(1140px, 94%);
-      margin: 40px auto 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
+    .salary-portal-section { width: min(1140px, 94%); margin: 40px auto 20px; display: flex; flex-direction: column; align-items: center; }
     .portal-section-intro { text-align: center; margin-bottom: 24px; }
-    .portal-section-intro h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); }
+    .portal-section-intro h2 { font-size: 1.8rem; font-weight: 800; color: var(--text-main); }
     .portal-section-intro p { color: var(--text-muted); font-size: 0.95rem; margin-top: 6px; }
 
     .login-box, #changePasswordBox {
-      width: 100%;
-      max-width: 410px;
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12);
-      padding: 1.6rem 1.4rem;
-      border: 1px solid var(--border-color);
-      text-align: left;
-      animation: fadeIn 0.3s ease;
+      width: 100%; max-width: 420px; background: var(--card-bg); border-radius: var(--radius);
+      box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12); padding: 1.6rem 1.4rem;
+      border: 1px solid var(--border-color); text-align: left; animation: fadeIn 0.3s ease;
     }
 
-    /* SEGMENTED TOGGLE SWITCH (मासिक / वार्षिक) */
+    /* SEGMENTED TOGGLE SWITCH (BILINGUAL) */
     .portal-mode-toggle {
-      display: flex;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 4px;
-      margin-bottom: 1.25rem;
-      gap: 4px;
+      display: flex; background: #f1f5f9; border: 1.5px solid #e2e8f0; border-radius: 12px;
+      padding: 4px; margin-bottom: 1.25rem; gap: 4px;
     }
-
     .mode-btn {
-      flex: 1;
-      padding: 9px 10px;
-      border: none;
-      background: transparent;
-      color: #64748b;
-      font-weight: 700;
-      font-size: 0.82rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      white-space: nowrap;
+      flex: 1; padding: 10px 10px; border: none; background: transparent;
+      color: #64748b; font-weight: 700; font-size: 0.82rem; border-radius: 8px;
+      cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center;
+      justify-content: center; gap: 6px; white-space: nowrap;
     }
-
-    .mode-btn.active {
-      background: #ffffff;
-      color: var(--primary);
-      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
-    }
+    .mode-btn.active { background: #ffffff; color: var(--primary); box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08); }
 
     .brand-header { text-align: center; margin-bottom: 1.2rem; }
     .brand-icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--primary);
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      width: 44px; height: 44px; background: rgba(37, 99, 235, 0.1); color: var(--primary);
+      border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; margin-bottom: 0.5rem;
     }
     .brand-header h2 { font-size: 1.35rem; font-weight: 700; color: var(--text-main); }
     .brand-header p { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
 
     .form-group { margin-bottom: 0.85rem; }
     .form-group label {
-      display: block;
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 0.3rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      display: block; font-size: 0.74rem; font-weight: 700; color: #334155;
+      margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.04em;
     }
-
     .input-wrapper { position: relative; display: flex; align-items: center; }
-    .input-wrapper i.icon-left {
-      position: absolute;
-      left: 0.85rem;
-      color: #94a3b8;
-      font-size: 0.85rem;
-      pointer-events: none;
-    }
+    .input-wrapper i.icon-left { position: absolute; left: 0.85rem; color: #94a3b8; font-size: 0.85rem; pointer-events: none; }
 
     input, select {
-      width: 100%;
-      padding: 0.6rem 0.85rem 0.6rem 2.3rem;
-      font-size: 0.88rem;
-      color: var(--text-main);
-      background: #f8fafc;
-      border: 1.5px solid var(--border-color);
-      border-radius: 10px;
-      outline: none;
-      transition: all 0.2s ease;
+      width: 100%; padding: 0.6rem 0.85rem 0.6rem 2.3rem; font-size: 0.88rem;
+      color: var(--text-main); background: #f8fafc; border: 1.5px solid var(--border-color);
+      border-radius: 10px; outline: none; transition: all 0.2s ease;
     }
     input:focus, select:focus { background: #ffffff; border-color: var(--primary); box-shadow: 0 0 0 4px var(--focus-ring); }
     input:focus + i.icon-left, select:focus + i.icon-left { color: var(--primary); }
@@ -613,348 +199,190 @@
 
     select { appearance: none; cursor: pointer; }
     .select-wrapper::after {
-      content: "\f078";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      font-size: 0.7rem;
-      position: absolute;
-      right: 1rem;
-      color: #94a3b8;
-      pointer-events: none;
+      content: "\f078"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+      font-size: 0.7rem; position: absolute; right: 1rem; color: #94a3b8; pointer-events: none;
     }
 
     .password-container { position: relative; }
     .toggle-password {
-      position: absolute;
-      right: 0.85rem;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      color: #64748b;
-      font-size: 1rem;
-      padding: 0.25rem;
+      position: absolute; right: 0.85rem; top: 50%; transform: translateY(-50%);
+      cursor: pointer; color: #64748b; font-size: 1rem; padding: 0.25rem;
     }
 
     button.btn-action {
-      width: 100%;
-      padding: 0.85rem;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #ffffff;
-      background: var(--primary);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      width: 100%; padding: 0.85rem; font-size: 0.92rem; font-weight: 600;
+      color: #ffffff; background: var(--primary); border: none; border-radius: 10px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      gap: 0.6rem; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
       margin-top: 1rem;
     }
     button.btn-action:hover:not(:disabled) { background: var(--primary-hover); transform: translateY(-1px); }
     button.btn-action:disabled { opacity: 0.75; cursor: not-allowed; }
     button.btn-secondary { background: #f1f5f9; color: #334155; box-shadow: none; border: 1px solid var(--border-color); margin-top: 0.5rem; }
-    button.btn-secondary:hover:not(:disabled) { background: #e2e8f0; }
 
     .btn-spinner {
-      display: inline-block;
-      width: 14px;
-      height: 14px;
-      border: 2px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      border-top-color: #ffffff;
-      animation: spin 0.8s linear infinite;
+      display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%; border-top-color: #ffffff; animation: spin 0.8s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .error-msg {
-      color: #dc2626;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      padding: 0.75rem;
-      border-radius: 8px;
-      font-size: 0.825rem;
-      font-weight: 500;
-      margin-top: 0.85rem;
-      text-align: center;
-      display: none;
+      color: #dc2626; background: #fef2f2; border: 1px solid #fecaca;
+      padding: 0.75rem; border-radius: 8px; font-size: 0.825rem; font-weight: 500;
+      margin-top: 0.85rem; text-align: center; display: none;
     }
-
     .muted { color: var(--text-muted); font-size: 0.78rem; text-align: center; margin-top: 1.25rem; }
 
     /* SUMMARY CARDS CONTAINER */
-    #summaryCard {
-      display: none;
-      width: 100%;
-      max-width: 900px;
-      margin-top: 1.5rem;
-    }
-
+    #summaryCard { display: none; width: 100%; max-width: 900px; margin-top: 1.5rem; }
     .summary-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 1.6rem 1.4rem;
-      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15);
-      border: 1px solid var(--border-color);
+      background: var(--card-bg); border-radius: var(--radius); padding: 1.6rem 1.4rem;
+      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15); border: 1px solid var(--border-color);
       text-align: center;
     }
 
     /* ANNUAL SUMMARY CARD STYLES */
     .annual-summary-card {
-      background: #ffffff;
-      border-radius: var(--radius);
-      border: 1px solid var(--border-color);
-      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15);
-      padding: 24px;
-      text-align: left;
+      background: #ffffff; border-radius: var(--radius); border: 1px solid var(--border-color);
+      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15); padding: 26px; text-align: left;
       animation: fadeIn 0.3s ease;
     }
 
-    .summary-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+    /* CENTER HEADER */
+    .statement-center-header {
+      text-align: center;
       border-bottom: 2px solid #2563eb;
-      padding-bottom: 14px;
+      padding-bottom: 12px;
       margin-bottom: 18px;
-      flex-wrap: wrap;
-      gap: 12px;
     }
-
-    .badge-fy {
-      background: #eff6ff;
-      color: #2563eb;
-      padding: 4px 12px;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      font-weight: 700;
+    .statement-center-header h2 {
+      font-size: 1.45rem;
+      color: #0f172a;
+      font-weight: 800;
+      margin: 0;
+    }
+    .statement-center-header .fy-badge {
       display: inline-block;
-      margin-bottom: 6px;
-    }
-
-    .emp-meta h3 { font-size: 1.3rem; color: #0f172a; margin: 0 0 4px; }
-    .emp-meta p { font-size: 0.86rem; color: #64748b; margin: 0; }
-
-    .tax-status-badge {
-      background: #dcfce7;
-      color: #16a34a;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 0.82rem;
+      margin-top: 6px;
+      font-size: 0.95rem;
       font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      color: #2563eb;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 3px 14px;
+      border-radius: 999px;
     }
 
-    /* 4 KPI Boxes */
+    /* EMPLOYEE DETAILS GRID (नाव, शाळा, पॅन वरच्या बाजूला) */
+    .emp-profile-grid {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px 18px;
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+    }
+    .emp-profile-grid .item strong { color: #334155; }
+    .emp-profile-grid .item span { color: #0f172a; font-weight: 600; }
+
+    /* 4 KPI Box Highlights */
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
       margin-bottom: 20px;
     }
-
     .kpi-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;
+      padding: 14px; display: flex; flex-direction: column;
     }
-
     .kpi-box.highlight { background: #f0fdf4; border-color: #bbf7d0; }
     .kpi-label { font-size: 0.74rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px; }
     .kpi-val { font-size: 1.22rem; font-weight: 800; color: #0f172a; }
 
+    /* TABLE POST NOTE (टेबलच्या खाली '१२ महिने हिशोब पत्रक') */
+    .table-footer-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      margin: 10px 0 20px;
+      width: fit-content;
+    }
+    .table-footer-status i { color: #16a34a; font-size: 0.9rem; }
+
     /* Regime Compare Box */
     .regime-compare-box {
       background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      border: 1.5px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      margin-bottom: 22px;
-      flex-wrap: wrap;
-      gap: 12px;
+      border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 18px;
+      display: flex; align-items: center; justify-content: space-around;
+      margin-bottom: 24px; flex-wrap: wrap; gap: 14px;
     }
-
     .regime-col { text-align: center; flex: 1; min-width: 180px; }
     .regime-col.best-choice {
-      background: #ffffff;
-      padding: 12px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      border: 1.5px solid #22c55e;
+      background: #ffffff; padding: 14px; border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1.5px solid #22c55e;
     }
-
     .best-tag {
-      background: #16a34a;
-      color: #fff;
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 999px;
-      display: inline-block;
-      margin-bottom: 4px;
+      background: #16a34a; color: #fff; font-size: 0.7rem; font-weight: 700;
+      padding: 3px 9px; border-radius: 999px; display: inline-block; margin-bottom: 5px;
     }
-
-    .regime-title { display: block; font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 4px; }
+    .regime-title { display: block; font-size: 0.84rem; font-weight: 700; color: #475569; margin-bottom: 4px; }
     .tax-amount { font-size: 1.35rem; font-weight: 800; display: block; color: #0f172a; }
     .vs-divider { font-weight: 800; color: #94a3b8; padding: 0 16px; font-size: 0.95rem; }
 
-    .action-group {
-      margin-top: 18px;
+    /* UNIFORM ACTION BUTTONS (समान लांबीची बटणे) */
+    .summary-actions-wrap {
       display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
       flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      align-items: center;
+      margin-top: 10px;
     }
-
-    .action-group button.btn-sm {
-      margin-top: 0 !important;
-      padding: 0.65rem 1.1rem;
-      font-size: 0.85rem;
+    .summary-actions-wrap .btn-uniform {
+      min-width: 190px;
+      padding: 12px 22px;
+      font-size: 0.9rem;
       font-weight: 700;
-      border-radius: 9px;
-      gap: 0.45rem;
-      width: auto;
-    }
-
-    #successModal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.7);
-      backdrop-filter: blur(6px);
-      align-items: center;
-      justify-content: center;
-    }
-
-    #successModalContent {
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #16a34a;
-      max-width: 320px;
-      animation: scaleIn 0.25s ease forwards;
-    }
-
-    /* PWA Install Guide Modal */
-    #pwaGuideModal {
-      display: none;
-      position: fixed;
-      z-index: 10000;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(6px);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .pwa-modal-box {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 26px 22px;
-      max-width: 380px;
-      width: 100%;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-      text-align: center;
-      position: relative;
-      animation: scaleIn 0.25s ease forwards;
-    }
-
-    .pwa-modal-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
-      background: #dcfce7;
-      color: #16a34a;
+      border-radius: 11px;
+      border: none;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      margin-bottom: 12px;
+      gap: 8px;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+      text-decoration: none;
     }
-
-    .pwa-modal-box h3 { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
-    .pwa-modal-box p { font-size: 0.88rem; color: #64748b; line-height: 1.55; margin-bottom: 16px; }
-
-    .pwa-step-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 14px;
-      text-align: left;
-      font-size: 0.86rem;
-      color: #1e293b;
-      margin-bottom: 16px;
-      line-height: 1.65;
+    .summary-actions-wrap .btn-uniform.print {
+      background: #16a34a;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
     }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes scaleIn { from { transform: scale(0.9); } to { transform: scale(1); } }
-
-    /* REVEAL SECTIONS */
-    .reveal-section {
-      opacity: 0;
-      transform: translateY(35px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
+    .summary-actions-wrap .btn-uniform.print:hover { background: #15803d; transform: translateY(-1px); }
+    .summary-actions-wrap .btn-uniform.pdf {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
-
-    .reveal-section.is-visible { opacity: 1; transform: translateY(0); }
-    .about-portal { width: min(1140px, 94%); margin: 60px auto 40px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; }
-    .about-card, .features-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 22px; padding: 34px; box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05); }
-    .about-icon { width: 50px; height: 50px; border-radius: 14px; background: #eaf2ff; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 20px; }
-    .about-card h2, .features-card h2 { margin: 0 0 14px; color: #0f172a; font-size: 1.55rem; font-weight: 800; }
-    .about-card p { margin: 0 0 14px; color: #64748b; line-height: 1.7; font-size: 0.95rem; }
-
-    .feature-item { display: flex; gap: 15px; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid #f1f5f9; }
-    .feature-item:last-child { border-bottom: 0; padding-bottom: 0; }
-    .feature-item > i { width: 42px; height: 42px; border-radius: 12px; background: #f1f5f9; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; transition: all 0.25s ease; }
-    .feature-item:hover > i { background: #2563eb; color: #ffffff; }
-    .feature-item strong { display: block; color: #1e293b; font-size: 0.95rem; margin-bottom: 3px; }
-    .feature-item span { display: block; color: #64748b; font-size: 0.85rem; line-height: 1.5; }
-
-    /* CONTACT SECTION */
-    .contact-portal { width: min(860px, 94%); margin: 50px auto 40px; }
-    .contact-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 22px; padding: 36px 30px; box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05); }
-    .contact-header { text-align: center; margin-bottom: 24px; }
-    .contact-icon { width: 52px; height: 52px; border-radius: 16px; background: #dcfce7; color: #16a34a; display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 12px; }
-    .contact-header h2 { font-size: 1.65rem; font-weight: 800; color: #0f172a; }
-    .contact-header p { color: #64748b; font-size: 0.92rem; margin-top: 4px; }
-
-    .wa-group-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1.5px dashed #22c55e; border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
-    .wa-group-info { display: flex; align-items: center; gap: 14px; text-align: left; }
-    .wa-group-info i { font-size: 2.2rem; color: #16a34a; flex-shrink: 0; }
-    .wa-group-info strong { display: block; color: #14532d; font-size: 0.98rem; }
-    .wa-group-info span { display: block; color: #166534; font-size: 0.8rem; margin-top: 2px; }
-
-    .btn-wa-group { display: inline-flex; align-items: center; gap: 8px; background: #16a34a; color: #ffffff; padding: 10px 18px; border-radius: 10px; font-size: 0.88rem; font-weight: 700; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25); transition: all 0.2s ease; flex-shrink: 0; }
-    .btn-wa-group:hover { background: #15803d; transform: translateY(-2px); }
-
-    .or-divider { display: flex; align-items: center; text-align: center; color: #94a3b8; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 20px 0; }
-    .or-divider::before, .or-divider::after { content: ''; flex: 1; border-bottom: 1px solid #e2e8f0; }
-    .or-divider:not(:empty)::before { margin-right: 1em; }
-    .or-divider:not(:empty)::after { margin-left: 1em; }
-
-    textarea { width: 100%; padding: 0.75rem 0.85rem; font-size: 0.88rem; color: var(--text-main); background: #f8fafc; border: 1.5px solid var(--border-color); border-radius: 10px; outline: none; resize: vertical; transition: all 0.2s ease; }
-    textarea:focus { background: #ffffff; border-color: #16a34a; box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.2); }
+    .summary-actions-wrap .btn-uniform.pdf:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .summary-actions-wrap .btn-uniform.back {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+    }
+    .summary-actions-wrap .btn-uniform.back:hover { background: #e2e8f0; }
 
     /* FOOTER */
     .modern-footer { width: 100%; margin-top: 40px; background: #090d16; color: #94a3b8; text-align: center; padding: 40px 20px; font-size: 0.88rem; }
@@ -973,34 +401,19 @@
     .scroll-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
     .scroll-to-top:hover { background: var(--primary-hover); transform: translateY(-3px) scale(1.05); }
 
-    @media (max-width: 900px) {
-      .metrics-container { grid-template-columns: 1fr; }
-      .about-portal { grid-template-columns: 1fr; }
-    }
-
     @media (max-width: 600px) {
-      .news-ticker-wrap { height: 38px; font-size: 0.78rem; }
-      .ticker-badge { padding: 0 10px; font-size: 0.72rem; }
-      .btn-lang { padding: 3px 8px; font-size: 0.7rem; }
-      .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
+      .hero-actions { flex-direction: column; width: 100%; }
       .btn-hero { width: 100%; max-width: 290px; }
-      .metrics-grid { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .showcase-slide.dev-testimonial-slide { flex-direction: column; text-align: center; padding: 22px 18px; }
-      .dev-divider { margin: 8px auto 10px; }
-      .slider-nav { display: none; }
-      .contact-card { padding: 26px 20px; }
-      .wa-group-card { flex-direction: column; text-align: center; }
-      .wa-group-info { flex-direction: column; text-align: center; }
-      .btn-wa-group { width: 100%; justify-content: center; }
+      .summary-actions-wrap .btn-uniform { width: 100%; min-width: 100%; }
       .regime-compare-box { flex-direction: column; gap: 14px; }
       .vs-divider { display: none; }
+      .emp-profile-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- MODERN PRELOADER -->
+  <!-- PRELOADER -->
   <div id="pageLoader" class="page-loader-wrap" aria-hidden="true">
     <div class="loader-content">
       <div class="loader-icon-box">
@@ -1016,7 +429,7 @@
   </div>
 
   <!-- TICKER -->
-  <aside class="news-ticker-wrap" aria-label="Important Alerts">
+  <aside class="news-ticker-wrap">
     <div class="ticker-badge">
       <i class="fa-solid fa-bullhorn"></i>
       <span data-i18n="ticker_badge">Alerts!</span>
@@ -1026,22 +439,12 @@
         <a href="#salaryPortal" class="ticker-item">
           <i class="fa-solid fa-circle-dot" style="font-size:0.5rem; color:#38bdf8;"></i>
           <span data-i18n="ticker_text1">चालू महिन्याचे वेतन देयक ट्रेझरीकडे वर्ग करण्यात आले आहे. सर्व शिक्षकांनी वेतन पत्रक व वार्षिक आयकर विवरण तपासावे.</span>
-          <span class="gr-date" data-i18n="badge_latest">Latest</span>
-        </a>
-        <a href="https://education.maharashtra.gov.in" target="_blank" rel="noopener noreferrer" class="ticker-item">
-          <i class="fa-solid fa-file-pdf" style="color:#ef4444;"></i>
-          <span data-i18n="ticker_text2">शासन निर्णय: प्राथमिक शिक्षक भविष्य निर्वाह निधी (GPF/NPS) वार्षिक हिशोब पत्रक वितरण बाबत.</span>
-          <span class="gr-date">GR No. 205/26</span>
-        </a>
-        <a href="#contactSection" class="ticker-item">
-          <i class="fa-brands fa-whatsapp" style="color:#22c55e;"></i>
-          <span data-i18n="ticker_text3">वेतन पत्रकातील तफावतीबाबत पंचायत समिती शिक्षण विभाग WhatsApp हेल्पलाईन वर त्वरित संपर्क साधावा.</span>
-          <span class="gr-date" data-i18n="badge_help">Helpdesk</span>
+          <span class="gr-date">Latest</span>
         </a>
       </div>
     </div>
     <div class="lang-switcher-wrap">
-      <button id="langToggleBtn" class="btn-lang" onclick="toggleLanguage()" aria-label="Toggle language">
+      <button id="langToggleBtn" class="btn-lang" onclick="toggleLanguage()">
         <i class="fa-solid fa-language"></i> <span id="langBtnText">मराठी</span>
       </button>
     </div>
@@ -1049,7 +452,6 @@
 
   <!-- HERO -->
   <header class="hero-wrapper">
-    <div class="hero-glow-orb"></div>
     <div class="hero-container">
       <div class="hero-badge">
         <i class="fa-solid fa-graduation-cap"></i>
@@ -1067,179 +469,14 @@
         <a href="#salaryPortal" class="btn-hero primary">
           <span data-i18n="btn_access_slip">वेतन / आयकर विवरण मिळवा</span> <i class="fa-solid fa-arrow-down"></i>
         </a>
-        <a href="#aboutSection" class="btn-hero secondary">
-          <span data-i18n="btn_explore_features">वैशिष्ट्ये पहा</span> <i class="fa-solid fa-circle-info"></i>
-        </a>
-        <button id="pwaInstallBtn" class="btn-hero install" onclick="installApp()" aria-label="Install App">
+        <button id="pwaInstallBtn" class="btn-hero install" onclick="installApp()">
           <i class="fa-solid fa-mobile-screen"></i> <span id="pwaBtnText">ॲप इन्स्टॉल करा</span>
         </button>
-      </div>
-
-      <!-- Showcase Slider -->
-      <div class="slider-card-wrap">
-        <button class="slider-nav prev" onclick="moveShowcase(-1)" aria-label="Previous Slide">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="slider-nav next" onclick="moveShowcase(1)" aria-label="Next Slide">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-
-        <div class="showcase-slider">
-          <div class="showcase-track" id="showcaseTrack">
-            
-            <div class="showcase-slide dev-testimonial-slide">
-              <div class="dev-avatar-wrap">
-                <img src="images/ceo.jpg" alt="Kushal Jain - CEO Solapur" onerror="this.src='ceo.jpg'">
-              </div>
-              <div class="dev-content">
-                <h3>Kushal Jain</h3>
-                <span class="dev-role" data-i18n="role_ceo">CEO, Zilla Parishad Solapur</span>
-                <div class="dev-divider"></div>
-                <p data-i18n="quote_ceo">
-                  "Digital governance brings transparency and accountability. This salary slip portal ensures all teachers receive authenticated, timely monthly statements with absolute accuracy."
-                </p>
-              </div>
-            </div>
-
-            <div class="showcase-slide dev-testimonial-slide">
-              <div class="dev-avatar-wrap">
-                <img src="images/eo.jpg" alt="Vishal Mule - EO Solapur" onerror="this.src='eo.jpg'">
-              </div>
-              <div class="dev-content">
-                <h3>Vishal Mule</h3>
-                <span class="dev-role" data-i18n="role_eo">Education Officer (Primary), Solapur</span>
-                <div class="dev-divider"></div>
-                <p data-i18n="quote_eo">
-                  "A great initiative for our teaching community. Comprehensive deduction breakdowns and instant PDF generation with verification QR codes have streamlined payroll."
-                </p>
-              </div>
-            </div>
-
-            <div class="showcase-slide dev-testimonial-slide">
-              <div class="dev-avatar-wrap">
-                <img src="images/bdo.jpg" alt="Block Development Officer - South Solapur" onerror="this.src='bdo.jpg'">
-              </div>
-              <div class="dev-content">
-                <h3>Manoj Raut</h3>
-                <span class="dev-role" data-i18n="role_bdo">BDO, Panchayat Samiti, South Solapur</span>
-                <div class="dev-divider"></div>
-                <p data-i18n="quote_bdo">
-                  "This digital portal is indispensable for administrative efficiency. Teachers can review their salary records anytime without physical paperwork delays."
-                </p>
-              </div>
-            </div>
-
-            <div class="showcase-slide dev-testimonial-slide">
-              <div class="dev-avatar-wrap">
-                <img src="images/beo.jpg" alt="Block Education Officer - South Solapur" onerror="this.src='beo.jpg'">
-              </div>
-              <div class="dev-content">
-                <h3>Jayashri Sutar</h3>
-                <span class="dev-role" data-i18n="role_beo">BEO, Panchayat Samiti, South Solapur</span>
-                <div class="dev-divider"></div>
-                <p data-i18n="quote_beo">
-                  "Ensuring zero administrative delay. Teachers across South Solapur can now instantly download official pay records directly on their mobile phones."
-                </p>
-              </div>
-            </div>
-
-            <div class="showcase-slide dev-testimonial-slide">
-              <div class="dev-avatar-wrap">
-                <img src="images/Som.jpg" alt="Somnath Gaikwad - Web Developer" onerror="this.src='Som.jpg'">
-              </div>
-              <div class="dev-content">
-                <h3>Somnath Gaikwad</h3>
-                <span class="dev-role" data-i18n="role_dev">Web Developer</span>
-                <div class="dev-divider"></div>
-                <p data-i18n="quote_dev">
-                  "Developed with modern web technologies to empower teachers with secure, instantaneous digital salary access. Fast, reliable, and convenient."
-                </p>
-              </div>
-            </div>
-
-          </div>
-          <div class="slider-progress-bar">
-            <div class="slider-progress-fill" id="sliderProgress"></div>
-          </div>
-        </div>
       </div>
     </div>
   </header>
 
-  <!-- METRICS -->
-  <section class="metrics-section">
-    <div class="metrics-container">
-      <div class="metrics-grid">
-        <div class="metric-card">
-          <div class="metric-top">
-            <span class="metric-icon blue"><i class="fa-solid fa-school"></i></span>
-          </div>
-          <h3 class="counter-number" data-target="184">0</h3>
-          <p data-i18n="metric_schools">Active Schools</p>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-top">
-            <span class="metric-icon green"><i class="fa-solid fa-user-tie"></i></span>
-          </div>
-          <h3 class="counter-number" data-target="2450">0</h3>
-          <p data-i18n="metric_teachers">Staff &amp; Teachers</p>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-top">
-            <span class="metric-icon amber"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-          </div>
-          <h3 class="counter-number" data-target="98200">0</h3>
-          <p data-i18n="metric_slips">Dispatched Slips</p>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-top">
-            <span class="metric-icon purple"><i class="fa-solid fa-bolt"></i></span>
-          </div>
-          <h3 class="counter-number" data-target="99.9">0</h3>
-          <p data-i18n="metric_uptime">System Uptime %</p>
-        </div>
-      </div>
-
-      <div class="graph-card">
-        <div class="graph-header">
-          <div>
-            <h4 data-i18n="graph_title">Monthly Payroll Distribution</h4>
-            <span style="font-size:0.75rem; color:#64748b;" data-i18n="graph_sub">Live system activity graph</span>
-          </div>
-          <div class="graph-tag">
-            <i class="fa-solid fa-circle"></i> <span data-i18n="graph_status">Live Server</span>
-          </div>
-        </div>
-
-        <div class="svg-graph-wrap">
-          <svg viewBox="0 0 400 140" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="graphGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#2563eb" stop-opacity="0.35" />
-                <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0" />
-              </linearGradient>
-            </defs>
-            <path class="graph-area" d="M 0,110 Q 50,40 100,75 T 200,45 T 300,85 T 400,20 L 400,140 L 0,140 Z"></path>
-            <path class="graph-line" d="M 0,110 Q 50,40 100,75 T 200,45 T 300,85 T 400,20"></path>
-          </svg>
-        </div>
-
-        <div class="graph-footer-labels">
-          <span data-i18n="m_may">May</span>
-          <span data-i18n="m_jun">Jun</span>
-          <span data-i18n="m_jul">Jul</span>
-          <span data-i18n="m_aug">Aug</span>
-          <span data-i18n="m_sep">Sep</span>
-          <span data-i18n="m_cur">Current</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SALARY PORTAL FORM -->
+  <!-- PORTAL FORM -->
   <section id="salaryPortal" class="salary-portal-section">
     <div class="portal-section-intro">
       <h2 data-i18n="portal_title">Access Your Statements</h2>
@@ -1247,15 +484,15 @@
     </div>
 
     <!-- Login Box -->
-    <div id="loginBox" class="login-box" role="main" aria-labelledby="loginTitle">
+    <div id="loginBox" class="login-box">
       
-      <!-- TOGGLE BUTTONS (मासिक / वार्षिक) -->
+      <!-- BILINGUAL SEGMENTED TOGGLE SWITCH -->
       <div class="portal-mode-toggle">
         <button type="button" class="mode-btn active" id="btnMonthlyMode" onclick="switchPortalMode('monthly')">
-          <i class="fa-solid fa-file-invoice"></i> मासिक वेतन पत्रक
+          <i class="fa-solid fa-file-invoice"></i> <span id="tabMonthlyText">मासिक वेतन पत्रक</span>
         </button>
         <button type="button" class="mode-btn" id="btnAnnualMode" onclick="switchPortalMode('annual')">
-          <i class="fa-solid fa-chart-column"></i> वार्षिक आयकर विवरण
+          <i class="fa-solid fa-chart-column"></i> <span id="tabAnnualText">वार्षिक आयकर विवरण</span>
         </button>
       </div>
 
@@ -1270,7 +507,7 @@
       <div class="form-group">
         <label for="username" data-i18n="label_empid">कर्मचारी आयडी (Employee ID)</label>
         <div class="input-wrapper">
-          <input id="username" type="text" aria-label="Employee ID" autocomplete="username" placeholder="कर्मचारी आयडी टाका" required />
+          <input id="username" type="text" placeholder="कर्मचारी आयडी टाका" required />
           <i class="fa-solid fa-id-card icon-left"></i>
         </div>
       </div>
@@ -1278,19 +515,18 @@
       <div class="form-group">
         <label for="password" data-i18n="label_pwd">पासवर्ड (Password)</label>
         <div class="password-container input-wrapper">
-          <input type="password" id="password" aria-label="Password" autocomplete="current-password" placeholder="••••••••" required>
+          <input type="password" id="password" placeholder="••••••••" required>
           <i class="fa-solid fa-lock icon-left"></i>
-          <i id="eyeIcon" class="fa-solid fa-eye toggle-password" role="button" aria-label="Show password"></i>
-          <i id="eyeOffIcon" class="fa-solid fa-eye-slash toggle-password" style="display:none;" role="button" aria-label="Hide password"></i>
+          <i id="eyeIcon" class="fa-solid fa-eye toggle-password" role="button"></i>
+          <i id="eyeOffIcon" class="fa-solid fa-eye-slash toggle-password" style="display:none;" role="button"></i>
         </div>
       </div>
 
       <div class="grid-2" id="dateFilterGrid">
-        <!-- MONTH GROUP (वार्षिक मोडमध्ये आपोआप लपतो) -->
         <div class="form-group" id="monthGroup">
           <label for="month" data-i18n="label_month">महिना (Month)</label>
           <div class="input-wrapper select-wrapper">
-            <select id="month" aria-label="Select Month">
+            <select id="month">
               <option value="">महिना निवडा</option>
               <option>January</option><option>February</option><option>March</option><option>April</option>
               <option>May</option><option>June</option><option>July</option><option>August</option>
@@ -1300,11 +536,10 @@
           </div>
         </div>
 
-        <!-- YEAR / FINANCIAL YEAR GROUP -->
         <div class="form-group" id="yearGroup">
           <label for="year" id="yearLabel" data-i18n="label_year">वर्ष (Year)</label>
           <div class="input-wrapper select-wrapper">
-            <select id="year" aria-label="Select Year" required></select>
+            <select id="year" required></select>
             <i class="fa-solid fa-calendar icon-left"></i>
           </div>
         </div>
@@ -1315,225 +550,31 @@
         <i id="loginBtnIcon" class="fa-solid fa-arrow-right"></i>
       </button>
 
-      <div id="errorMsg" class="error-msg" role="alert"></div>
-
-      <button class="btn-action btn-secondary" onclick="toggleChangePassword()">
-        <i class="fa-solid fa-key"></i> <span data-i18n="btn_change_pwd">पासवर्ड बदला</span>
-      </button>
+      <div id="errorMsg" class="error-msg"></div>
 
       <div class="muted">Web designed by Somnath Gaikwad Sir</div>
-    </div>
-
-    <!-- Change Password Box -->
-    <div id="changePasswordBox" style="display:none;" role="main" aria-labelledby="changePassTitle">
-      <div class="brand-header">
-        <div class="brand-icon">
-          <i class="fa-solid fa-shield-halved"></i>
-        </div>
-        <h2 id="changePassTitle" data-i18n="cp_head">Change Password</h2>
-        <p data-i18n="cp_sub">Update your portal access password</p>
-      </div>
-
-      <div class="form-group">
-        <label for="empIdPass" data-i18n="label_empid">Employee ID</label>
-        <div class="input-wrapper">
-          <input id="empIdPass" type="text" aria-label="Employee ID" placeholder="Enter Employee ID" autocomplete="username" required />
-          <i class="fa-solid fa-id-card icon-left"></i>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="oldPass" data-i18n="cp_old">Old Password</label>
-        <div class="input-wrapper">
-          <input id="oldPass" type="password" aria-label="Old Password" placeholder="••••••••" autocomplete="current-password" required />
-          <i class="fa-solid fa-lock icon-left"></i>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="newPass" data-i18n="cp_new">New Password</label>
-        <div class="input-wrapper">
-          <input id="newPass" type="password" aria-label="New Password" placeholder="New Password" autocomplete="new-password" required />
-          <i class="fa-solid fa-key icon-left"></i>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="confirmPass" data-i18n="cp_confirm">Confirm New Password</label>
-        <div class="input-wrapper">
-          <input id="confirmPass" type="password" aria-label="Confirm New Password" placeholder="Confirm New Password" autocomplete="new-password" required />
-          <i class="fa-solid fa-check-double icon-left"></i>
-        </div>
-      </div>
-
-      <button id="updatePassBtn" class="btn-action" style="background:#16a34a;" onclick="changePassword()">
-        <span id="updatePassBtnText" data-i18n="btn_update_pwd">Update Password</span>
-      </button>
-
-      <button class="btn-action btn-secondary" onclick="backToLogin()">
-        <i class="fa-solid fa-arrow-left"></i> <span data-i18n="btn_back_login">Back to Login</span>
-      </button>
-
-      <div id="passMsg" class="error-msg" role="alert" style="display:none;"></div>
-    </div>
-
-    <!-- Success Modal -->
-    <div id="successModal" role="alert" aria-live="assertive">
-      <div id="successModalContent">
-        <i class="fa-solid fa-circle-check" style="font-size:2.5rem; margin-bottom:0.5rem; display:block;"></i>
-        <span data-i18n="modal_success">Password changed successfully! Please login again.</span>
-      </div>
-    </div>
-
-    <!-- PWA Install Guide Modal -->
-    <div id="pwaGuideModal" role="dialog" aria-modal="true" aria-labelledby="pwaGuideTitle">
-      <div class="pwa-modal-box">
-        <div class="pwa-modal-icon">
-          <i class="fa-solid fa-mobile-screen"></i>
-        </div>
-        <h3 id="pwaGuideTitle">मोबाईल स्क्रीनवर सेव्ह करा</h3>
-        <p>हे पोर्टल ॲपसारखे स्क्रीनवर सेव्ह करण्यासाठी खालील पर्याय वापरा:</p>
-        
-        <div class="pwa-step-card" id="pwaStepContent">
-          <strong>Android / Chrome वापरकर्ते:</strong><br>
-          १. उजव्या कोपऱ्यातील ३ डॉट्सवर (<strong>&vellip;</strong>) क्लिक करा.<br>
-          २. <strong>"Add to Home screen"</strong> किंवा <strong>"Create shortcut"</strong> निवडा.<br>
-          ३. <strong>"Add"</strong> वर क्लिक करा, ॲप स्क्रीनवर तयार होईल.
-        </div>
-
-        <button class="btn-action" style="background:#2563eb;" onclick="closePwaGuide()">
-          समजले (Close)
-        </button>
-      </div>
     </div>
 
     <!-- SUMMARY CARDS CONTAINER -->
     <div id="summaryCard"></div>
   </section>
 
-  <!-- ABOUT & FEATURES -->
-  <section id="aboutSection" class="about-portal reveal-section">
-    <div class="about-card">
-      <div class="about-icon"><i class="fa-solid fa-circle-info"></i></div>
-      <h2 data-i18n="about_head">About Teacher Salary Portal</h2>
-      <p data-i18n="about_p1">The Teacher Salary Portal is a dedicated digital platform developed to empower educational staff and teachers with instant access to their monthly payroll summaries.</p>
-      <p data-i18n="about_p2">Teachers can review earnings, voluntary deductions, bank credits, and generate high-resolution print copies or portable PDF files with a single click.</p>
-    </div>
-    <div class="features-card">
-      <h2 data-i18n="features_head">Key Features</h2>
-      <div class="feature-item">
-        <i class="fa-solid fa-lock"></i>
-        <div>
-          <strong data-i18n="f1_title">Strict Security</strong>
-          <span data-i18n="f1_desc">Secure authentication based on individual Employee ID and credentials.</span>
-        </div>
-      </div>
-      <div class="feature-item">
-        <i class="fa-solid fa-calendar-check"></i>
-        <div>
-          <strong data-i18n="f2_title">Archived Payroll Records</strong>
-          <span data-i18n="f2_desc">Select any past month and academic year to access historical slips.</span>
-        </div>
-      </div>
-      <div class="feature-item">
-        <i class="fa-solid fa-qrcode"></i>
-        <div>
-          <strong data-i18n="f3_title">Verification QR Code</strong>
-          <span data-i18n="f3_desc">Generated slips feature authentic verification QR codes for validation.</span>
-        </div>
-      </div>
-      <div class="feature-item">
-        <i class="fa-solid fa-file-pdf"></i>
-        <div>
-          <strong data-i18n="f4_title">PDF Export Ready</strong>
-          <span data-i18n="f4_desc">Save clean, vectorized PDF records directly to your phone or computer.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT & WHATSAPP -->
-  <section id="contactSection" class="contact-portal reveal-section">
-    <div class="contact-card">
-      <div class="contact-header">
-        <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
-        <h2 data-i18n="help_head">Helpdesk &amp; Grievance Redressal</h2>
-        <p data-i18n="help_sub">Have an issue regarding your salary statement or portal access? Send a direct WhatsApp inquiry or join our community.</p>
-      </div>
-
-      <div class="wa-group-card">
-        <div class="wa-group-info">
-          <i class="fa-solid fa-users"></i>
-          <div>
-            <strong data-i18n="wagroup_title">Join Official Teachers WhatsApp Group</strong>
-            <span data-i18n="wagroup_desc">Receive instant updates, announcements &amp; direct technical support</span>
-          </div>
-        </div>
-        <a href="https://chat.whatsapp.com/BmoTvzdilUG7R326SXZrWY?s=cl&p=a&mlu=4&ilr=4&iam=1" target="_blank" rel="noopener noreferrer" class="btn-wa-group">
-          <i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_join_wa">Join Group</span>
-        </a>
-      </div>
-
-      <div class="or-divider" data-i18n="divider_or">Or Send Individual Message</div>
-
-      <form id="contactForm" onsubmit="sendViaWhatsApp(event)">
-        <div class="grid-2">
-          <div class="form-group">
-            <label for="cEmpId" data-i18n="label_empid">Employee ID</label>
-            <div class="input-wrapper">
-              <input id="cEmpId" type="text" placeholder="Enter Employee ID" required />
-              <i class="fa-solid fa-id-card icon-left"></i>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="cName" data-i18n="label_cname">Full Name</label>
-            <div class="input-wrapper">
-              <input id="cName" type="text" placeholder="Enter Full Name" required />
-              <i class="fa-solid fa-user icon-left"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="cSchool" data-i18n="label_cschool">School / Center Name</label>
-          <div class="input-wrapper">
-            <input id="cSchool" type="text" placeholder="Enter School Name" required />
-            <i class="fa-solid fa-school icon-left"></i>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="cMessage" data-i18n="label_cmsg">Discrepancy / Query Details</label>
-          <div class="input-wrapper">
-            <textarea id="cMessage" rows="3" placeholder="Describe the problem, month, or deduction issue..." required></textarea>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-action" style="background:#16a34a;">
-          <span data-i18n="btn_send_wa">Send via WhatsApp</span>
-          <i class="fa-brands fa-whatsapp"></i>
-        </button>
-      </form>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer class="modern-footer">
     <div class="footer-title" data-i18n="footer_title">Teacher Salary Portal</div>
-    <p data-i18n="footer_dept">Panchayat Samiti (Education Department), South Solapur</p>
+    <p>पंचायत समिती (शिक्षण विभाग), दक्षिण सोलापूर</p>
     <p class="designer">Web designed by Somnath Gaikwad Sir</p>
     <p class="footer-copy">© <span id="footerYear"></span> Teacher Salary Portal. All Rights Reserved.</p>
   </footer>
 
-  <!-- FLOATING SCROLL TO TOP -->
-  <button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top" title="Scroll to top">
+  <!-- SCROLL TO TOP -->
+  <button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- SCRIPTS -->
   <script>
-    // ===== INDIAN NUMBER FORMATTER =====
+    // ===== INDIAN NUMBER / CURRENCY FORMATTER =====
     function formatIndianCurrency(num) {
       if (num === null || num === undefined || num === '') return '0';
       const clean = String(num).replace(/[^0-9.]/g, '');
@@ -1542,172 +583,47 @@
       return new Intl.NumberFormat('en-IN').format(Math.round(parsed));
     }
 
-    // ===== NUMBER TO WORDS ENGINE (ENGLISH & MARATHI) =====
-    function numberToWordsIndian(num) {
-      if (!num || isNaN(num)) return '';
-      num = parseInt(num, 10);
-      if (num === 0) return 'Zero';
-      const a = ['', 'One ', 'Two ', 'Three ', 'Four ', 'Five ', 'Six ', 'Seven ', 'Eight ', 'Nine ', 'Ten ', 'Eleven ', 'Twelve ', 'Thirteen ', 'Fourteen ', 'Fifteen ', 'Sixteen ', 'Seventeen ', 'Eighteen ', 'Nineteen '];
-      const b = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
-      function inWords(n) {
-        if (n < 20) return a[n];
-        if (n < 100) return b[Math.floor(n / 10)] + (n % 10 !== 0 ? ' ' + a[n % 10] : ' ');
-        if (n < 1000) return inWords(Math.floor(n / 100)) + 'Hundred ' + (n % 100 !== 0 ? inWords(n % 100) : '');
-        if (n < 100000) return inWords(Math.floor(n / 1000)) + 'Thousand ' + (n % 1000 !== 0 ? inWords(n % 1000) : '');
-        if (n < 10000000) return inWords(Math.floor(n / 100000)) + 'Lakh ' + (n % 100000 !== 0 ? inWords(n % 100000) : '');
-        return inWords(Math.floor(n / 10000000)) + 'Crore ' + (n % 10000000 !== 0 ? inWords(n % 10000000) : '');
-      }
-      return 'Rupees ' + inWords(num).trim() + ' Only';
-    }
-
-    function numberToMarathiWords(n) {
-      if (!n || isNaN(n)) return '';
-      n = parseInt(n, 10);
-      if (n === 0) return 'शून्य';
-      const mWords = {
-        1:'एक', 2:'दोन', 3:'तीन', 4:'चार', 5:'पाच', 6:'सहा', 7:'सात', 8:'आठ', 9:'नऊ', 10:'दहा',
-        11:'अकरा', 12:'बारा', 13:'तेरा', 14:'चौदा', 15:'पंधरा', 16:'सोळा', 17:'सतरा', 18:'अठरा', 19:'एकोणीस', 20:'वीस',
-        21:'एकवीस', 22:'बावीस', 23:'तेवीस', 24:'चोवीस', 25:'पंचवीस', 26:'सव्वीस', 27:'सत्तावीस', 28:'अठ्ठावीस', 29:'एकोणतीस', 30:'तीस',
-        31:'एकतीस', 32:'बत्तीस', 33:'तेहतीस', 34:'चौतीस', 35:'पस्तीस', 36:'छत्तीस', 37:'सदतीस', 38:'अडतीस', 39:'एकोणचाळीस', 40:'चाळीस',
-        41:'एक्केचाळीस', 42:'बेचाळीस', 43:'त्रेचाळीस', 44:'चव्वेचाळीस', 45:'पंचेचाळीस', 46:'शेहेचाळीस', 47:'सत्तेचाळीस', 48:'अठ्ठेचाळीस', 49:'एकोणपन्नास', 50:'पन्नास',
-        51:'एक्कावन्न', 52:'बावन्न', 53:'त्रेपन्न', 54:'चोपन्न', 55:'पंचावन्न', 56:'छप्पन्न', 57:'सत्तावन्न', 58:'अठ्ठावन्न', 59:'एकोणसाठ', 60:'साठ',
-        61:'एकसष्ठ', 62:'बासष्ठ', 63:'त्रेसष्ठ', 64:'चौसष्ठ', 65:'पासष्ठ', 66:'सहासष्ठ', 67:'सदुसष्ठ', 68:'अडुसष्ठ', 69:'एकोणसत्तर', 70:'सत्तर',
-        71:'एकाहत्तर', 72:'बाहत्तर', 73:'त्र्याहत्तर', 74:'चौऱ्याहत्तर', 75:'पंच्याहत्तर', 76:'शहात्तर', 77:'सत्याहत्तर', 78:'अठ्ठ्याहत्तर', 79:'एकोणऐंशी', 80:'ऐंशी',
-        81:'एक्यांशी', 82:'ब्यांशी', 83:'त्र्यांशी', 84:'चौऱ्यांशी', 85:'पंच्यांशी', 86:'शहांशी', 87:'सत्त्यांशी', 88:'अठ्ठ्यांशी', 89:'एकोणनव्वद', 90:'नव्वद',
-        91:'एक्याण्णव', 92:'ब्याण्णव', 93:'त्र्याण्णव', 94:'चौऱ्याण्णव', 95:'पंच्याण्णव', 96:'शहाण्णव', 97:'सत्त्याण्णव', 98:'अठ्ठ्याण्णव', 99:'नव्व्याण्णव'
-      };
-      function parseM(val) {
-        if (val === 0) return '';
-        if (val < 100) return mWords[val] + ' ';
-        if (val < 1000) return mWords[Math.floor(val / 100)] + 'शे ' + (val % 100 !== 0 ? parseM(val % 100) : '');
-        if (val < 100000) return parseM(Math.floor(val / 1000)) + 'हजार ' + (val % 1000 !== 0 ? parseM(val % 1000) : '');
-        if (val < 10000000) return parseM(Math.floor(val / 100000)) + 'लाख ' + (val % 100000 !== 0 ? parseM(val % 100000) : '');
-        return parseM(Math.floor(val / 10000000)) + 'कोटी ' + (val % 10000000 !== 0 ? parseM(val % 10000000) : '');
-      }
-      return parseM(n).trim() + ' रुपये फक्त';
-    }
-
-    function getNetSalaryInWords(record, lang) {
-      if (!record) return '';
-      const cleanNum = String(record.NetSalary || '').replace(/[^0-9]/g, '');
-      if (lang === 'en') {
-        return cleanNum ? numberToWordsIndian(cleanNum) : (record.NetSalaryWords || '');
-      } else {
-        const isAlreadyMarathi = /[\u0900-\u097F]/.test(record.NetSalaryWords || '');
-        if (isAlreadyMarathi) return record.NetSalaryWords;
-        return cleanNum ? numberToMarathiWords(cleanNum) : (record.NetSalaryWords || '');
-      }
-    }
-
-    // ===== BILINGUAL TRANSLATIONS =====
+    // ===== BILINGUAL TRANSLATION DICTIONARY =====
     const translations = {
       en: {
         lang_btn: "मराठी",
+        tab_monthly: "Monthly Salary Slip",
+        tab_annual: "Annual Tax Statement",
         ticker_badge: "Alerts",
         ticker_text1: "Current month salary bill has been submitted to treasury. Teachers can check their slip and annual statement.",
-        ticker_text2: "Government Resolution: Distribution of annual GPF / NPS statement for primary teachers.",
-        ticker_text3: "For any salary discrepancies, contact Panchayat Samiti Education Dept WhatsApp helpdesk.",
-        badge_latest: "Latest",
-        badge_help: "Helpdesk",
         hero_badge: "Digital Salary & Tax Service",
         hero_title: "Teacher Salary Portal",
         hero_subtitle: "Monthly Salary Slip & Annual Tax Statement",
         hero_desc: "Instant access to monthly salary statements, gross allowances, deductions, and downloadable A4 Annual Income Tax Statement.",
         btn_access_slip: "Get Slip / Statement",
-        btn_explore_features: "Explore Features",
         btn_install_app: "Install App",
         loader_text: "Loading portal details, please wait...",
-        role_ceo: "CEO, Zilla Parishad Solapur",
-        quote_ceo: "\"Digital governance brings transparency and accountability. This salary slip portal ensures all teachers receive authenticated, timely monthly statements with absolute accuracy.\"",
-        role_eo: "Education Officer (Primary), Solapur",
-        quote_eo: "\"A great initiative for our teaching community. Comprehensive deduction breakdowns and instant PDF generation with verification QR codes have streamlined payroll.\"",
-        role_bdo: "BDO, Panchayat Samiti, South Solapur",
-        quote_bdo: "\"This digital portal is indispensable for administrative efficiency. Teachers can review their salary records anytime without physical paperwork delays.\"",
-        role_beo: "BEO, Panchayat Samiti, South Solapur",
-        quote_beo: "\"Ensuring zero administrative delay. Teachers across South Solapur can now instantly download official pay records directly on their mobile phones.\"",
-        role_dev: "Web Developer",
-        quote_dev: "\"Developed with modern web technologies to empower teachers with secure, instantaneous digital salary access. Fast, reliable, and convenient.\"",
-        metric_schools: "Active Schools",
-        metric_teachers: "Staff & Teachers",
-        metric_slips: "Dispatched Slips",
-        metric_uptime: "System Uptime %",
-        graph_title: "Monthly Payroll Distribution",
-        graph_sub: "Live system activity graph",
-        graph_status: "Live Server",
-        m_may: "May", m_jun: "Jun", m_jul: "Jul", m_aug: "Aug", m_sep: "Sep", m_cur: "Current",
         portal_title: "Access Your Statements",
-        portal_sub: "Enter your employee ID and choose monthly or annual tax statement",
+        portal_sub: "Enter your Employee ID and password to access statements",
         login_head: "Teacher Salary Portal",
         login_sub: "Enter details to view your statement",
         label_empid: "Employee ID",
         label_pwd: "Password",
         label_month: "Month",
         label_year: "Year",
+        label_fy: "Financial Year",
         btn_get_slip: "Get Salary Slip",
-        btn_change_pwd: "Change Password",
-        cp_head: "Change Password",
-        cp_sub: "Update your portal access password",
-        cp_old: "Old Password",
-        cp_new: "New Password",
-        cp_confirm: "Confirm New Password",
-        btn_update_pwd: "Update Password",
-        btn_back_login: "Back to Login",
-        modal_success: "Password changed successfully! Please login again.",
-        about_head: "About Teacher Salary Portal",
-        about_p1: "The Teacher Salary Portal is a dedicated digital platform developed to empower educational staff and teachers with instant access to their monthly payroll summaries.",
-        about_p2: "Teachers can review earnings, voluntary deductions, bank credits, and generate high-resolution print copies or portable PDF files with a single click.",
-        features_head: "Key Features",
-        f1_title: "Strict Security", f1_desc: "Secure authentication based on individual Employee ID and credentials.",
-        f2_title: "Archived Payroll Records", f2_desc: "Select any past month and academic year to access historical slips.",
-        f3_title: "Verification QR Code", f3_desc: "Generated slips feature authentic verification QR codes for validation.",
-        f4_title: "PDF Export Ready", f4_desc: "Save clean, vectorized PDF records directly to your phone or computer.",
-        help_head: "Helpdesk & Grievance Redressal",
-        help_sub: "Have an issue regarding your salary statement or portal access? Send a direct WhatsApp inquiry or join our community.",
-        wagroup_title: "Join Official Teachers WhatsApp Group",
-        wagroup_desc: "Receive instant updates, announcements & direct technical support",
-        btn_join_wa: "Join Group",
-        divider_or: "Or Send Individual Message",
-        label_cname: "Full Name",
-        label_cschool: "School / Center Name",
-        label_cmsg: "Discrepancy / Query Details",
-        btn_send_wa: "Send via WhatsApp",
-        footer_title: "Teacher Salary Portal",
-        footer_dept: "Panchayat Samiti (Education Department), South Solapur"
+        btn_get_annual: "Get Annual Tax Statement",
+        footer_title: "Teacher Salary Portal"
       },
       mr: {
         lang_btn: "English",
+        tab_monthly: "मासिक वेतन पत्रक",
+        tab_annual: "वार्षिक आयकर विवरण",
         ticker_badge: "सूचना",
         ticker_text1: "चालू महिन्याचे वेतन देयक ट्रेझरीकडे वर्ग करण्यात आले आहे. सर्व शिक्षकांनी वेतन पत्रक व वार्षिक आयकर विवरण तपासावे.",
-        ticker_text2: "शासन निर्णय: प्राथमिक शिक्षक भविष्य निर्वाह निधी (GPF/NPS) वार्षिक हिशोब पत्रक वितरण बाबत.",
-        ticker_text3: "वेतन पत्रकातील तफावतीबाबत पंचायत समिती शिक्षण विभाग WhatsApp हेल्पलाईन वर त्वरित संपर्क साधावा.",
-        badge_latest: "नवीनतम",
-        badge_help: "मदत कक्ष",
         hero_badge: "डिजिटल वेतन व कर सेवा",
         hero_title: "शिक्षक वेतन पत्रक पोर्टल",
         hero_subtitle: "मासिक वेतन पत्रक व वार्षिक आयकर विवरण",
         hero_desc: "मासिक वेतन पत्रक, मूळ भत्ते, कपातीचा तपशील आणि सुटसुटीत अधिकृत A4 वार्षिक आयकर वेतन विवरण पत्र एका क्लिकवर प्राप्त करा.",
         btn_access_slip: "वेतन / आयकर विवरण मिळवा",
-        btn_explore_features: "वैशिष्ट्ये पहा",
         btn_install_app: "ॲप इन्स्टॉल करा",
         loader_text: "माहिती लोड होत आहे, कृपया प्रतीक्षा करा...",
-        role_ceo: "मुख्य कार्यकारी अधिकारी, जि. प. सोलापूर",
-        quote_ceo: "\"डिजिटल प्रशासनामुळे पारदर्शकता आणि अचूकता वाढते. या वेतन पोर्टलद्वारे जिल्ह्यातील शिक्षकांना अधिकृत व वेळेवर मासिक वेतन पत्रक थेट उपलब्ध होत आहे.\"",
-        role_eo: "शिक्षणाधिकारी (प्राथमिक), जि. प. सोलापूर",
-        quote_eo: "\"शिक्षक बांधवांसाठी अतिशय उपयुक्त उपक्रम. सर्व कपातींचा अचूक तपशील आणि पडताळणी QR कोडयुक्त PDF मुळे वेतन प्रक्रिया सुलभ झाली आहे.\"",
-        role_bdo: "गट विकास अधिकारी, पं. स. दक्षिण सोलापूर",
-        quote_bdo: "\"प्रशासकीय कार्यक्षमता वाढवण्यासाठी हे डिजिटल पोर्टल अत्यंत मोलाचे आहे. कोणत्याही कार्यालयीन विलंबाशिवाय शिक्षक त्यांच्या वेतनाची माहिती स्वतः पाहू शकतात.\"",
-        role_beo: "गट शिक्षणाधिकारी, पं. स. दक्षिण सोलापूर",
-        quote_beo: "\"दक्षिण सोलापूर तालुक्यातील सर्व शिक्षकांना त्यांच्या मोबाईलवर त्वरित वेतन पत्रक उपलब्ध करून देण्यासाठी ही प्रणाली अत्यंत गतिमान ठरत आहे.\"",
-        role_dev: "वेब डेव्हलपर",
-        quote_dev: "\"तंत्रज्ञानाचा वापर शिक्षक बांधवांच्या सुविधेसाठी व्हावा या हेतूने हे आधुनिक पोर्टल विकसित केले आहे. जलद व सुरक्षित डिजिटल सेवेचा लाभ घ्यावा.\"",
-        metric_schools: "सक्रिय शाळा",
-        metric_teachers: "शिक्षक व कर्मचारी",
-        metric_slips: "वितरित वेतन पत्रके",
-        metric_uptime: "पोर्टल उपलब्धता %",
-        graph_title: "मासिक वेतन वितरण प्रमाण",
-        graph_sub: "थेट प्रणाली आलेख",
-        graph_status: "लाईव्ह सर्व्हर",
-        m_may: "मे", m_jun: "जून", m_jul: "जुलै", m_aug: "ऑगस्ट", m_sep: "सप्टेंबर", m_cur: "चालू महिना",
         portal_title: "विवरण पत्रे मिळवा",
         portal_sub: "आपला कर्मचारी आयडी व पासवर्ड टाकून मासिक वेतन किंवा वार्षिक विवरण पत्र निवडा",
         login_head: "शिक्षक वेतन पत्रक",
@@ -1716,51 +632,23 @@
         label_pwd: "पासवर्ड (Password)",
         label_month: "महिना (Month)",
         label_year: "वर्ष (Year)",
+        label_fy: "आर्थिक वर्ष (Financial Year)",
         btn_get_slip: "वेतन पत्रक मिळवा",
-        btn_change_pwd: "पासवर्ड बदला",
-        cp_head: "पासवर्ड बदला",
-        cp_sub: "आपला सुरक्षा पासवर्ड अपडेट करा",
-        cp_old: "जुना पासवर्ड",
-        cp_new: "नवीन पासवर्ड",
-        cp_confirm: "नवीन पासवर्डची पुष्टी करा",
-        btn_update_pwd: "पासवर्ड अपडेट करा",
-        btn_back_login: "मागे जा (Login)",
-        modal_success: "पासवर्ड यशस्वीरित्या बदलला आहे! कृपया पुन्हा लॉगिन करा.",
-        about_head: "पोर्टल बद्दल माहिती",
-        about_p1: "शिक्षक वेतन पत्रक पोर्टल हे प्राथमिक शिक्षकांना त्यांचे मासिक वेतन, भत्ते आणि कपातीचा अचूक तपशील मिळवून देण्यासाठी तयार केलेले डिजिटल व्यासपीठ आहे.",
-        about_p2: "कोणत्याही महिन्यात आपले वेतन पत्रक मोबाईलवर पाहणे, प्रिंट काढणे आणि उच्च दर्जाची PDF सेव्ह करणे आता एका क्लिकवर शक्य झाले आहे.",
-        features_head: "महत्त्वाची वैशिष्ट्ये",
-        f1_title: "कडक सुरक्षा", f1_desc: "कर्मचारी आयडी आणि वैयक्तिक पासवर्डवर आधारित सुरक्षित प्रवेश.",
-        f2_title: "मासिक वेतन अभिलेख", f2_desc: "मागील सर्व महिने आणि वर्षांचे वेतन पत्रक कधीही उपलब्ध.",
-        f3_title: "पडताळणी QR कोड", f3_desc: "प्रत्येक वेतन पत्रकावर सत्यतेसाठी डिजिटल QR कोड समाविष्ट.",
-        f4_title: "वेक्टर PDF डाऊनलोड", f4_desc: "मुद्रण योग्य सुस्पष्ट शासकीय फॉरमॅटमधील PDF फाइल.",
-        help_head: "मदत कक्ष व तक्रार निवारण",
-        help_sub: "वेतन पत्रक, कपात किंवा पासवर्ड बाबत अडचण असल्यास व्हॉट्सॲपवर संपर्क साधा किंवा ग्रुप जॉईन करा.",
-        wagroup_title: "अधिकृत शिक्षक व्हॉट्सॲप ग्रुपमध्ये सामील व्हा",
-        wagroup_desc: "महत्त्वाचे शासन निर्णय, वेतन अपडेट्स व तांत्रिक मदतीसाठी",
-        btn_join_wa: "ग्रुप जॉईन करा",
-        divider_or: "किंवा वैयक्तिक संदेश पाठवा",
-        label_cname: "पूर्ण नाव",
-        label_cschool: "शाळा / केंद्राचे नाव",
-        label_cmsg: "तक्रार / प्रश्नाचा तपशील",
-        btn_send_wa: "व्हॉट्सॲपवर संदेश पाठवा",
-        footer_title: "शिक्षक वेतन पत्रक पोर्टल",
-        footer_dept: "पंचायत समिती (शिक्षण विभाग), दक्षिण सोलापूर"
+        btn_get_annual: "आयकर विवरण पत्र मिळवा",
+        footer_title: "शिक्षक वेतन पत्रक पोर्टल"
       }
     };
 
-    let currentLang = 'en';
+    let currentLang = 'mr';
     try {
       const saved = localStorage.getItem('salary_portal_lang');
       if (saved === 'mr' || saved === 'en') currentLang = saved;
     } catch(e) {}
 
-    let liveNotices = [];
+    let currentPortalMode = 'monthly';
     let slipData = null;
     let annualData = null;
-    let currentPortalMode = 'monthly'; // DEFAULT: मासिक वेतन पत्रक
 
-    // API URL
     const API_URL = 'https://script.google.com/macros/s/AKfycbzHs-X6TtPiAZ6fO_fg6Ug_XMdBWmSCOxzMwWhOROCtZL9-Fk8yj6EiWof5ap0yD_RUmw/exec';
 
     async function apiRequest(payload){
@@ -1773,70 +661,13 @@
       return await response.json();
     }
 
-    // TOGGLE MODE (मासिक / वार्षिक)
-    function switchPortalMode(mode) {
-      currentPortalMode = mode;
-      const btnMonthly = document.getElementById('btnMonthlyMode');
-      const btnAnnual = document.getElementById('btnAnnualMode');
-      const monthGroup = document.getElementById('monthGroup');
-      const dateGrid = document.getElementById('dateFilterGrid');
-      const yearLabel = document.getElementById('yearLabel');
-      const submitBtnText = document.getElementById('loginBtnText');
-      const loginSub = document.getElementById('loginSubText');
-      const err = document.getElementById('errorMsg');
-      err.style.display = 'none';
-
-      if (mode === 'monthly') {
-        btnMonthly.classList.add('active');
-        btnAnnual.classList.remove('active');
-        monthGroup.style.display = 'block';
-        dateGrid.className = 'grid-2';
-        yearLabel.textContent = currentLang === 'en' ? 'Year' : 'वर्ष (Year)';
-        submitBtnText.textContent = translations[currentLang].btn_get_slip;
-        loginSub.textContent = currentLang === 'en' ? 'Enter details to view your pay slip' : 'वेतन तपशील पाहण्यासाठी माहिती भरा';
-      } else {
-        btnAnnual.classList.add('active');
-        btnMonthly.classList.remove('active');
-        monthGroup.style.display = 'none';
-        dateGrid.className = 'grid-1';
-        yearLabel.textContent = currentLang === 'en' ? 'Financial Year' : 'आर्थिक वर्ष (Financial Year)';
-        submitBtnText.textContent = currentLang === 'en' ? 'Get Annual Tax Statement' : 'आयकर विवरण पत्र मिळवा';
-        loginSub.textContent = currentLang === 'en' ? 'Select Financial Year to generate tax statement' : 'आयकर विवरण पत्रासाठी आर्थिक वर्ष निवडा';
-      }
-      populateYearOptions();
-    }
-
-    function populateYearOptions() {
-      const yearSelect = document.getElementById('year');
-      if (!yearSelect) return;
-      yearSelect.innerHTML = '';
-      const curYear = new Date().getFullYear();
-
-      if (currentPortalMode === 'monthly') {
-        for (let y = curYear; y >= curYear - 5; y--) {
-          const opt = document.createElement('option');
-          opt.value = String(y);
-          opt.textContent = String(y);
-          yearSelect.appendChild(opt);
-        }
-      } else {
-        // आर्थिक वर्ष पर्याय (2025-2026, 2024-2025...)
-        for (let y = curYear; y >= curYear - 4; y--) {
-          const fyVal = `${y}-${y + 1}`;
-          const opt = document.createElement('option');
-          opt.value = fyVal;
-          opt.textContent = `${y}-${String(y + 1).slice(-2)} (नियम वर्ष ${y + 1}-${String(y + 2).slice(-2)})`;
-          yearSelect.appendChild(opt);
-        }
-      }
-    }
-
+    // ===== BILINGUAL TOGGLE & LANGUAGE CONTROLLER =====
     function setLanguage(lang) {
       currentLang = lang;
       try { localStorage.setItem('salary_portal_lang', lang); } catch(e) {}
       document.documentElement.lang = lang;
-
       const t = translations[lang];
+
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (t[key]) el.textContent = t[key];
@@ -1851,140 +682,82 @@
       const loaderSubtitle = document.getElementById('loaderSubtitle');
       if (loaderSubtitle) loaderSubtitle.textContent = t.loader_text;
 
+      // टॉगल बटनांचे मजकूर थेट अपडेट करणे (Fix)
+      const tabMonthlyText = document.getElementById('tabMonthlyText');
+      if (tabMonthlyText) tabMonthlyText.textContent = t.tab_monthly;
+
+      const tabAnnualText = document.getElementById('tabAnnualText');
+      if (tabAnnualText) tabAnnualText.textContent = t.tab_annual;
+
       const uInput = document.getElementById('username');
       if (uInput) uInput.placeholder = lang === 'en' ? 'Enter Employee ID' : 'कर्मचारी आयडी टाका';
 
       switchPortalMode(currentPortalMode);
-
-      if (liveNotices.length > 0) renderTickerNotices();
-      if (slipData && currentPortalMode === 'monthly') renderSummary(slipData);
-      if (annualData && currentPortalMode === 'annual') renderAnnualStatementSummary(annualData);
     }
 
     function toggleLanguage() {
       setLanguage(currentLang === 'en' ? 'mr' : 'en');
     }
 
-    // ===== DYNAMIC TICKER NOTICES =====
-    async function loadDynamicNotices() {
-      try {
-        const res = await apiRequest({ action: 'getNotices' });
-        if (res && res.success && Array.isArray(res.notices) && res.notices.length > 0) {
-          liveNotices = res.notices;
-          renderTickerNotices();
+    // ===== SWITCH MODE (मासिक / वार्षिक) =====
+    function switchPortalMode(mode) {
+      currentPortalMode = mode;
+      const btnMonthly = document.getElementById('btnMonthlyMode');
+      const btnAnnual = document.getElementById('btnAnnualMode');
+      const monthGroup = document.getElementById('monthGroup');
+      const dateGrid = document.getElementById('dateFilterGrid');
+      const yearLabel = document.getElementById('yearLabel');
+      const submitBtnText = document.getElementById('loginBtnText');
+      const t = translations[currentLang];
+
+      const err = document.getElementById('errorMsg');
+      if (err) err.style.display = 'none';
+
+      if (mode === 'monthly') {
+        btnMonthly.classList.add('active');
+        btnAnnual.classList.remove('active');
+        monthGroup.style.display = 'block';
+        dateGrid.className = 'grid-2';
+        yearLabel.textContent = t.label_year;
+        submitBtnText.textContent = t.btn_get_slip;
+      } else {
+        btnAnnual.classList.add('active');
+        btnMonthly.classList.remove('active');
+        monthGroup.style.display = 'none';
+        dateGrid.className = 'grid-1';
+        yearLabel.textContent = t.label_fy;
+        submitBtnText.textContent = t.btn_get_annual;
+      }
+      populateYearOptions();
+    }
+
+    // ===== वर्ष पर्याय: फक्त आर्थिक वर्ष (उदा. 2026-2027 किंवा 2026-27), नियम वर्ष वगळले =====
+    function populateYearOptions() {
+      const yearSelect = document.getElementById('year');
+      if (!yearSelect) return;
+      yearSelect.innerHTML = '';
+      const curYear = new Date().getFullYear();
+
+      if (currentPortalMode === 'monthly') {
+        for (let y = curYear; y >= curYear - 5; y--) {
+          const opt = document.createElement('option');
+          opt.value = String(y);
+          opt.textContent = String(y);
+          yearSelect.appendChild(opt);
         }
-      } catch (err) {
-        console.warn("Could not load dynamic notices, using default.", err);
+      } else {
+        // फक्त स्वच्छ आर्थिक वर्ष (Financial Year only)
+        for (let y = curYear; y >= curYear - 4; y--) {
+          const fyVal = `${y}-${y + 1}`;
+          const opt = document.createElement('option');
+          opt.value = fyVal;
+          opt.textContent = currentLang === 'en' ? `Financial Year ${y}-${y + 1}` : `आर्थिक वर्ष ${y}-${y + 1}`;
+          yearSelect.appendChild(opt);
+        }
       }
     }
 
-    function renderTickerNotices() {
-      const track = document.getElementById('dynamicTickerTrack');
-      if (!track || liveNotices.length === 0) return;
-      const isEn = (currentLang === 'en');
-      let html = '';
-      liveNotices.forEach(item => {
-        const text = isEn ? (item.text_en || item.text_mr) : (item.text_mr || item.text_en);
-        const link = item.link || '#';
-        const isExternal = link.startsWith('http');
-        html += `
-          <a href="${link}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''} class="ticker-item">
-            <i class="fa-solid fa-circle-dot" style="font-size:0.5rem; color:#38bdf8;"></i>
-            <span>${escapeHtml(text)}</span>
-            <span class="gr-date">${escapeHtml(item.badge)}</span>
-          </a>
-        `;
-      });
-      track.innerHTML = html;
-    }
-
-    // ===== SHOWCASE SLIDER =====
-    let showcaseIndex = 0;
-    let showcaseTimer = null;
-    let progressTimer = null;
-    const SHOWCASE_DURATION = 5000;
-    let progressValue = 0;
-
-    function updateShowcaseTrack() {
-      const track = document.getElementById('showcaseTrack');
-      if (!track) return;
-      track.style.transform = `translateX(-${showcaseIndex * 100}%)`;
-      progressValue = 0;
-      const bar = document.getElementById('sliderProgress');
-      if (bar) bar.style.width = '0%';
-    }
-
-    function moveShowcase(dir) {
-      const track = document.getElementById('showcaseTrack');
-      if (!track) return;
-      const total = track.children.length;
-      showcaseIndex = (showcaseIndex + dir + total) % total;
-      updateShowcaseTrack();
-      restartShowcaseTimer();
-    }
-
-    function startShowcaseTimer() {
-      stopShowcaseTimer();
-      progressTimer = setInterval(() => {
-        progressValue += (100 / (SHOWCASE_DURATION / 100));
-        const bar = document.getElementById('sliderProgress');
-        if (bar) bar.style.width = `${Math.min(progressValue, 100)}%`;
-      }, 100);
-
-      showcaseTimer = setInterval(() => {
-        moveShowcase(1);
-      }, SHOWCASE_DURATION);
-    }
-
-    function stopShowcaseTimer() {
-      if (showcaseTimer) clearInterval(showcaseTimer);
-      if (progressTimer) clearInterval(progressTimer);
-    }
-
-    function restartShowcaseTimer() {
-      stopShowcaseTimer();
-      startShowcaseTimer();
-    }
-
-    function runCounters() {
-      const counters = document.querySelectorAll('.counter-number');
-      counters.forEach(counter => {
-        const target = parseFloat(counter.getAttribute('data-target'));
-        const isDecimal = target % 1 !== 0;
-        const duration = 2000;
-        const startTime = performance.now();
-        function updateCount(currentTime) {
-          const progress = Math.min((currentTime - startTime) / duration, 1);
-          const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-          const currentVal = easeOut * target;
-          counter.textContent = isDecimal ? currentVal.toFixed(1) : Math.floor(currentVal).toLocaleString();
-          if (progress < 1) requestAnimationFrame(updateCount);
-          else counter.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
-        }
-        requestAnimationFrame(updateCount);
-      });
-    }
-
-    function sendViaWhatsApp(e) {
-      e.preventDefault();
-      const phoneTarget = "917020302223"; 
-      const empId = document.getElementById('cEmpId').value.trim();
-      const name = document.getElementById('cName').value.trim();
-      const school = document.getElementById('cSchool').value.trim();
-      const message = document.getElementById('cMessage').value.trim();
-
-      const text = `*Teacher Salary Portal - Inquiry/Grievance*\n\n` +
-                   `*Employee ID:* ${empId}\n` +
-                   `*Name:* ${name}\n` +
-                   `*School:* ${school}\n` +
-                   `*Query:* ${message}`;
-
-      const targetUrl = `https://api.whatsapp.com/send?phone=${phoneTarget}&text=${encodeURIComponent(text)}`;
-      document.getElementById('contactForm').reset();
-      window.open(targetUrl, '_blank', 'noopener,noreferrer');
-    }
-
-    // ===== MAIN FETCH FUNCTION (मासिक किंवा वार्षिक) =====
+    // ===== FETCH DATA =====
     function fetchData() {
       if (currentPortalMode === 'monthly') {
         loginMonthly();
@@ -2020,18 +793,18 @@
           btnText.textContent = translations[currentLang].btn_get_slip;
           btnIcon.className = "fa-solid fa-arrow-right";
           if (!res || !res.success) { 
-            errorBox.textContent = res && res.message ? res.message : (currentLang === 'en' ? "❌ Invalid login or no record found!" : "❌ चुकीचा आयडी/पासवर्ड किंवा माहिती उपलब्ध नाही!");
+            errorBox.textContent = res && res.message ? res.message : "❌ माहिती उपलब्ध नाही!";
             errorBox.style.display = "block";
             return; 
           }
           slipData = res.record;
-          renderSummary(slipData);
+          renderMonthlySummary(slipData);
         })
         .catch(err => {
           btn.disabled = false;
           btnText.textContent = translations[currentLang].btn_get_slip;
           btnIcon.className = "fa-solid fa-arrow-right";
-          errorBox.textContent = currentLang === 'en' ? "⚠️ Connection error." : "⚠️ सर्व्हरशी संपर्क होऊ शकला नाही.";
+          errorBox.textContent = "⚠️ सर्व्हरशी संपर्क होऊ शकला नाही.";
           errorBox.style.display = "block";
         });
     }
@@ -2059,10 +832,10 @@
       apiRequest({ action: 'getAnnualStatement', username: u, password: p, financialYear: fy })
         .then(res => {
           btn.disabled = false;
-          btnText.textContent = currentLang === 'en' ? 'Get Annual Tax Statement' : 'आयकर विवरण पत्र मिळवा';
+          btnText.textContent = translations[currentLang].btn_get_annual;
           btnIcon.className = "fa-solid fa-arrow-right";
           if (!res || !res.success) { 
-            errorBox.textContent = res && res.message ? res.message : (currentLang === 'en' ? "❌ Record not found!" : "❌ माहिती उपलब्ध नाही!");
+            errorBox.textContent = res && res.message ? res.message : "❌ माहिती उपलब्ध नाही!";
             errorBox.style.display = "block";
             return; 
           }
@@ -2071,49 +844,39 @@
         })
         .catch(err => {
           btn.disabled = false;
-          btnText.textContent = currentLang === 'en' ? 'Get Annual Tax Statement' : 'आयकर विवरण पत्र मिळवा';
+          btnText.textContent = translations[currentLang].btn_get_annual;
           btnIcon.className = "fa-solid fa-arrow-right";
-          errorBox.textContent = currentLang === 'en' ? "⚠️ Connection error." : "⚠️ सर्व्हरशी संपर्क होऊ शकला नाही.";
+          errorBox.textContent = "⚠️ सर्व्हरशी संपर्क होऊ शकला नाही.";
           errorBox.style.display = "block";
         });
     }
 
-    // =========================================================
-    // १. मासिक वेतन पत्रक SUMMARY CARD
-    // =========================================================
-    function renderSummary(r){
+    // ===== मासिक वेतन पत्रक SUMMARY CARD =====
+    function renderMonthlySummary(r){
       document.getElementById('loginBox').style.display = 'none';
       const isEn = (currentLang === 'en');
-      const inWords = getNetSalaryInWords(r, currentLang);
-
       const html = `
-        <div class="summary-card" style="max-width:440px; margin:0 auto;" id="summaryInner" role="region" aria-live="polite">
-          <h3 style="margin:4px 0 12px; font-size:1.15rem; color:var(--text-main); font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
-            ${escapeHtml(r.Name || '')} <span style="font-size:0.85rem; color:var(--text-muted);">(${escapeHtml(r.EmployeeID || '')})</span>
+        <div class="summary-card" style="max-width:440px; margin:0 auto;" role="region" aria-live="polite">
+          <h3 style="margin:4px 0 12px; font-size:1.15rem; color:#0f172a;">
+            ${escapeHtml(r.Name || '')} <span style="font-size:0.85rem; color:#64748b;">(${escapeHtml(r.EmployeeID || '')})</span>
           </h3>
-          <p style="font-size:0.85rem; margin-bottom:6px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
+          <p style="font-size:0.85rem; margin-bottom:6px;">
             <strong>${isEn?'Month':'महिना'}:</strong> ${escapeHtml(r.Month||'')} &nbsp;&bull;&nbsp; <strong>${isEn?'Year':'वर्ष'}:</strong> ${escapeHtml(r.Year||'')}
           </p>
-          <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
-            <strong>${isEn?'Gross Salary':'एकूण वेतन'}:</strong> ₹${escapeHtml(formatIndianCurrency(r.GrossSalary))} &nbsp;&bull;&nbsp; <strong>${isEn?'Deductions':'एकूण कपात'}:</strong> ₹${escapeHtml(formatIndianCurrency(r.TotalDeductions))}
+          <p style="font-size:0.8rem; color:#64748b; margin-bottom:10px;">
+            <strong>${isEn?'Gross Salary':'एकूण वेतन'}:</strong> ₹ ${escapeHtml(formatIndianCurrency(r.GrossSalary))} &nbsp;&bull;&nbsp; <strong>${isEn?'Deductions':'एकूण कपात'}:</strong> ₹ ${escapeHtml(formatIndianCurrency(r.TotalDeductions))}
           </p>
-          <div style="background:#f1f5f9; padding:10px; margin:12px 0; border-radius:10px; border: 1px solid var(--border-color);">
-            <h3 style="color:#16a34a; font-size:1.1rem; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
-              ${isEn?'Net Salary':'निव्वळ वेतन'}: ₹${escapeHtml(formatIndianCurrency(r.NetSalary))}
+          <div style="background:#f1f5f9; padding:10px; margin:12px 0; border-radius:10px; border: 1px solid #e2e8f0;">
+            <h3 style="color:#16a34a; font-size:1.1rem;">
+              ${isEn?'Net Salary':'निव्वळ वेतन'}: ₹ ${escapeHtml(formatIndianCurrency(r.NetSalary))}
             </h3>
-            <p style="font-size:0.75rem; color:#475569; margin-top:2px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
-              <strong>${isEn?'In Words':'अक्षरी'}:</strong> ${escapeHtml(inWords)}
-            </p>
           </div>
-          <div class="action-group">
-            <button onclick="showPrintSlip()" class="btn-action btn-sm" style="background:#16a34a;">
+          <div class="summary-actions-wrap">
+            <button onclick="window.print()" class="btn-uniform print">
               <i class="fa-solid fa-print"></i> ${isEn?'Print':'प्रिंट'}
             </button>
-            <button onclick="downloadPdfSlip(this)" class="btn-action btn-sm" style="background:#2563eb;">
-              <i class="fa-solid fa-file-pdf"></i> ${isEn?'PDF':'पीडीएफ'}
-            </button>
-            <button onclick="resetForm()" class="btn-action btn-sm btn-secondary">
-              <i class="fa-solid fa-rotate-left"></i> ${isEn?'Reset':'मागे (Reset)'}
+            <button onclick="resetPortalForm()" class="btn-uniform back">
+              <i class="fa-solid fa-arrow-left"></i> ${isEn?'Back':'मागे जा'}
             </button>
           </div>
         </div>
@@ -2124,7 +887,7 @@
     }
 
     // =========================================================
-    // २. वार्षिक आयकर विवरण SUMMARY CARD & A4 DASHBOARD
+    // वार्षिक आयकर विवरण SUMMARY CARD (Center Header, Profile Grid, Equal Buttons)
     // =========================================================
     function renderAnnualStatementSummary(data) {
       document.getElementById('loginBox').style.display = 'none';
@@ -2153,19 +916,19 @@
       const sec80C_Total = Math.min(totGPF + totGIS, 150000);
       const netTaxableOld = Math.max(totGross - stdDeduction - totPT - sec80C_Total, 0);
 
-      // Tax Calculation Engines
-      function calcOldRegimeTax(taxableIncome) {
-        if (taxableIncome <= 250000) return 0;
+      // Tax Calculation
+      function calcOldTax(inc) {
+        if (inc <= 250000) return 0;
         let tax = 0;
-        if (taxableIncome > 250000) tax += Math.min(taxableIncome - 250000, 250000) * 0.05;
-        if (taxableIncome > 500000) tax += Math.min(taxableIncome - 500000, 500000) * 0.20;
-        if (taxableIncome > 1000000) tax += (taxableIncome - 1000000) * 0.30;
-        if (taxableIncome <= 500000) tax = 0; // Rebate u/s 87A
-        return Math.round(tax * 1.04); // Cess 4%
+        if (inc > 250000) tax += Math.min(inc - 250000, 250000) * 0.05;
+        if (inc > 500000) tax += Math.min(inc - 500000, 500000) * 0.20;
+        if (inc > 1000000) tax += (inc - 1000000) * 0.30;
+        if (inc <= 500000) tax = 0;
+        return Math.round(tax * 1.04);
       }
 
-      function calcNewRegimeTax(grossIncome) {
-        const taxable = Math.max(grossIncome - 75000, 0);
+      function calcNewTax(inc) {
+        const taxable = Math.max(inc - 75000, 0);
         if (taxable <= 300000) return 0;
         let tax = 0;
         if (taxable > 300000) tax += Math.min(taxable - 300000, 400000) * 0.05;
@@ -2173,64 +936,73 @@
         if (taxable > 1000000) tax += Math.min(taxable - 1000000, 200000) * 0.15;
         if (taxable > 1200000) tax += Math.min(taxable - 1200000, 300000) * 0.20;
         if (taxable > 1500000) tax += (taxable - 1500000) * 0.30;
-        if (taxable <= 700000) tax = 0; // Rebate 87A
+        if (taxable <= 700000) tax = 0;
         return Math.round(tax * 1.04);
       }
 
-      const taxOld = calcOldRegimeTax(netTaxableOld);
-      const taxNew = calcNewRegimeTax(totGross);
+      const taxOld = calcOldTax(netTaxableOld);
+      const taxNew = calcNewTax(totGross);
       const isNewBetter = taxNew < taxOld;
       const savings = Math.abs(taxOld - taxNew);
+      const isEn = (currentLang === 'en');
 
       const html = `
         <div class="annual-summary-card" id="annualPrintArea">
-          <div class="summary-top-bar">
-            <div class="emp-meta">
-              <span class="badge-fy">आर्थिक वर्ष ${escapeHtml(data.financialYear)}</span>
-              <h3>${escapeHtml(t.Name)}</h3>
-              <p>शालार्थ / Emp ID: <strong>${escapeHtml(t.Shalarth_ID || t.EmployeeID)}</strong> &bull; ${escapeHtml(t.School)} (${escapeHtml(t.ClusterName)})</p>
+          
+          <!-- १. CENTER HEADER (Annual Income Tax Statement & आर्थिक वर्ष) -->
+          <div class="statement-center-header">
+            <h2>Annual Income Tax Statement</h2>
+            <div class="fy-badge">
+              ${isEn ? 'Financial Year' : 'आर्थिक वर्ष'} ${escapeHtml(data.financialYear)}
             </div>
-            <div class="tax-status-badge">
-              <i class="fa-solid fa-circle-check"></i> १२ महिने हिशोब पत्रक
-            </div>
+          </div>
+
+          <!-- २. वरच्या बाजूला कर्मचारी तपशील (नाव, शाळा, केंद्र, शालार्थ ID, PAN NO.) -->
+          <div class="emp-profile-grid">
+            <div class="item"><strong>${isEn?'Name':'नाव'}:</strong> <span>${escapeHtml(t.Name)}</span></div>
+            <div class="item"><strong>${isEn?'School':'शाळा'}:</strong> <span>${escapeHtml(t.School)}</span></div>
+            <div class="item"><strong>${isEn?'Cluster':'केंद्र'}:</strong> <span>${escapeHtml(t.ClusterName || '-')}</span></div>
+            <div class="item"><strong>${isEn?'Shalarth / Emp ID':'शालार्थ / Emp ID'}:</strong> <span>${escapeHtml(t.Shalarth_ID || t.EmployeeID)}</span></div>
+            <div class="item"><strong>${isEn?'PAN No':'पॅन क्र (PAN No)'}:</strong> <span>${escapeHtml(t.PAN || '-')}</span></div>
+            <div class="item"><strong>${isEn?'PRAN / GPF No':'प्रान / भनिनी क्र'}:</strong> <span>${escapeHtml(t.PFNo || '-')}</span></div>
           </div>
 
           <!-- 4 KPI Box Highlights -->
           <div class="kpi-grid">
             <div class="kpi-box">
-              <span class="kpi-label">एकूण वेतन (Gross Salary)</span>
+              <span class="kpi-label">${isEn?'Gross Salary':'एकूण वेतन (Gross Salary)'}</span>
               <span class="kpi-val" style="color:#2563eb;">₹ ${formatIndianCurrency(totGross)}</span>
             </div>
             <div class="kpi-box">
-              <span class="kpi-label">मानक वजावट (Std. Ded.)</span>
+              <span class="kpi-label">${isEn?'Std. Deduction':'मानक वजावट (Std. Ded.)'}</span>
               <span class="kpi-val" style="color:#64748b;">- ₹ ${formatIndianCurrency(stdDeduction)}</span>
             </div>
             <div class="kpi-box">
-              <span class="kpi-label">80C वजावट (GPF/GIS)</span>
+              <span class="kpi-label">${isEn?'80C Deduction':'80C वजावट (GPF/GIS)'}</span>
               <span class="kpi-val" style="color:#64748b;">- ₹ ${formatIndianCurrency(sec80C_Total)}</span>
             </div>
             <div class="kpi-box highlight">
-              <span class="kpi-label">निव्वळ करपात्र उत्पन्न</span>
+              <span class="kpi-label">${isEn?'Net Taxable':'निव्वळ करपात्र उत्पन्न'}</span>
               <span class="kpi-val" style="color:#16a34a;">₹ ${formatIndianCurrency(netTaxableOld)}</span>
             </div>
           </div>
 
           <!-- 12 Months Salary Grid Table -->
-          <div style="overflow-x:auto; margin-bottom:20px; border-radius:12px; border:1px solid #e2e8f0;">
+          <div style="overflow-x:auto; border-radius:12px; border:1px solid #e2e8f0;">
             <table style="width:100%; border-collapse:collapse; font-size:0.78rem; text-align:right;">
               <thead>
                 <tr style="background:#0f172a; color:#ffffff;">
-                  <th style="padding:8px 6px; text-align:left;">महिना</th>
-                  <th style="padding:8px 6px;">मूळ वेतन</th>
-                  <th style="padding:8px 6px;">महागाई</th>
-                  <th style="padding:8px 6px;">घरभाडे</th>
-                  <th style="padding:8px 6px;">वा.भत्ता</th>
-                  <th style="padding:8px 6px;">फरक</th>
-                  <th style="padding:8px 6px; background:#1e293b;">एकूण वेतन</th>
-                  <th style="padding:8px 6px;">व्‍य.कर</th>
-                  <th style="padding:8px 6px;">गटविमा</th>
-                  <th style="padding:8px 6px;">भ.नि.नि.</th>
-                  <th style="padding:8px 6px; background:#1e293b;">आयकर</th>
+                  <th style="padding:8px 6px; text-align:left;">${isEn?'Month':'महिना'}</th>
+                  <th style="padding:8px 6px;">${isEn?'Basic':'मूळ वेतन'}</th>
+                  <th style="padding:8px 6px;">${isEn?'DA':'महागाई'}</th>
+                  <th style="padding:8px 6px;">${isEn?'HRA':'घरभाडे'}</th>
+                  <th style="padding:8px 6px;">${isEn?'TA':'वा.भत्ता'}</th>
+                  <th style="padding:8px 6px;">${isEn?'Arrears':'फरक'}</th>
+                  <th style="padding:8px 6px; background:#1e293b;">${isEn?'Gross':'एकूण वेतन'}</th>
+                  <th style="padding:8px 6px;">${isEn?'PT':'व्‍य.कर'}</th>
+                  <th style="padding:8px 6px;">${isEn?'GIS':'गटविमा'}</th>
+                  <th style="padding:8px 6px;">${isEn?'GPF':'भ.नि.नि.'}</th>
+                  <th style="padding:8px 6px; background:#1e293b;">${isEn?'IT':'आयकर'}</th>
                 </tr>
               </thead>
               <tbody>
@@ -2250,7 +1022,7 @@
                   </tr>
                 `).join('')}
                 <tr style="background:#e2e8f0; font-weight:800; border-top:2px solid #334155;">
-                  <td style="padding:8px 6px; text-align:left; color:#0f172a;">एकूण बेरीज</td>
+                  <td style="padding:8px 6px; text-align:left; color:#0f172a;">${isEn?'Total':'एकूण बेरीज'}</td>
                   <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totBasic)}</td>
                   <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totDA)}</td>
                   <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totHRA)}</td>
@@ -2266,30 +1038,36 @@
             </table>
           </div>
 
+          <!-- ३. टेबलच्या खाली '१२ महिने हिशोब पत्रक' स्टेटस बार -->
+          <div class="table-footer-status">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>${isEn ? '12 Months Complete Salary Statement' : '१२ महिने हिशोब पत्रक (सर्व महिने समाविष्ट)'}</span>
+          </div>
+
           <!-- Old vs New Tax Regime Comparison Card -->
           <div class="regime-compare-box">
             <div class="regime-col ${!isNewBetter ? 'best-choice' : ''}">
               ${!isNewBetter ? '<div class="best-tag">सर्वात फायदेशीर</div>' : ''}
-              <span class="regime-title">जुनी करप्रणाली (Old Regime)</span>
+              <span class="regime-title">${isEn?'Old Tax Regime':'जुनी करप्रणाली (Old Regime)'}</span>
               <span class="tax-amount">₹ ${formatIndianCurrency(taxOld)}</span>
-              <small style="color:#64748b;">80C व सर्व वजावटींनंतर</small>
+              <small style="color:#64748b;">${isEn?'After 80C & Deductions':'80C व सर्व वजावटींनंतर'}</small>
             </div>
             <div class="vs-divider">VS</div>
             <div class="regime-col ${isNewBetter ? 'best-choice' : ''}">
               ${isNewBetter ? '<div class="best-tag">सर्वात फायदेशीर</div>' : ''}
-              <span class="regime-title">नवीन करप्रणाली (New Regime)</span>
-              <span class="tax-amount text-success">₹ ${formatIndianCurrency(taxNew)}</span>
-              <small style="color:#16a34a;"><strong>₹ ${formatIndianCurrency(savings)}</strong> कर बचत</small>
+              <span class="regime-title">${isEn?'New Tax Regime':'नवीन करप्रणाली (New Regime)'}</span>
+              <span class="tax-amount" style="color:#16a34a;">₹ ${formatIndianCurrency(taxNew)}</span>
+              <small style="color:#16a34a;"><strong>₹ ${formatIndianCurrency(savings)}</strong> ${isEn?'Tax Savings':'कर बचत'}</small>
             </div>
           </div>
 
-          <!-- Actions -->
-          <div class="action-group" style="justify-content:center;">
-            <button onclick="printAnnualStatement()" class="btn-action btn-sm" style="background:#16a34a; color:#fff;">
-              <i class="fa-solid fa-print"></i> प्रिंट काढा (Print A4)
+          <!-- ४. समान लांबीची बटणे (EQUAL WIDTH ACTION BUTTONS) -->
+          <div class="summary-actions-wrap">
+            <button onclick="printAnnualStatement()" class="btn-uniform print">
+              <i class="fa-solid fa-print"></i> <span>${isEn?'Print A4 Statement':'प्रिंट काढा (Print A4)'}</span>
             </button>
-            <button onclick="resetForm()" class="btn-action btn-sm btn-secondary">
-              <i class="fa-solid fa-arrow-left"></i> मागे जा (Back)
+            <button onclick="resetPortalForm()" class="btn-uniform back">
+              <i class="fa-solid fa-arrow-left"></i> <span>${isEn?'Back to Login':'मागे जा (Back)'}</span>
             </button>
           </div>
         </div>
@@ -2314,11 +1092,17 @@
             @page { size: A4 portrait; margin: 8mm; }
             * { box-sizing: border-box; font-family: 'Noto Sans Devanagari', sans-serif !important; }
             body { margin: 0; padding: 0; font-size: 11px; color:#000; }
-            .action-group, .vs-divider { display: none !important; }
-            table th, table td { padding: 4px 5px !important; }
-            .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
-            .kpi-box { border: 1px solid #ccc; padding: 6px; border-radius: 6px; }
-            .regime-compare-box { display: flex; border: 1px solid #ccc; padding: 8px; border-radius: 6px; margin-top: 10px; }
+            .summary-actions-wrap, .vs-divider { display: none !important; }
+            .statement-center-header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 6px; margin-bottom: 10px; }
+            .statement-center-header h2 { font-size: 16px; margin: 0; color: #000; }
+            .statement-center-header .fy-badge { border: 1px solid #000; color: #000; padding: 2px 8px; font-size: 11px; }
+            .emp-profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; border: 1px solid #000; padding: 6px; margin-bottom: 10px; }
+            .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 10px; }
+            .kpi-box { border: 1px solid #000; padding: 5px; border-radius: 4px; }
+            table { width: 100%; border-collapse: collapse; font-size: 10px; }
+            table th, table td { border: 1px solid #000; padding: 4px; }
+            .table-footer-status { border: 1px solid #000; padding: 4px 8px; margin: 6px 0 10px; font-size: 10px; }
+            .regime-compare-box { display: flex; border: 1px solid #000; padding: 6px; margin-bottom: 10px; }
             .regime-col { flex: 1; text-align: center; }
           </style>
         </head>
@@ -2334,7 +1118,7 @@
       }, 350);
     }
 
-    function resetForm(){
+    function resetPortalForm(){
       slipData = null;
       annualData = null;
       document.getElementById('loginBox').style.display = 'block';
@@ -2347,417 +1131,58 @@
       return String(s || '').replace(/[&<>"]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[m]));
     }
 
-    // ===== PRINTABLE MONTHLY SLIP =====
-    function generatePrintHtml(){
-      if(!slipData) return '';
-      const now = new Date();
-      const printDateStr = now.toLocaleDateString('en-GB') + ', ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-      const isEn = (currentLang === 'en');
-
-      const allowances = isEn ? [
-        ['Basic Pay','BasicPay'], ['Dearness Allowance (DA)','DA'], ['House Rent Allowance (HRA)','HRA'], 
-        ['Transport Allowance (TA)','TA'], ['DA Arrears','Arrears'], ['Pay Arrears','BasicArrears'], 
-        ['NPS Employer','NPS_Employer'], ['KP Allowance','KPAllowance'], ['Other Allowance','OtherAllowance'], 
-        ['Handicap Allowance','HandicapAllow'], ['7th Pay Arrears','SeventhPay'], ['Gross Salary','GrossSalary']
-      ] : [
-        ['मूळ वेतन','BasicPay'], ['महागाई भत्‍ता','DA'], ['घरभाडे','HRA'], 
-        ['वाहन भत्‍ता','TA'], ['महागाई फरक','Arrears'], ['वेतन फरक','BasicArrears'], 
-        ['NPS Employer','NPS_Employer'], ['के.प्र भत्‍ता','KPAllowance'], ['इतर भत्‍ते','OtherAllowance'], 
-        ['दिव्‍यांग भत्‍ता','HandicapAllow'], ['७ वा वेतन','SeventhPay'], ['एकूण वेतन','GrossSalary']
-      ];
-
-      const deductions = isEn ? [
-        ['GIS','GIS'], ['Professional Tax','ProfessionalTax'], ['GPF Subscription','GPF'], ['GPF Refund','GPFE'], ['Revenue Stamp','RevenueStamp'], ['NPSG','NPSG'], ['NPSE','NPSE'], ['Festival Advance','FA'], ['Income Tax (TDS)','IncomeTax'], ['CM Relief Fund','CMFund'],
-        ['Flag Fund','FlagFund'], ['Group Accident Ins.','GAI'], ['Zilla Society','ZillaSociety'], ['Court Attachment','CourtDeduction'],
-        ['JSB Society','JSBSociety'], ['ZPB Society','ZPBSociety'], ['Dhotri Society','DhotriSociety'], ['Mandrup Society','MandrupSociety'], ['Mardi Society','MardiSociety'], ['MAzad Society','MAzadSociety'], ['Mane Society','ManeSociety'],
-        ['Samarth Society','SwamiSamarthSociety'], ['Akkalkot Society','AkkalkotSociety'], ['MLP Society','MLPS'],
-        ['Shivkrupa Fa','ShivkrupaFa'], ['Recovery','Repayment'], ['Mane Bank','ManeBank'], ['Sangli Bank','SangaliBank'],
-        ['Janta Bank','JantaBank'], ['Lokmangal Bank','Lokmangal'], ['Renuka Bank','Renuka'], ['Other Deduction','Other'], ['Bhima Pat','Bhima'],
-        ['Total Deductions','TotalDeductions']  
-      ] : [
-        ['गटविमा','GIS'], ['व्‍यवसाय कर','ProfessionalTax'], ['भनिनी वर्गणी','GPF'], ['भनिनी हप्‍ता','GPFE'], ['Revenue Stamp','RevenueStamp'], ['NPSG','NPSG'], ['NPSE','NPSE'], ['अग्रीम','FA'], ['आयकर','IncomeTax'], ['मुख्‍यमंत्री निधी','CMFund'],
-        ['ध्‍वज निधी','FlagFund'], ['अपघात विमा','GAI'], ['जिल्‍हा सोसा.','ZillaSociety'], ['कोर्ट वसुली','CourtDeduction'],
-        ['जोशाबा','JSBSociety'], ['बहुजन सोसा','ZPBSociety'], ['धोत्री सोसा','DhotriSociety'], ['मंद्रुप सोसा','MandrupSociety'], ['मार्डी सोसा','MardiSociety'], ['मौआसो','MAzadSociety'], ['माने सोसा','ManeSociety'],
-        ['समर्थ सोसा','SwamiSamarthSociety'], ['अक्‍कलकोट सो','AkkalkotSociety'], ['मालपासो','MLPS'],
-        ['शिवकृपा फा','ShivkrupaFa'], ['वसूली','Repayment'], ['माने बॅंक','ManeBank'], ['सांगली बॅंक','SangaliBank'],
-        ['जनता बॅंक','JantaBank'], ['लाेकमंगल बॅंक','Lokmangal'], ['रेणूका','Renuka'], ['इतर','Other'], ['भिमा पत','Bhima'],
-        ['एकूण वजावट','TotalDeductions']  
-      ];
-
-      function getVal(key){ return slipData[key] ? formatIndianCurrency(slipData[key]) : '0'; }
-
-      let rows = "";
-      const maxRows = Math.max(allowances.length, Math.ceil(deductions.length / 3));
-      for(let i = 0; i < maxRows; i++){
-        const a = allowances[i] ? `<td>${allowances[i][0]}</td><td>₹${escapeHtml(getVal(allowances[i][1]))}</td>` : "<td></td><td></td>";
-        const d1 = deductions[i * 3] || [null, null];
-        const d2 = deductions[i * 3 + 1] || [null, null];
-        const d3 = deductions[i * 3 + 2] || [null, null];
-
-        const isLastRow = (d1[0] === 'Total Deductions' || d1[0] === 'एकूण वजावट');
-        if(isLastRow){
-          rows += `<tr>${a}<td colspan="6" style="text-align:center; font-weight:bold;">${escapeHtml(d1[0])}: ₹${escapeHtml(getVal(d1[1]))}</td></tr>`;
-        } else {
-          function deductionCell(label, key){
-            if(!label) return "<td></td><td></td>";
-            return `<td>${escapeHtml(label)}</td><td style="border-right:1px solid #1976d2; text-align:right;">₹${escapeHtml(getVal(key))}</td>`;
-          }
-          rows += `<tr>${a}${deductionCell(d1[0], d1[1])}${deductionCell(d2[0], d2[1])}${deductionCell(d3[0], d3[1])}</tr>`;
-        }
-      }
-
-      const qrData = `EmployeeID:${slipData.EmployeeID}|Month:${slipData.Month}|Year:${slipData.Year}|NetSalary:${slipData.NetSalary}`;
-      const qrContainer = document.createElement("div");
-      qrContainer.style.display = "none";
-      document.body.appendChild(qrContainer);
-      new QRCode(qrContainer, { text: qrData, width: 100, height: 100 });
-      const canvas = qrContainer.querySelector("canvas");
-      const qrBase64 = canvas ? canvas.toDataURL("image/png") : "";
-      qrContainer.remove();
-
-      const headerHtml = isEn ? `
-        <div class="header-text" style="text-align:center; border-bottom:2px solid #1976d2; padding-bottom:6px;">
-          <h1 style="margin:0; font-size:19px; color:#1a237e; font-weight:700;">Panchayat Samiti (Education Department), South Solapur</h1>
-          <h2 style="margin:4px 0 0; font-size:15px; color:#334155; font-weight:600;">Salary Slip (Pay Statement)</h2>
-        </div>
-      ` : `
-        <div class="header-text" style="text-align:center; border-bottom:2px solid #1976d2; padding-bottom:6px;">
-          <h1 style="margin:0; font-size:20px; color:#1a237e; font-weight:700;">पंचायत समिती (शिक्षण विभाग), दक्षिण सोलापूर</h1>
-          <h2 style="margin:4px 0 0; font-size:16px; color:#334155; font-weight:600;">वेतन पत्रक (Pay Slip)</h2>
-        </div>
-      `;
-
-      const metaHtml = isEn ? `
-        <div class="meta" style="margin:10px 0; padding:10px; background:#f9f9f9; border:1px solid #ccc; border-radius:6px; display:flex; justify-content:space-between; font-size:12px;">
-          <div style="width:42%;">
-            <table style="width:100%; border-collapse:collapse; border:none;">
-              <tr><td style="padding:2px 0; width:105px; font-weight:bold;">Month</td><td style="width:12px; font-weight:bold;">:</td><td>${escapeHtml(slipData.Month||'')} ${escapeHtml(slipData.Year||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Shalarth ID</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Shalarth_ID||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Name</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Name||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Designation</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Designation||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">PF / PRAN No</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.PFNo||'')}</td></tr>
-            </table>
-          </div>
-          <div style="width:42%;">
-            <table style="width:100%; border-collapse:collapse; border:none;">
-              <tr><td style="padding:2px 0; width:95px; font-weight:bold;">School</td><td style="width:12px; font-weight:bold;">:</td><td>${escapeHtml(slipData.School||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">UDISE</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.UDISE||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Cluster</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.ClusterName||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Account No</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.AccountNumber||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Bank Name</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.BankName||'')}</td></tr>
-            </table>
-          </div>
-          <div style="width:16%; text-align:center;">
-            <img src="${qrBase64}" alt="QR Code" style="height:85px; width:85px;">
-            <div style="font-size:10px; margin-top:2px;">Scan to verify</div>
-          </div>
-        </div>
-      ` : `
-        <div class="meta" style="margin:10px 0; padding:10px; background:#f9f9f9; border:1px solid #ccc; border-radius:6px; display:flex; justify-content:space-between; font-size:12px;">
-          <div style="width:42%;">
-            <table style="width:100%; border-collapse:collapse; border:none;">
-              <tr><td style="padding:2px 0; width:110px; font-weight:bold;">महिना</td><td style="width:12px; font-weight:bold;">:</td><td>${escapeHtml(slipData.Month||'')} ${escapeHtml(slipData.Year||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">शालार्थ ID</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Shalarth_ID||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">नाव</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Name||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">पद</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Designation||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">भनिनी / प्रान क्र</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.PFNo||'')}</td></tr>
-            </table>
-          </div>
-          <div style="width:42%;">
-            <table style="width:100%; border-collapse:collapse; border:none;">
-              <tr><td style="padding:2px 0; width:85px; font-weight:bold;">शाळा</td><td style="width:12px; font-weight:bold;">:</td><td>${escapeHtml(slipData.School||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">UDISE</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.UDISE||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">केंद्र</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.ClusterName||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">खाते क्र</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.AccountNumber||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">बँकेचे नाव</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.BankName||'')}</td></tr>
-            </table>
-          </div>
-          <div style="width:16%; text-align:center;">
-            <img src="${qrBase64}" alt="QR Code" style="height:85px; width:85px;">
-            <div style="font-size:10px; margin-top:2px;">सत्यता पडताळा</div>
-          </div>
-        </div>
-      `;
-
-      const dynamicInWords = getNetSalaryInWords(slipData, currentLang);
-      const footerNote = isEn ? 
-        `This is a system-generated salary slip and does not require a physical signature.<br><span style="font-size:9px; color:#94a3b8;">Printed: ${printDateStr}</span>` : 
-        `हे संगणक प्रणालीद्वारे तयार केलेले वेतन पत्रक असल्याने यावर स्वाक्षरीची आवश्यकता नाही.<br><span style="font-size:9px; color:#94a3b8;">दिनांक: ${printDateStr}</span>`;
-
-      return `
-        <div id="salarySlipContent" style="font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', Arial, sans-serif; font-size:12px; color:#000; background:#fff; padding:10px; width:750px; margin:0 auto;">
-          <style>
-            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
-            .pdf-table { width:100%; border-collapse:collapse; border:2px solid #1976d2; margin-top:10px; }
-            .pdf-table th, .pdf-table td { padding:5px 6px; font-size:11px; }
-            .pdf-table thead th { background:#e3f2fd; border-bottom:2px solid #1976d2; text-align:center; font-weight:600; color:#1a237e; }
-            .pdf-table tbody td { border-bottom:1px dotted #1976d2; }
-            .pdf-table thead th:nth-child(2), .pdf-table tbody td:nth-child(2) { border-right:1px solid #1976d2; }
-            .pdf-table tbody td:nth-child(1), .pdf-table tbody td:nth-child(2) { text-align:left; }
-            .pdf-table tbody td:nth-child(n+3) { text-align:right; }
-            .pdf-table tbody tr:last-child td { font-weight:700; background:#f1f8ff; border-top:2px solid #1976d2; }
-            .net-box { margin-top:14px; padding:10px; background:#f5f5f5; border:1.5px solid #999; border-radius:6px; text-align:center; }
-            .net-box h3 { margin:0; font-size:15px; font-weight:700; color:#16a34a; }
-            .net-box p { margin:4px 0 0; font-size:13px; color:#333; }
-            .footer { margin-top: 20px; font-size: 10px; color: #64748b; padding-top: 10px; text-align: center; border-top: 1px dotted #999; }
-          </style>
-          ${headerHtml}
-          ${metaHtml}
-          <table class="pdf-table">
-            <thead>
-              <tr>
-                <th colspan="2" style="border-right:1px solid #1976d2">${isEn?'Allowances':'भत्ते'}</th>
-                <th colspan="6">${isEn?'Deductions':'कपाती'}</th>
-              </tr>
-            </thead>
-            <tbody>${rows}</tbody>
-          </table>
-          <div class="net-box">
-            <h3>${isEn?'Net Salary Payable':'निव्‍वळ वेतन'}: ₹${escapeHtml(formatIndianCurrency(slipData.NetSalary))}</h3>
-            <p><strong>${isEn?'In Words':'अक्षरी'}:</strong> ${escapeHtml(dynamicInWords)}</p>
-          </div>
-          <div class="footer">${footerNote}</div>
-        </div>`;
-    }
-
-    function showPrintSlip(){
-      if(!slipData){ alert('No data to print'); return; }
-      const printHtml = generatePrintHtml();
-      let printIframe = document.getElementById('printIframe');
-      if (!printIframe) {
-        printIframe = document.createElement('iframe');
-        printIframe.id = 'printIframe';
-        printIframe.style.position = 'fixed';
-        printIframe.style.right = '0';
-        printIframe.style.bottom = '0';
-        printIframe.style.width = '0';
-        printIframe.style.height = '0';
-        printIframe.style.border = '0';
-        document.body.appendChild(printIframe);
-      }
-      const doc = printIframe.contentWindow.document;
-      doc.open();
-      doc.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>Print Slip</title>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
-          <style>@page { size: A4 portrait; margin: 8mm; } body { margin:0; padding:0; }</style>
-        </head>
-        <body>${printHtml}</body>
-        </html>
-      `);
-      doc.close();
-      setTimeout(() => {
-        printIframe.contentWindow.focus();
-        printIframe.contentWindow.print();
-      }, 300);
-    }
-
-    async function downloadPdfSlip(btnEl) {
-      if (!slipData) return;
-      const originalText = btnEl.innerHTML;
-      btnEl.disabled = true;
-      btnEl.innerHTML = '<span class="btn-spinner"></span> ' + (currentLang === 'en' ? 'Downloading...' : 'डाऊनलोड होत आहे...');
-
-      const filename = `SalarySlip_${slipData.EmployeeID}_${slipData.Month}_${slipData.Year}.pdf`;
-      const rawHtml = generatePrintHtml();
-
-      const fullServerHtml = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
-          <style>@page { size: A4 portrait; margin: 8mm; } body { margin: 0; background: #fff; }</style>
-        </head>
-        <body>${rawHtml}</body>
-        </html>
-      `;
-
-      try {
-        const res = await apiRequest({ action: 'generatePdf', html: fullServerHtml, filename: filename });
-        if (res && res.success && res.pdfBase64) {
-          const byteCharacters = atob(res.pdfBase64);
-          const byteNumbers = new Array(byteCharacters.length);
-          for (let i = 0; i < byteCharacters.length; i++) byteNumbers[i] = byteCharacters.charCodeAt(i);
-          const byteArray = new Uint8Array(byteNumbers);
-          const blob = new Blob([byteArray], { type: 'application/octet-stream' });
-          const blobUrl = window.URL.createObjectURL(blob);
-          const downloadLink = document.createElement('a');
-          downloadLink.style.display = 'none';
-          downloadLink.href = blobUrl;
-          downloadLink.download = filename;
-          document.body.appendChild(downloadLink);
-          downloadLink.click();
-          setTimeout(() => {
-            window.URL.revokeObjectURL(blobUrl);
-            downloadLink.remove();
-            btnEl.disabled = false;
-            btnEl.innerHTML = originalText;
-          }, 300);
-        } else {
-          throw new Error();
-        }
-      } catch (error) {
-        btnEl.disabled = false;
-        btnEl.innerHTML = originalText;
-        showPrintSlip();
-      }
-    }
-
-    // ===== CHANGE PASSWORD LOGIC =====
-    function toggleChangePassword(){
-      document.getElementById('loginBox').style.display = 'none';
-      document.getElementById('changePasswordBox').style.display = 'block';
-      ['empIdPass','oldPass','newPass','confirmPass'].forEach(id => document.getElementById(id).value = "");
-      const msgBox = document.getElementById('passMsg');
-      msgBox.style.display = "none";
-    }
-
-    function backToLogin(){
-      document.getElementById('changePasswordBox').style.display = 'none';
-      document.getElementById('loginBox').style.display = 'block';
-    }
-
-    function changePassword(){
-      const u = document.getElementById('empIdPass').value.trim();
-      const oldP = document.getElementById('oldPass').value.trim();
-      const newP = document.getElementById('newPass').value.trim();
-      const confirmP = document.getElementById('confirmPass').value.trim();
-      const msgBox = document.getElementById('passMsg');
-      const btn = document.getElementById('updatePassBtn');
-      const btnText = document.getElementById('updatePassBtnText');
-
-      msgBox.style.display = "none";
-      if(!u || !oldP || !newP || !confirmP){
-        msgBox.textContent = currentLang === 'en' ? "⚠️ Fill all fields" : "⚠️ सर्व माहिती भरणे आवश्यक आहे"; 
-        msgBox.style.display = "block"; 
-        return;
-      }
-      if(newP !== confirmP){
-        msgBox.textContent = currentLang === 'en' ? "❌ New passwords do not match" : "❌ नवीन पासवर्ड जुळत नाही"; 
-        msgBox.style.display = "block"; 
-        return;
-      }
-
-      btn.disabled = true;
-      btnText.innerHTML = '<span class="btn-spinner"></span> Updating...';
-
-      apiRequest({ action: 'updatePassword', username: u, oldPassword: oldP, newPassword: newP })
-        .then(res => {
-          btn.disabled = false;
-          btnText.textContent = translations[currentLang].btn_update_pwd;
-          msgBox.textContent = res.message;
-          msgBox.style.display = "block";
-          msgBox.style.color = res.success ? "#16a34a" : "#dc2626";
-
-          if(res.success){
-            ['empIdPass','oldPass','newPass','confirmPass'].forEach(id => document.getElementById(id).value = "");
-            const modal = document.getElementById("successModal");
-            modal.style.display = "flex";
-            setTimeout(() => {
-              modal.style.display = "none";
-              backToLogin();
-            }, 3000);
-          }
-        })
-        .catch(err => {
-          btn.disabled = false;
-          btnText.textContent = translations[currentLang].btn_update_pwd;
-          msgBox.textContent = "⚠️ नेटवर्क त्रुटी.";
-          msgBox.style.display = "block";
-          msgBox.style.color = "#dc2626";
-        });
-    }
-
-    // ===== PWA INSTALLATION LOGIC =====
+    // PWA & SERVICE WORKER
     let deferredPrompt = null;
     const installBtn = document.getElementById('pwaInstallBtn');
-
     function isAppAlreadyInstalled() {
-      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-      const isMarked = localStorage.getItem('pwa_is_installed') === 'true';
-      return isStandalone || isMarked;
+      return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone || localStorage.getItem('pwa_is_installed') === 'true';
     }
-
-    if (isAppAlreadyInstalled()) {
-      if (installBtn) installBtn.style.display = 'none';
-    }
+    if (isAppAlreadyInstalled() && installBtn) installBtn.style.display = 'none';
 
     window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      if (installBtn && !isAppAlreadyInstalled()) {
-        installBtn.style.display = 'inline-flex';
-      }
+      e.preventDefault(); deferredPrompt = e;
+      if (installBtn && !isAppAlreadyInstalled()) installBtn.style.display = 'inline-flex';
     });
 
     async function installApp() {
       if (deferredPrompt) {
         deferredPrompt.prompt();
         const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-          if (installBtn) installBtn.style.display = 'none';
+        if (outcome === 'accepted' && installBtn) {
+          installBtn.style.display = 'none';
           localStorage.setItem('pwa_is_installed', 'true');
         }
         deferredPrompt = null;
-      } else {
-        openPwaGuide();
       }
-    }
-
-    function openPwaGuide() {
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      const stepBox = document.getElementById('pwaStepContent');
-      if (stepBox) {
-        if (isIOS) {
-          stepBox.innerHTML = `<strong>Apple / iOS Safari:</strong><br>१. तळाशी असलेल्या Share (<strong><i class="fa-solid fa-arrow-up-from-bracket"></i></strong>) बटणावर टॅप करा.<br>२. मेनूमधून <strong>"Add to Home Screen"</strong> निवडा.`;
-        } else {
-          stepBox.innerHTML = `<strong>Android / Chrome वापरकर्ते:</strong><br>१. वर उजव्या कोपऱ्यातील तीन डॉट्सवर (<strong>&vellip;</strong>) क्लिक करा.<br>२. मेनूमधील <strong>"Add to Home screen"</strong> किंवा <strong>"Create shortcut"</strong> निवडा.<br>३. <strong>"Add"</strong> वर क्लिक करा. पोर्टल थेट ॲपसारखे स्क्रीनवर येईल.`;
-        }
-      }
-      document.getElementById('pwaGuideModal').style.display = 'flex';
-    }
-
-    function closePwaGuide() {
-      document.getElementById('pwaGuideModal').style.display = 'none';
     }
 
     window.addEventListener('appinstalled', () => {
       if (installBtn) installBtn.style.display = 'none';
       localStorage.setItem('pwa_is_installed', 'true');
-      deferredPrompt = null;
     });
 
-    // INLINE SERVICE WORKER
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         const swScript = `
           self.addEventListener('install', (e) => self.skipWaiting());
           self.addEventListener('activate', (e) => e.waitUntil(self.clients.claim()));
           self.addEventListener('fetch', (e) => {
-            if (e.request.method === 'GET') {
-              e.respondWith(fetch(e.request).catch(() => new Response('Offline')));
-            }
+            if (e.request.method === 'GET') e.respondWith(fetch(e.request).catch(() => new Response('Offline')));
           });
         `;
         const blob = new Blob([swScript], { type: 'application/javascript' });
-        const swBlobUrl = URL.createObjectURL(blob);
-        navigator.serviceWorker.register(swBlobUrl).catch(() => {
-          navigator.serviceWorker.register('./sw.js').catch(() => {});
-        });
+        navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
       });
     }
 
-    // SCROLL TO TOP & EYE TOGGLES
+    // INIT
     const passwordInput = document.getElementById("password");
     const eyeIcon = document.getElementById("eyeIcon");
     const eyeOffIcon = document.getElementById("eyeOffIcon");
     eyeIcon.addEventListener("click", () => { passwordInput.type = "text"; eyeIcon.style.display = "none"; eyeOffIcon.style.display = "block"; });
     eyeOffIcon.addEventListener("click", () => { passwordInput.type = "password"; eyeOffIcon.style.display = "none"; eyeIcon.style.display = "block"; });
 
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     window.addEventListener('scroll', () => {
       const scrollBtn = document.getElementById('scrollToTopBtn');
       const salarySection = document.getElementById('salaryPortal');
@@ -2766,29 +1191,12 @@
       else scrollBtn.classList.remove('show');
     });
 
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // INITIALIZATION
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(currentLang);
-      startShowcaseTimer();
-      runCounters();
-      loadDynamicNotices();
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('is-visible');
-        });
-      }, { threshold: 0.15 });
-
-      document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
-      const footerYear = document.getElementById('footerYear');
-      if (footerYear) footerYear.textContent = new Date().getFullYear();
+      const yr = document.getElementById('footerYear');
+      if (yr) yr.textContent = new Date().getFullYear();
     });
 
-    // PRELOADER AUTO HIDE
     window.addEventListener('load', () => {
       setTimeout(() => {
         const loader = document.getElementById('pageLoader');
