@@ -2203,7 +2203,10 @@
           <div class="emp-meta-bar">
             <div><span>नाव:</span> <strong>${escapeHtml(t.Name)}</strong></div>
             <div><span>शाळा:</span> <strong>${escapeHtml(t.School)}</strong></div>
-            <div><span>PAN No:</span> <strong>${escapeHtml(t.PAN || t.PanNo || '-')}</strong></div>
+            <span>PAN No:</span> 
+              <span class="pan-box-container" style="display:inline-flex; gap:2px; margin-left:6px; vertical-align:middle;">
+                <span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span>
+              </span>
             <div><span>PF No:</span> <strong>${escapeHtml(t.PFNo || t.PRAN || '-')}</strong></div>
           </div>
 
@@ -2336,6 +2339,8 @@
             .kpi-box { border: 1px solid #ccc; padding: 6px; border-radius: 6px; }
             .regime-compare-box { display: flex; border: 1px solid #ccc; padding: 8px; border-radius: 6px; margin-top: 10px; }
             .regime-col { flex: 1; text-align: center; }
+            .pan-box-container { display: inline-flex !important; gap: 2px !important; vertical-align: middle !important; }
+			.pan-cell { display: inline-block !important; width: 14px !important; height: 16px !important; border: 1px solid #000 !important; background: #fff !important; }
           </style>
         </head>
         <body>
