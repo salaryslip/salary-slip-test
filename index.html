@@ -4,7 +4,7 @@
   <meta name="referrer" content="no-referrer">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teacher Salary Slip Portal | शिक्षक वेतन पत्रक पोर्टल</title>
+  <title>Teacher Salary Slip Portal | शिक्षक वेतन व आयकर विवरण पोर्टल</title>
   <!-- Website Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="./graduation-hat.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./graduation-hat.png">
@@ -49,9 +49,7 @@
       overflow-x: hidden;
     }
 
-    /* =========================================================
-       सुधारणा ३: मॉडर्न पेज प्रीलोडर (MODERN PRELOADER STYLES)
-       ========================================================= */
+    /* मॉडर्न पेज प्रीलोडर */
     .page-loader-wrap {
       position: fixed;
       inset: 0;
@@ -151,18 +149,14 @@
       100% { left: 75%; width: 25%; }
     }
 
-    /* =========================================================
-       सुधारणा १: ॲप इन्स्टॉल झाल्यावर (STANDALONE मोडमध्ये) बटण लपवणे
-       ========================================================= */
+    /* ॲप इन्स्टॉल झाल्यावर बटण लपवणे */
     @media all and (display-mode: standalone) {
       #pwaInstallBtn {
         display: none !important;
       }
     }
 
-    /* =========================================================
-       IMPORTANT CIRCULARS / GR RUNNING TICKER
-       ========================================================= */
+    /* TICKER */
     .news-ticker-wrap {
       background: #0f172a;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -192,37 +186,22 @@
       letter-spacing: 0.04em;
     }
 
-    .ticker-badge i {
-      animation: bellRing 1.5s infinite;
-    }
-
+    .ticker-badge i { animation: bellRing 1.5s infinite; }
     @keyframes bellRing {
       0%, 100% { transform: rotate(0); }
       20%, 60% { transform: rotate(15deg); }
       40%, 80% { transform: rotate(-15deg); }
     }
 
-    .ticker-content {
-      flex: 1;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
+    .ticker-content { flex: 1; overflow: hidden; white-space: nowrap; }
     .ticker-track {
       display: inline-block;
       white-space: nowrap;
       padding-left: 100%;
       animation: tickerMarquee 32s linear infinite;
     }
-
-    .ticker-track:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes tickerMarquee {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-100%, 0, 0); }
-    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes tickerMarquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
 
     .ticker-item {
       display: inline-flex;
@@ -233,11 +212,7 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-
-    .ticker-item:hover {
-      color: #38bdf8;
-    }
-
+    .ticker-item:hover { color: #38bdf8; }
     .ticker-item span.gr-date {
       color: #94a3b8;
       font-size: 0.75rem;
@@ -270,15 +245,9 @@
       gap: 6px;
       transition: all 0.2s;
     }
+    .btn-lang:hover { background: #2563eb; border-color: #38bdf8; }
 
-    .btn-lang:hover {
-      background: #2563eb;
-      border-color: #38bdf8;
-    }
-
-    /* =========================================================
-       HERO & SHOWCASE SLIDER
-       ========================================================= */
+    /* HERO */
     .hero-wrapper {
       position: relative;
       background: linear-gradient(135deg, rgba(8, 24, 58, 0.94) 0%, rgba(15, 23, 42, 0.90) 100%),
@@ -362,16 +331,13 @@
       margin-bottom: 45px;
     }
 
-    /* =========================================================
-       सुधारणा २: सर्व Hero बटनांची रुंदी आणि फॉरमॅटिंग एकसमान करणे
-       ========================================================= */
     .btn-hero {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       padding: 13px 24px;
-      min-width: 210px; /* एकसमान किमान रुंदी */
+      min-width: 210px;
       border-radius: 12px;
       font-weight: 700;
       font-size: 0.92rem;
@@ -381,41 +347,12 @@
       font-family: inherit;
     }
 
-    .btn-hero.primary {
-      background: #2563eb;
-      color: #ffffff;
-      box-shadow: 0 10px 25px -4px rgba(37, 99, 235, 0.5);
-    }
-
-    .btn-hero.primary:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-    }
-
-    .btn-hero.secondary {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(8px);
-    }
-
-    .btn-hero.secondary:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .btn-hero.install {
-      background: #16a34a;
-      color: #ffffff;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 10px 25px -4px rgba(22, 163, 74, 0.45);
-    }
-
-    .btn-hero.install:hover {
-      background: #15803d;
-      transform: translateY(-2px);
-    }
+    .btn-hero.primary { background: #2563eb; color: #ffffff; box-shadow: 0 10px 25px -4px rgba(37, 99, 235, 0.5); }
+    .btn-hero.primary:hover { background: #1d4ed8; transform: translateY(-2px); }
+    .btn-hero.secondary { background: rgba(255, 255, 255, 0.12); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.25); backdrop-filter: blur(8px); }
+    .btn-hero.secondary:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+    .btn-hero.install { background: #16a34a; color: #ffffff; border: none; cursor: pointer; box-shadow: 0 10px 25px -4px rgba(22, 163, 74, 0.45); }
+    .btn-hero.install:hover { background: #15803d; transform: translateY(-2px); }
 
     /* Slider Container */
     .slider-card-wrap {
@@ -475,50 +412,12 @@
       background: #1e293b;
     }
 
-    .dev-avatar-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    .dev-content {
-      flex: 1;
-    }
-
-    .dev-content h3 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin: 0 0 2px 0;
-      letter-spacing: -0.01em;
-    }
-
-    .dev-content .dev-role {
-      font-size: 0.85rem;
-      color: #38bdf8;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .dev-divider {
-      width: 44px;
-      height: 3px;
-      background: linear-gradient(90deg, #38bdf8, transparent);
-      border-radius: 2px;
-      margin-bottom: 10px;
-    }
-
-    .dev-content p {
-      font-size: 0.88rem;
-      color: #cbd5e1;
-      line-height: 1.6;
-      margin: 0;
-    }
+    .dev-avatar-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .dev-content { flex: 1; }
+    .dev-content h3 { font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0 0 2px 0; }
+    .dev-content .dev-role { font-size: 0.85rem; color: #38bdf8; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+    .dev-divider { width: 44px; height: 3px; background: linear-gradient(90deg, #38bdf8, transparent); border-radius: 2px; margin-bottom: 10px; }
+    .dev-content p { font-size: 0.88rem; color: #cbd5e1; line-height: 1.6; margin: 0; }
 
     .slider-nav {
       position: absolute;
@@ -537,40 +436,15 @@
       transition: 0.2s ease;
       z-index: 10;
     }
-
-    .slider-nav:hover {
-      background: #2563eb;
-    }
-
+    .slider-nav:hover { background: #2563eb; }
     .slider-nav.prev { left: 16px; }
     .slider-nav.next { right: 16px; }
 
-    .slider-progress-bar {
-      height: 3px;
-      background: rgba(255, 255, 255, 0.1);
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+    .slider-progress-bar { height: 3px; background: rgba(255, 255, 255, 0.1); width: 100%; position: absolute; bottom: 0; left: 0; }
+    .slider-progress-fill { height: 100%; width: 0%; background: #38bdf8; transition: width 0.1s linear; }
 
-    .slider-progress-fill {
-      height: 100%;
-      width: 0%;
-      background: #38bdf8;
-      transition: width 0.1s linear;
-    }
-
-    /* =========================================================
-       METRICS SECTION
-       ========================================================= */
-    .metrics-section {
-      width: min(1140px, 94%);
-      margin: -50px auto 40px;
-      position: relative;
-      z-index: 10;
-    }
-
+    /* METRICS */
+    .metrics-section { width: min(1140px, 94%); margin: -50px auto 40px; position: relative; z-index: 10; }
     .metrics-container {
       background: #ffffff;
       border: 1px solid var(--border-color);
@@ -582,13 +456,7 @@
       gap: 32px;
       align-items: center;
     }
-
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
+    .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .metric-card {
       background: #f8fafc;
       border: 1px solid #eef2f6;
@@ -598,50 +466,15 @@
       overflow: hidden;
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
-
-    .metric-card:hover {
-      transform: translateY(-3px);
-      border-color: #cbd5e1;
-    }
-
-    .metric-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .metric-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-    }
-
+    .metric-card:hover { transform: translateY(-3px); border-color: #cbd5e1; }
+    .metric-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .metric-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
     .metric-icon.blue { background: #e0f2fe; color: #0284c7; }
     .metric-icon.green { background: #dcfce7; color: #16a34a; }
     .metric-icon.amber { background: #fef3c7; color: #d97706; }
     .metric-icon.purple { background: #f3e8ff; color: #9333ea; }
-
-    .metric-card h3 {
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -0.03em;
-      margin-bottom: 4px;
-    }
-
-    .metric-card p {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #64748b;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin: 0;
-    }
+    .metric-card h3 { font-size: 1.85rem; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
+    .metric-card p { font-size: 0.8rem; font-weight: 600; color: #64748b; text-transform: uppercase; margin: 0; }
 
     .graph-card {
       background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
@@ -652,91 +485,20 @@
       flex-direction: column;
       justify-content: space-between;
     }
+    .graph-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .graph-header h4 { font-size: 0.95rem; font-weight: 700; color: #1e293b; }
+    .graph-tag { font-size: 0.72rem; font-weight: 700; color: #16a34a; background: #dcfce7; padding: 3px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 5px; }
+    .graph-tag i { font-size: 0.6rem; animation: pulseDot 1.5s infinite; }
+    @keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+    .svg-graph-wrap { width: 100%; height: 140px; position: relative; }
+    .svg-graph-wrap svg { width: 100%; height: 100%; overflow: visible; }
+    .graph-line { fill: none; stroke: #2563eb; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawLine 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .graph-area { fill: url(#graphGradient); opacity: 0; animation: fadeInArea 1s ease forwards 1s; }
+    @keyframes drawLine { to { stroke-dashoffset: 0; } }
+    @keyframes fadeInArea { to { opacity: 1; } }
+    .graph-footer-labels { display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.72rem; font-weight: 600; color: #94a3b8; }
 
-    .graph-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-
-    .graph-header h4 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #1e293b;
-    }
-
-    .graph-tag {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: #16a34a;
-      background: #dcfce7;
-      padding: 3px 10px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .graph-tag i {
-      font-size: 0.6rem;
-      animation: pulseDot 1.5s infinite;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
-    }
-
-    .svg-graph-wrap {
-      width: 100%;
-      height: 140px;
-      position: relative;
-    }
-
-    .svg-graph-wrap svg {
-      width: 100%;
-      height: 100%;
-      overflow: visible;
-    }
-
-    .graph-line {
-      fill: none;
-      stroke: #2563eb;
-      stroke-width: 3;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 600;
-      stroke-dashoffset: 600;
-      animation: drawLine 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .graph-area {
-      fill: url(#graphGradient);
-      opacity: 0;
-      animation: fadeInArea 1s ease forwards 1s;
-    }
-
-    @keyframes drawLine {
-      to { stroke-dashoffset: 0; }
-    }
-
-    @keyframes fadeInArea {
-      to { opacity: 1; }
-    }
-
-    .graph-footer-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: #94a3b8;
-    }
-
-    /* =========================================================
-       SALARY PORTAL FORM
-       ========================================================= */
+    /* PORTAL FORM */
     .salary-portal-section {
       width: min(1140px, 94%);
       margin: 40px auto 20px;
@@ -745,41 +507,58 @@
       align-items: center;
     }
 
-    .portal-section-intro {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .portal-section-intro h2 {
-      font-size: 1.8rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: var(--text-main);
-    }
-
-    .portal-section-intro p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-top: 6px;
-    }
+    .portal-section-intro { text-align: center; margin-bottom: 24px; }
+    .portal-section-intro h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); }
+    .portal-section-intro p { color: var(--text-muted); font-size: 0.95rem; margin-top: 6px; }
 
     .login-box, #changePasswordBox {
       width: 100%;
-      max-width: 390px;
+      max-width: 410px;
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.12);
-      padding: 1.5rem 1.4rem;
+      padding: 1.6rem 1.4rem;
       border: 1px solid var(--border-color);
       text-align: left;
       animation: fadeIn 0.3s ease;
     }
 
-    .brand-header {
-      text-align: center;
-      margin-bottom: 1.2rem;
+    /* SEGMENTED TOGGLE SWITCH (मासिक / वार्षिक) */
+    .portal-mode-toggle {
+      display: flex;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 4px;
+      margin-bottom: 1.25rem;
+      gap: 4px;
     }
 
+    .mode-btn {
+      flex: 1;
+      padding: 9px 10px;
+      border: none;
+      background: transparent;
+      color: #64748b;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .mode-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.08);
+    }
+
+    .brand-header { text-align: center; margin-bottom: 1.2rem; }
     .brand-icon {
       width: 44px;
       height: 44px;
@@ -792,52 +571,32 @@
       font-size: 1.25rem;
       margin-bottom: 0.5rem;
     }
+    .brand-header h2 { font-size: 1.35rem; font-weight: 700; color: var(--text-main); }
+    .brand-header p { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
 
-    .brand-header h2 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-main);
-      letter-spacing: -0.02em;
-    }
-
-    .brand-header p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-
-    .form-group {
-      margin-bottom: 0.75rem;
-    }
-
+    .form-group { margin-bottom: 0.85rem; }
     .form-group label {
       display: block;
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 700;
       color: #334155;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.3rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .input-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
+    .input-wrapper { position: relative; display: flex; align-items: center; }
     .input-wrapper i.icon-left {
       position: absolute;
       left: 0.85rem;
       color: #94a3b8;
       font-size: 0.85rem;
       pointer-events: none;
-      transition: color 0.2s;
     }
 
     input, select {
       width: 100%;
-      padding: 0.55rem 0.85rem 0.55rem 2.3rem;
+      padding: 0.6rem 0.85rem 0.6rem 2.3rem;
       font-size: 0.88rem;
       color: var(--text-main);
       background: #f8fafc;
@@ -846,28 +605,13 @@
       outline: none;
       transition: all 0.2s ease;
     }
+    input:focus, select:focus { background: #ffffff; border-color: var(--primary); box-shadow: 0 0 0 4px var(--focus-ring); }
+    input:focus + i.icon-left, select:focus + i.icon-left { color: var(--primary); }
 
-    input:focus, select:focus {
-      background: #ffffff;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px var(--focus-ring);
-    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .grid-1 { display: grid; grid-template-columns: 1fr; }
 
-    input:focus + i.icon-left, select:focus + i.icon-left {
-      color: var(--primary);
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-    }
-
-    select {
-      appearance: none;
-      cursor: pointer;
-    }
-
+    select { appearance: none; cursor: pointer; }
     .select-wrapper::after {
       content: "\f078";
       font-family: "Font Awesome 6 Free";
@@ -879,10 +623,7 @@
       pointer-events: none;
     }
 
-    .password-container {
-      position: relative;
-    }
-
+    .password-container { position: relative; }
     .toggle-password {
       position: absolute;
       right: 0.85rem;
@@ -892,11 +633,6 @@
       color: #64748b;
       font-size: 1rem;
       padding: 0.25rem;
-      transition: color 0.2s;
-    }
-
-    .toggle-password:hover {
-      color: var(--text-main);
     }
 
     button.btn-action {
@@ -917,29 +653,10 @@
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
       margin-top: 1rem;
     }
-
-    button.btn-action:hover:not(:disabled) {
-      background: var(--primary-hover);
-      transform: translateY(-1px);
-    }
-
-    button.btn-action:disabled {
-      opacity: 0.75;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    button.btn-secondary {
-      background: #f1f5f9;
-      color: #334155;
-      box-shadow: none;
-      border: 1px solid var(--border-color);
-      margin-top: 0.5rem;
-    }
-
-    button.btn-secondary:hover:not(:disabled) {
-      background: #e2e8f0;
-    }
+    button.btn-action:hover:not(:disabled) { background: var(--primary-hover); transform: translateY(-1px); }
+    button.btn-action:disabled { opacity: 0.75; cursor: not-allowed; }
+    button.btn-secondary { background: #f1f5f9; color: #334155; box-shadow: none; border: 1px solid var(--border-color); margin-top: 0.5rem; }
+    button.btn-secondary:hover:not(:disabled) { background: #e2e8f0; }
 
     .btn-spinner {
       display: inline-block;
@@ -950,7 +667,6 @@
       border-top-color: #ffffff;
       animation: spin 0.8s linear infinite;
     }
-
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .error-msg {
@@ -966,18 +682,14 @@
       display: none;
     }
 
-    .muted {
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      text-align: center;
-      margin-top: 1.25rem;
-    }
+    .muted { color: var(--text-muted); font-size: 0.78rem; text-align: center; margin-top: 1.25rem; }
 
+    /* SUMMARY CARDS CONTAINER */
     #summaryCard {
       display: none;
       width: 100%;
-      max-width: 440px;
-      margin-top: 1rem;
+      max-width: 900px;
+      margin-top: 1.5rem;
     }
 
     .summary-card {
@@ -989,26 +701,130 @@
       text-align: center;
     }
 
-    .action-group {
-      margin-top: 16px;
+    /* ANNUAL SUMMARY CARD STYLES */
+    .annual-summary-card {
+      background: #ffffff;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15);
+      padding: 24px;
+      text-align: left;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .summary-top-bar {
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid #2563eb;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .badge-fy {
+      background: #eff6ff;
+      color: #2563eb;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .emp-meta h3 { font-size: 1.3rem; color: #0f172a; margin: 0 0 4px; }
+    .emp-meta p { font-size: 0.86rem; color: #64748b; margin: 0; }
+
+    .tax-status-badge {
+      background: #dcfce7;
+      color: #16a34a;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
       gap: 6px;
+    }
+
+    /* 4 KPI Boxes */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kpi-box.highlight { background: #f0fdf4; border-color: #bbf7d0; }
+    .kpi-label { font-size: 0.74rem; font-weight: 700; color: #64748b; text-transform: uppercase; margin-bottom: 4px; }
+    .kpi-val { font-size: 1.22rem; font-weight: 800; color: #0f172a; }
+
+    /* Regime Compare Box */
+    .regime-compare-box {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border: 1.5px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .regime-col { text-align: center; flex: 1; min-width: 180px; }
+    .regime-col.best-choice {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1.5px solid #22c55e;
+    }
+
+    .best-tag {
+      background: #16a34a;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .regime-title { display: block; font-size: 0.82rem; font-weight: 700; color: #475569; margin-bottom: 4px; }
+    .tax-amount { font-size: 1.35rem; font-weight: 800; display: block; color: #0f172a; }
+    .vs-divider { font-weight: 800; color: #94a3b8; padding: 0 16px; font-size: 0.95rem; }
+
+    .action-group {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       justify-content: center;
       align-items: center;
     }
 
     .action-group button.btn-sm {
       margin-top: 0 !important;
-      flex: 1 1 0px;
-      min-width: 0;
-      padding: 0.55rem 0.4rem;
-      font-size: 0.78rem;
-      font-weight: 600;
-      border-radius: 8px;
-      gap: 0.35rem;
-      white-space: nowrap;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 9px;
+      gap: 0.45rem;
+      width: auto;
     }
 
     #successModal {
@@ -1075,19 +891,8 @@
       margin-bottom: 12px;
     }
 
-    .pwa-modal-box h3 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 8px;
-    }
-
-    .pwa-modal-box p {
-      font-size: 0.88rem;
-      color: #64748b;
-      line-height: 1.55;
-      margin-bottom: 16px;
-    }
+    .pwa-modal-box h3 { font-size: 1.25rem; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+    .pwa-modal-box p { font-size: 0.88rem; color: #64748b; line-height: 1.55; margin-bottom: 16px; }
 
     .pwa-step-card {
       background: #f8fafc;
@@ -1104,9 +909,7 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes scaleIn { from { transform: scale(0.9); } to { transform: scale(1); } }
 
-    /* =========================================================
-       SCROLL-TRIGGERED ABOUT & FEATURES
-       ========================================================= */
+    /* REVEAL SECTIONS */
     .reveal-section {
       opacity: 0;
       transform: translateY(35px);
@@ -1114,328 +917,61 @@
       will-change: opacity, transform;
     }
 
-    .reveal-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal-section.is-visible { opacity: 1; transform: translateY(0); }
+    .about-portal { width: min(1140px, 94%); margin: 60px auto 40px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; }
+    .about-card, .features-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 22px; padding: 34px; box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05); }
+    .about-icon { width: 50px; height: 50px; border-radius: 14px; background: #eaf2ff; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 20px; }
+    .about-card h2, .features-card h2 { margin: 0 0 14px; color: #0f172a; font-size: 1.55rem; font-weight: 800; }
+    .about-card p { margin: 0 0 14px; color: #64748b; line-height: 1.7; font-size: 0.95rem; }
 
-    .about-portal {
-      width: min(1140px, 94%);
-      margin: 60px auto 40px;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-    }
+    .feature-item { display: flex; gap: 15px; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid #f1f5f9; }
+    .feature-item:last-child { border-bottom: 0; padding-bottom: 0; }
+    .feature-item > i { width: 42px; height: 42px; border-radius: 12px; background: #f1f5f9; color: #2563eb; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; transition: all 0.25s ease; }
+    .feature-item:hover > i { background: #2563eb; color: #ffffff; }
+    .feature-item strong { display: block; color: #1e293b; font-size: 0.95rem; margin-bottom: 3px; }
+    .feature-item span { display: block; color: #64748b; font-size: 0.85rem; line-height: 1.5; }
 
-    .about-card, .features-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 22px;
-      padding: 34px;
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05);
-    }
+    /* CONTACT SECTION */
+    .contact-portal { width: min(860px, 94%); margin: 50px auto 40px; }
+    .contact-card { background: #ffffff; border: 1px solid var(--border-color); border-radius: 22px; padding: 36px 30px; box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05); }
+    .contact-header { text-align: center; margin-bottom: 24px; }
+    .contact-icon { width: 52px; height: 52px; border-radius: 16px; background: #dcfce7; color: #16a34a; display: inline-flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 12px; }
+    .contact-header h2 { font-size: 1.65rem; font-weight: 800; color: #0f172a; }
+    .contact-header p { color: #64748b; font-size: 0.92rem; margin-top: 4px; }
 
-    .about-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 14px;
-      background: #eaf2ff;
-      color: #2563eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-    }
+    .wa-group-card { background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1.5px dashed #22c55e; border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+    .wa-group-info { display: flex; align-items: center; gap: 14px; text-align: left; }
+    .wa-group-info i { font-size: 2.2rem; color: #16a34a; flex-shrink: 0; }
+    .wa-group-info strong { display: block; color: #14532d; font-size: 0.98rem; }
+    .wa-group-info span { display: block; color: #166534; font-size: 0.8rem; margin-top: 2px; }
 
-    .about-card h2, .features-card h2 {
-      margin: 0 0 14px;
-      color: #0f172a;
-      font-size: 1.55rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
+    .btn-wa-group { display: inline-flex; align-items: center; gap: 8px; background: #16a34a; color: #ffffff; padding: 10px 18px; border-radius: 10px; font-size: 0.88rem; font-weight: 700; text-decoration: none; white-space: nowrap; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25); transition: all 0.2s ease; flex-shrink: 0; }
+    .btn-wa-group:hover { background: #15803d; transform: translateY(-2px); }
 
-    .about-card p {
-      margin: 0 0 14px;
-      color: #64748b;
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
+    .or-divider { display: flex; align-items: center; text-align: center; color: #94a3b8; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 20px 0; }
+    .or-divider::before, .or-divider::after { content: ''; flex: 1; border-bottom: 1px solid #e2e8f0; }
+    .or-divider:not(:empty)::before { margin-right: 1em; }
+    .or-divider:not(:empty)::after { margin-left: 1em; }
 
-    .feature-item {
-      display: flex;
-      gap: 15px;
-      align-items: flex-start;
-      padding: 15px 0;
-      border-bottom: 1px solid #f1f5f9;
-    }
+    textarea { width: 100%; padding: 0.75rem 0.85rem; font-size: 0.88rem; color: var(--text-main); background: #f8fafc; border: 1.5px solid var(--border-color); border-radius: 10px; outline: none; resize: vertical; transition: all 0.2s ease; }
+    textarea:focus { background: #ffffff; border-color: #16a34a; box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.2); }
 
-    .feature-item:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
+    /* FOOTER */
+    .modern-footer { width: 100%; margin-top: 40px; background: #090d16; color: #94a3b8; text-align: center; padding: 40px 20px; font-size: 0.88rem; }
+    .modern-footer .footer-title { color: #ffffff; font-size: 1.15rem; font-weight: 800; }
+    .modern-footer .designer { color: #60a5fa; font-weight: 700; margin-top: 6px; }
+    .modern-footer .footer-copy { margin-top: 14px; font-size: 0.78rem; color: #64748b; }
 
-    .feature-item > i {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: #f1f5f9;
-      color: #2563eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.05rem;
-      flex-shrink: 0;
-      transition: all 0.25s ease;
-    }
-
-    .feature-item:hover > i {
-      background: #2563eb;
-      color: #ffffff;
-    }
-
-    .feature-item strong {
-      display: block;
-      color: #1e293b;
-      font-size: 0.95rem;
-      margin-bottom: 3px;
-    }
-
-    .feature-item span {
-      display: block;
-      color: #64748b;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    /* =========================================================
-       CONTACT US & WHATSAPP COMMUNITY SECTION
-       ========================================================= */
-    .contact-portal {
-      width: min(860px, 94%);
-      margin: 50px auto 40px;
-    }
-
-    .contact-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 22px;
-      padding: 36px 30px;
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.05);
-    }
-
-    .contact-header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .contact-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: #dcfce7;
-      color: #16a34a;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-    }
-
-    .contact-header h2 {
-      font-size: 1.65rem;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -0.02em;
-    }
-
-    .contact-header p {
-      color: #64748b;
-      font-size: 0.92rem;
-      margin-top: 4px;
-    }
-
-    .wa-group-card {
-      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-      border: 1.5px dashed #22c55e;
-      border-radius: 16px;
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .wa-group-info {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-align: left;
-    }
-
-    .wa-group-info i {
-      font-size: 2.2rem;
-      color: #16a34a;
-      flex-shrink: 0;
-    }
-
-    .wa-group-info strong {
-      display: block;
-      color: #14532d;
-      font-size: 0.98rem;
-    }
-
-    .wa-group-info span {
-      display: block;
-      color: #166534;
-      font-size: 0.8rem;
-      margin-top: 2px;
-    }
-
-    .btn-wa-group {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #16a34a;
-      color: #ffffff;
-      padding: 10px 18px;
-      border-radius: 10px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      text-decoration: none;
-      white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
-      transition: all 0.2s ease;
-      flex-shrink: 0;
-    }
-
-    .btn-wa-group:hover {
-      background: #15803d;
-      transform: translateY(-2px);
-    }
-
-    .or-divider {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      color: #94a3b8;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin: 20px 0;
-    }
-
-    .or-divider::before, .or-divider::after {
-      content: '';
-      flex: 1;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .or-divider:not(:empty)::before {
-      margin-right: 1em;
-    }
-
-    .or-divider:not(:empty)::after {
-      margin-left: 1em;
-    }
-
-    textarea {
-      width: 100%;
-      padding: 0.75rem 0.85rem;
-      font-size: 0.88rem;
-      color: var(--text-main);
-      background: #f8fafc;
-      border: 1.5px solid var(--border-color);
-      border-radius: 10px;
-      outline: none;
-      resize: vertical;
-      transition: all 0.2s ease;
-    }
-
-    textarea:focus {
-      background: #ffffff;
-      border-color: #16a34a;
-      box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.2);
-    }
-
-    /* Footer */
-    .modern-footer {
-      width: 100%;
-      margin-top: 40px;
-      background: #090d16;
-      color: #94a3b8;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.88rem;
-      font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
-    }
-
-    .modern-footer .footer-title {
-      color: #ffffff;
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
-    }
-
-    .modern-footer p {
-      font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
-    }
-
-    .modern-footer .designer {
-      color: #60a5fa;
-      font-weight: 700;
-      margin-top: 6px;
-    }
-
-    .modern-footer .footer-copy {
-      margin-top: 14px;
-      font-size: 0.78rem;
-      color: #64748b;
-    }
-
-    /* Floating Scroll-to-Top Button */
+    /* SCROLL TO TOP */
     .scroll-to-top {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #ffffff;
-      border: 1.5px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      cursor: pointer;
-      z-index: 999;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(15px);
+      position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%;
+      background: var(--primary); color: #ffffff; border: 1.5px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; cursor: pointer; z-index: 999; opacity: 0; visibility: hidden; transform: translateY(15px);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    .scroll-to-top.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .scroll-to-top:hover {
-      background: var(--primary-hover);
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.5);
-    }
-
-    .scroll-to-top:active {
-      transform: translateY(0) scale(0.95);
-    }
+    .scroll-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .scroll-to-top:hover { background: var(--primary-hover); transform: translateY(-3px) scale(1.05); }
 
     @media (max-width: 900px) {
       .metrics-container { grid-template-columns: 1fr; }
@@ -1446,42 +982,25 @@
       .news-ticker-wrap { height: 38px; font-size: 0.78rem; }
       .ticker-badge { padding: 0 10px; font-size: 0.72rem; }
       .btn-lang { padding: 3px 8px; font-size: 0.7rem; }
-      .hero-actions {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-      }
-      .btn-hero {
-        width: 100%;
-        max-width: 290px; /* मोबाईलवर तिन्ही बटणे तंतोतंत एकाच आकाराची */
-      }
+      .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
+      .btn-hero { width: 100%; max-width: 290px; }
       .metrics-grid { grid-template-columns: 1fr; }
-      .showcase-slide.dev-testimonial-slide {
-        flex-direction: column;
-        text-align: center;
-        padding: 22px 18px;
-      }
+      .grid-2 { grid-template-columns: 1fr; }
+      .showcase-slide.dev-testimonial-slide { flex-direction: column; text-align: center; padding: 22px 18px; }
       .dev-divider { margin: 8px auto 10px; }
       .slider-nav { display: none; }
       .contact-card { padding: 26px 20px; }
       .wa-group-card { flex-direction: column; text-align: center; }
       .wa-group-info { flex-direction: column; text-align: center; }
       .btn-wa-group { width: 100%; justify-content: center; }
-      .scroll-to-top {
-        bottom: 18px;
-        right: 18px;
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-      }
+      .regime-compare-box { flex-direction: column; gap: 14px; }
+      .vs-divider { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- =========================================================
-       सुधारणा ३: मॉडर्न पेज प्रीलोडर HTML
-       ========================================================= -->
+  <!-- MODERN PRELOADER -->
   <div id="pageLoader" class="page-loader-wrap" aria-hidden="true">
     <div class="loader-content">
       <div class="loader-icon-box">
@@ -1496,9 +1015,7 @@
     </div>
   </div>
 
-  <!-- =========================================================
-       IMPORTANT CIRCULARS / GR MARQUEE TICKER + LANGUAGE SWITCHER
-       ========================================================= -->
+  <!-- TICKER -->
   <aside class="news-ticker-wrap" aria-label="Important Alerts">
     <div class="ticker-badge">
       <i class="fa-solid fa-bullhorn"></i>
@@ -1508,17 +1025,17 @@
       <div class="ticker-track" id="dynamicTickerTrack">
         <a href="#salaryPortal" class="ticker-item">
           <i class="fa-solid fa-circle-dot" style="font-size:0.5rem; color:#38bdf8;"></i>
-          <span data-i18n="ticker_text1">Current month salary bill has been submitted to treasury. Teachers can check their slip.</span>
+          <span data-i18n="ticker_text1">चालू महिन्याचे वेतन देयक ट्रेझरीकडे वर्ग करण्यात आले आहे. सर्व शिक्षकांनी वेतन पत्रक व वार्षिक आयकर विवरण तपासावे.</span>
           <span class="gr-date" data-i18n="badge_latest">Latest</span>
         </a>
         <a href="https://education.maharashtra.gov.in" target="_blank" rel="noopener noreferrer" class="ticker-item">
           <i class="fa-solid fa-file-pdf" style="color:#ef4444;"></i>
-          <span data-i18n="ticker_text2">Government Resolution: Distribution of annual GPF / NPS statement for primary teachers.</span>
+          <span data-i18n="ticker_text2">शासन निर्णय: प्राथमिक शिक्षक भविष्य निर्वाह निधी (GPF/NPS) वार्षिक हिशोब पत्रक वितरण बाबत.</span>
           <span class="gr-date">GR No. 205/26</span>
         </a>
         <a href="#contactSection" class="ticker-item">
           <i class="fa-brands fa-whatsapp" style="color:#22c55e;"></i>
-          <span data-i18n="ticker_text3">For any salary discrepancies, contact Panchayat Samiti Education Dept WhatsApp helpdesk.</span>
+          <span data-i18n="ticker_text3">वेतन पत्रकातील तफावतीबाबत पंचायत समिती शिक्षण विभाग WhatsApp हेल्पलाईन वर त्वरित संपर्क साधावा.</span>
           <span class="gr-date" data-i18n="badge_help">Helpdesk</span>
         </a>
       </div>
@@ -1530,32 +1047,29 @@
     </div>
   </aside>
 
-  <!-- =========================================================
-       HERO & SHOWCASE SLIDER
-       ========================================================= -->
+  <!-- HERO -->
   <header class="hero-wrapper">
     <div class="hero-glow-orb"></div>
     <div class="hero-container">
       <div class="hero-badge">
         <i class="fa-solid fa-graduation-cap"></i>
-        <span data-i18n="hero_badge">Digital Salary Service</span>
+        <span data-i18n="hero_badge">Digital Salary &amp; Tax Service</span>
       </div>
       <h1 class="hero-title">
         <span data-i18n="hero_title">Teacher Salary Portal</span>
-        <span class="hero-subtitle" data-i18n="hero_subtitle">Fast, Transparent &amp; Reliable</span>
+        <span class="hero-subtitle" data-i18n="hero_subtitle">मासिक वेतन पत्रक व वार्षिक आयकर विवरण</span>
       </h1>
       <p class="hero-desc" data-i18n="hero_desc">
-        Instant access to monthly salary statements, gross allowances, deductions, and downloadable PDF pay slips anytime.
+        मासिक वेतन पत्रक, मूळ भत्ते, कपातीचा तपशील आणि सुटसुटीत अधिकृत A4 वार्षिक आयकर वेतन विवरण पत्र एका क्लिकवर प्राप्त करा.
       </p>
       
       <div class="hero-actions">
         <a href="#salaryPortal" class="btn-hero primary">
-          <span data-i18n="btn_access_slip">Access Salary Slip</span> <i class="fa-solid fa-arrow-down"></i>
+          <span data-i18n="btn_access_slip">वेतन / आयकर विवरण मिळवा</span> <i class="fa-solid fa-arrow-down"></i>
         </a>
         <a href="#aboutSection" class="btn-hero secondary">
-          <span data-i18n="btn_explore_features">Explore Features</span> <i class="fa-solid fa-circle-info"></i>
+          <span data-i18n="btn_explore_features">वैशिष्ट्ये पहा</span> <i class="fa-solid fa-circle-info"></i>
         </a>
-        <!-- Install App Button (Auto-hidden in Standalone App) -->
         <button id="pwaInstallBtn" class="btn-hero install" onclick="installApp()" aria-label="Install App">
           <i class="fa-solid fa-mobile-screen"></i> <span id="pwaBtnText">ॲप इन्स्टॉल करा</span>
         </button>
@@ -1573,7 +1087,6 @@
         <div class="showcase-slider">
           <div class="showcase-track" id="showcaseTrack">
             
-            <!-- Slide 1: Kushal Jain (CEO Solapur) -->
             <div class="showcase-slide dev-testimonial-slide">
               <div class="dev-avatar-wrap">
                 <img src="images/ceo.jpg" alt="Kushal Jain - CEO Solapur" onerror="this.src='ceo.jpg'">
@@ -1588,7 +1101,6 @@
               </div>
             </div>
 
-            <!-- Slide 2: Vishal Mule (EO Solapur) -->
             <div class="showcase-slide dev-testimonial-slide">
               <div class="dev-avatar-wrap">
                 <img src="images/eo.jpg" alt="Vishal Mule - EO Solapur" onerror="this.src='eo.jpg'">
@@ -1603,7 +1115,6 @@
               </div>
             </div>
 
-            <!-- Slide 3: Manoj Raut (BDO) -->
             <div class="showcase-slide dev-testimonial-slide">
               <div class="dev-avatar-wrap">
                 <img src="images/bdo.jpg" alt="Block Development Officer - South Solapur" onerror="this.src='bdo.jpg'">
@@ -1618,7 +1129,6 @@
               </div>
             </div>
 
-            <!-- Slide 4: Jayashri Sutar (BEO) -->
             <div class="showcase-slide dev-testimonial-slide">
               <div class="dev-avatar-wrap">
                 <img src="images/beo.jpg" alt="Block Education Officer - South Solapur" onerror="this.src='beo.jpg'">
@@ -1633,7 +1143,6 @@
               </div>
             </div>
 
-            <!-- Slide 5: Somnath Gaikwad (Web Developer) -->
             <div class="showcase-slide dev-testimonial-slide">
               <div class="dev-avatar-wrap">
                 <img src="images/Som.jpg" alt="Somnath Gaikwad - Web Developer" onerror="this.src='Som.jpg'">
@@ -1657,9 +1166,7 @@
     </div>
   </header>
 
-  <!-- =========================================================
-       METRICS SECTION
-       ========================================================= -->
+  <!-- METRICS -->
   <section class="metrics-section">
     <div class="metrics-container">
       <div class="metrics-grid">
@@ -1732,35 +1239,44 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       SALARY PORTAL FORM
-       ========================================================= -->
+  <!-- SALARY PORTAL FORM -->
   <section id="salaryPortal" class="salary-portal-section">
     <div class="portal-section-intro">
-      <h2 data-i18n="portal_title">Access Your Pay Slip</h2>
-      <p data-i18n="portal_sub">Enter your employee ID and choose the month to review your salary details</p>
+      <h2 data-i18n="portal_title">Access Your Statements</h2>
+      <p data-i18n="portal_sub">आपला कर्मचारी आयडी व पासवर्ड टाकून मासिक वेतन किंवा वार्षिक विवरण पत्र निवडा</p>
     </div>
 
     <!-- Login Box -->
     <div id="loginBox" class="login-box" role="main" aria-labelledby="loginTitle">
+      
+      <!-- TOGGLE BUTTONS (मासिक / वार्षिक) -->
+      <div class="portal-mode-toggle">
+        <button type="button" class="mode-btn active" id="btnMonthlyMode" onclick="switchPortalMode('monthly')">
+          <i class="fa-solid fa-file-invoice"></i> मासिक वेतन पत्रक
+        </button>
+        <button type="button" class="mode-btn" id="btnAnnualMode" onclick="switchPortalMode('annual')">
+          <i class="fa-solid fa-chart-column"></i> वार्षिक आयकर विवरण
+        </button>
+      </div>
+
       <div class="brand-header">
         <div class="brand-icon">
           <i class="fa-solid fa-graduation-cap"></i>
         </div>
         <h2 id="loginTitle" data-i18n="login_head">Teacher Salary Portal</h2>
-        <p data-i18n="login_sub">Enter details to view your pay slip</p>
+        <p data-i18n="login_sub" id="loginSubText">वेतन तपशील पाहण्यासाठी माहिती भरा</p>
       </div>
 
       <div class="form-group">
-        <label for="username" data-i18n="label_empid">Employee ID</label>
+        <label for="username" data-i18n="label_empid">कर्मचारी आयडी (Employee ID)</label>
         <div class="input-wrapper">
-          <input id="username" type="text" aria-label="Employee ID" autocomplete="username" placeholder="Enter Employee ID" required />
+          <input id="username" type="text" aria-label="Employee ID" autocomplete="username" placeholder="कर्मचारी आयडी टाका" required />
           <i class="fa-solid fa-id-card icon-left"></i>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="password" data-i18n="label_pwd">Password</label>
+        <label for="password" data-i18n="label_pwd">पासवर्ड (Password)</label>
         <div class="password-container input-wrapper">
           <input type="password" id="password" aria-label="Password" autocomplete="current-password" placeholder="••••••••" required>
           <i class="fa-solid fa-lock icon-left"></i>
@@ -1769,12 +1285,13 @@
         </div>
       </div>
 
-      <div class="grid-2">
-        <div class="form-group">
-          <label for="month" data-i18n="label_month">Month</label>
+      <div class="grid-2" id="dateFilterGrid">
+        <!-- MONTH GROUP (वार्षिक मोडमध्ये आपोआप लपतो) -->
+        <div class="form-group" id="monthGroup">
+          <label for="month" data-i18n="label_month">महिना (Month)</label>
           <div class="input-wrapper select-wrapper">
-            <select id="month" aria-label="Select Month" required>
-              <option value="">Select Month</option>
+            <select id="month" aria-label="Select Month">
+              <option value="">महिना निवडा</option>
               <option>January</option><option>February</option><option>March</option><option>April</option>
               <option>May</option><option>June</option><option>July</option><option>August</option>
               <option>September</option><option>October</option><option>November</option><option>December</option>
@@ -1783,28 +1300,25 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="year" data-i18n="label_year">Year</label>
+        <!-- YEAR / FINANCIAL YEAR GROUP -->
+        <div class="form-group" id="yearGroup">
+          <label for="year" id="yearLabel" data-i18n="label_year">वर्ष (Year)</label>
           <div class="input-wrapper select-wrapper">
-            <select id="year" aria-label="Select Year" required>
-              <option value="">Select Year</option>
-              <option value="2026">2026</option><option value="2025">2025</option><option value="2024">2024</option>
-              <option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option>
-            </select>
+            <select id="year" aria-label="Select Year" required></select>
             <i class="fa-solid fa-calendar icon-left"></i>
           </div>
         </div>
       </div>
 
-      <button id="loginBtn" class="btn-action" onclick="login()">
-        <span id="loginBtnText" data-i18n="btn_get_slip">Get Salary Slip</span>
+      <button id="loginBtn" class="btn-action" onclick="fetchData()">
+        <span id="loginBtnText" data-i18n="btn_get_slip">वेतन पत्रक मिळवा</span>
         <i id="loginBtnIcon" class="fa-solid fa-arrow-right"></i>
       </button>
 
       <div id="errorMsg" class="error-msg" role="alert"></div>
 
       <button class="btn-action btn-secondary" onclick="toggleChangePassword()">
-        <i class="fa-solid fa-key"></i> <span data-i18n="btn_change_pwd">Change Password</span>
+        <i class="fa-solid fa-key"></i> <span data-i18n="btn_change_pwd">पासवर्ड बदला</span>
       </button>
 
       <div class="muted">Web designed by Somnath Gaikwad Sir</div>
@@ -1893,13 +1407,11 @@
       </div>
     </div>
 
-    <!-- Summary Card Container -->
+    <!-- SUMMARY CARDS CONTAINER -->
     <div id="summaryCard"></div>
   </section>
 
-  <!-- =========================================================
-       SCROLL-TRIGGERED ABOUT & FEATURES SECTION
-       ========================================================= -->
+  <!-- ABOUT & FEATURES -->
   <section id="aboutSection" class="about-portal reveal-section">
     <div class="about-card">
       <div class="about-icon"><i class="fa-solid fa-circle-info"></i></div>
@@ -1940,9 +1452,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       CONTACT US & WHATSAPP COMMUNITY SECTION
-       ========================================================= -->
+  <!-- CONTACT & WHATSAPP -->
   <section id="contactSection" class="contact-portal reveal-section">
     <div class="contact-card">
       <div class="contact-header">
@@ -1951,7 +1461,6 @@
         <p data-i18n="help_sub">Have an issue regarding your salary statement or portal access? Send a direct WhatsApp inquiry or join our community.</p>
       </div>
 
-      <!-- Official WhatsApp Group Joining Banner -->
       <div class="wa-group-card">
         <div class="wa-group-info">
           <i class="fa-solid fa-users"></i>
@@ -1967,7 +1476,6 @@
 
       <div class="or-divider" data-i18n="divider_or">Or Send Individual Message</div>
 
-      <!-- Direct Message Form -->
       <form id="contactForm" onsubmit="sendViaWhatsApp(event)">
         <div class="grid-2">
           <div class="form-group">
@@ -2010,7 +1518,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="modern-footer">
     <div class="footer-title" data-i18n="footer_title">Teacher Salary Portal</div>
     <p data-i18n="footer_dept">Panchayat Samiti (Education Department), South Solapur</p>
@@ -2018,22 +1526,20 @@
     <p class="footer-copy">© <span id="footerYear"></span> Teacher Salary Portal. All Rights Reserved.</p>
   </footer>
 
-  <!-- Floating Scroll-to-Top Button -->
+  <!-- FLOATING SCROLL TO TOP -->
   <button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top" title="Scroll to top">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- =========================================================
-       SCRIPTS: DYNAMIC NOTICES + BILINGUAL + PDF EXPORT + PWA + LOADER
-       ========================================================= -->
+  <!-- JAVASCRIPT LOGIC -->
   <script>
-    // ===== INDIAN NUMBER / CURRENCY FORMATTER =====
+    // ===== INDIAN NUMBER FORMATTER =====
     function formatIndianCurrency(num) {
       if (num === null || num === undefined || num === '') return '0';
       const clean = String(num).replace(/[^0-9.]/g, '');
       const parsed = parseFloat(clean);
       if (isNaN(parsed)) return String(num);
-      return new Intl.NumberFormat('en-IN').format(parsed);
+      return new Intl.NumberFormat('en-IN').format(Math.round(parsed));
     }
 
     // ===== NUMBER TO WORDS ENGINE (ENGLISH & MARATHI) =====
@@ -2041,10 +1547,8 @@
       if (!num || isNaN(num)) return '';
       num = parseInt(num, 10);
       if (num === 0) return 'Zero';
-
       const a = ['', 'One ', 'Two ', 'Three ', 'Four ', 'Five ', 'Six ', 'Seven ', 'Eight ', 'Nine ', 'Ten ', 'Eleven ', 'Twelve ', 'Thirteen ', 'Fourteen ', 'Fifteen ', 'Sixteen ', 'Seventeen ', 'Eighteen ', 'Nineteen '];
       const b = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
-
       function inWords(n) {
         if (n < 20) return a[n];
         if (n < 100) return b[Math.floor(n / 10)] + (n % 10 !== 0 ? ' ' + a[n % 10] : ' ');
@@ -2053,7 +1557,6 @@
         if (n < 10000000) return inWords(Math.floor(n / 100000)) + 'Lakh ' + (n % 100000 !== 0 ? inWords(n % 100000) : '');
         return inWords(Math.floor(n / 10000000)) + 'Crore ' + (n % 10000000 !== 0 ? inWords(n % 10000000) : '');
       }
-
       return 'Rupees ' + inWords(num).trim() + ' Only';
     }
 
@@ -2061,7 +1564,6 @@
       if (!n || isNaN(n)) return '';
       n = parseInt(n, 10);
       if (n === 0) return 'शून्य';
-
       const mWords = {
         1:'एक', 2:'दोन', 3:'तीन', 4:'चार', 5:'पाच', 6:'सहा', 7:'सात', 8:'आठ', 9:'नऊ', 10:'दहा',
         11:'अकरा', 12:'बारा', 13:'तेरा', 14:'चौदा', 15:'पंधरा', 16:'सोळा', 17:'सतरा', 18:'अठरा', 19:'एकोणीस', 20:'वीस',
@@ -2074,7 +1576,6 @@
         81:'एक्यांशी', 82:'ब्यांशी', 83:'त्र्यांशी', 84:'चौऱ्यांशी', 85:'पंच्यांशी', 86:'शहांशी', 87:'सत्त्यांशी', 88:'अठ्ठ्यांशी', 89:'एकोणनव्वद', 90:'नव्वद',
         91:'एक्याण्णव', 92:'ब्याण्णव', 93:'त्र्याण्णव', 94:'चौऱ्याण्णव', 95:'पंच्याण्णव', 96:'शहाण्णव', 97:'सत्त्याण्णव', 98:'अठ्ठ्याण्णव', 99:'नव्व्याण्णव'
       };
-
       function parseM(val) {
         if (val === 0) return '';
         if (val < 100) return mWords[val] + ' ';
@@ -2083,40 +1584,36 @@
         if (val < 10000000) return parseM(Math.floor(val / 100000)) + 'लाख ' + (val % 100000 !== 0 ? parseM(val % 100000) : '');
         return parseM(Math.floor(val / 10000000)) + 'कोटी ' + (val % 10000000 !== 0 ? parseM(val % 10000000) : '');
       }
-
       return parseM(n).trim() + ' रुपये फक्त';
     }
 
     function getNetSalaryInWords(record, lang) {
       if (!record) return '';
       const cleanNum = String(record.NetSalary || '').replace(/[^0-9]/g, '');
-
       if (lang === 'en') {
         return cleanNum ? numberToWordsIndian(cleanNum) : (record.NetSalaryWords || '');
       } else {
         const isAlreadyMarathi = /[\u0900-\u097F]/.test(record.NetSalaryWords || '');
-        if (isAlreadyMarathi) {
-          return record.NetSalaryWords;
-        }
+        if (isAlreadyMarathi) return record.NetSalaryWords;
         return cleanNum ? numberToMarathiWords(cleanNum) : (record.NetSalaryWords || '');
       }
     }
 
-    // ===== BILINGUAL TRANSLATION DICTIONARY =====
+    // ===== BILINGUAL TRANSLATIONS =====
     const translations = {
       en: {
         lang_btn: "मराठी",
         ticker_badge: "Alerts",
-        ticker_text1: "Current month salary bill has been submitted to treasury. Teachers can check their slip.",
+        ticker_text1: "Current month salary bill has been submitted to treasury. Teachers can check their slip and annual statement.",
         ticker_text2: "Government Resolution: Distribution of annual GPF / NPS statement for primary teachers.",
         ticker_text3: "For any salary discrepancies, contact Panchayat Samiti Education Dept WhatsApp helpdesk.",
         badge_latest: "Latest",
         badge_help: "Helpdesk",
-        hero_badge: "Digital Salary Service",
+        hero_badge: "Digital Salary & Tax Service",
         hero_title: "Teacher Salary Portal",
-        hero_subtitle: "Fast, Transparent & Reliable",
-        hero_desc: "Instant access to monthly salary statements, gross allowances, deductions, and downloadable PDF pay slips anytime.",
-        btn_access_slip: "Access Salary Slip",
+        hero_subtitle: "Monthly Salary Slip & Annual Tax Statement",
+        hero_desc: "Instant access to monthly salary statements, gross allowances, deductions, and downloadable A4 Annual Income Tax Statement.",
+        btn_access_slip: "Get Slip / Statement",
         btn_explore_features: "Explore Features",
         btn_install_app: "Install App",
         loader_text: "Loading portal details, please wait...",
@@ -2138,10 +1635,10 @@
         graph_sub: "Live system activity graph",
         graph_status: "Live Server",
         m_may: "May", m_jun: "Jun", m_jul: "Jul", m_aug: "Aug", m_sep: "Sep", m_cur: "Current",
-        portal_title: "Access Your Pay Slip",
-        portal_sub: "Enter your employee ID and choose the month to review your salary details",
+        portal_title: "Access Your Statements",
+        portal_sub: "Enter your employee ID and choose monthly or annual tax statement",
         login_head: "Teacher Salary Portal",
-        login_sub: "Enter details to view your pay slip",
+        login_sub: "Enter details to view your statement",
         label_empid: "Employee ID",
         label_pwd: "Password",
         label_month: "Month",
@@ -2180,16 +1677,16 @@
       mr: {
         lang_btn: "English",
         ticker_badge: "सूचना",
-        ticker_text1: "चालू महिन्याचे वेतन देयक ट्रेझरीकडे वर्ग करण्यात आले आहे. सर्व शिक्षकांनी वेतन पत्रक तपासावे.",
+        ticker_text1: "चालू महिन्याचे वेतन देयक ट्रेझरीकडे वर्ग करण्यात आले आहे. सर्व शिक्षकांनी वेतन पत्रक व वार्षिक आयकर विवरण तपासावे.",
         ticker_text2: "शासन निर्णय: प्राथमिक शिक्षक भविष्य निर्वाह निधी (GPF/NPS) वार्षिक हिशोब पत्रक वितरण बाबत.",
         ticker_text3: "वेतन पत्रकातील तफावतीबाबत पंचायत समिती शिक्षण विभाग WhatsApp हेल्पलाईन वर त्वरित संपर्क साधावा.",
         badge_latest: "नवीनतम",
         badge_help: "मदत कक्ष",
-        hero_badge: "डिजिटल वेतन सेवा",
+        hero_badge: "डिजिटल वेतन व कर सेवा",
         hero_title: "शिक्षक वेतन पत्रक पोर्टल",
-        hero_subtitle: "जलद, पारदर्शक आणि विश्वासार्ह",
-        hero_desc: "मासिक वेतन पत्रक, मूळ भत्ते, कपातीचा तपशील आणि डिजिटल स्वाक्षरीयुक्त PDF वेतन पत्रक एका क्लिकवर प्राप्त करा.",
-        btn_access_slip: "वेतन पत्रक पहा",
+        hero_subtitle: "मासिक वेतन पत्रक व वार्षिक आयकर विवरण",
+        hero_desc: "मासिक वेतन पत्रक, मूळ भत्ते, कपातीचा तपशील आणि सुटसुटीत अधिकृत A4 वार्षिक आयकर वेतन विवरण पत्र एका क्लिकवर प्राप्त करा.",
+        btn_access_slip: "वेतन / आयकर विवरण मिळवा",
         btn_explore_features: "वैशिष्ट्ये पहा",
         btn_install_app: "ॲप इन्स्टॉल करा",
         loader_text: "माहिती लोड होत आहे, कृपया प्रतीक्षा करा...",
@@ -2211,8 +1708,8 @@
         graph_sub: "थेट प्रणाली आलेख",
         graph_status: "लाईव्ह सर्व्हर",
         m_may: "मे", m_jun: "जून", m_jul: "जुलै", m_aug: "ऑगस्ट", m_sep: "सप्टेंबर", m_cur: "चालू महिना",
-        portal_title: "आपले वेतन पत्रक पहा",
-        portal_sub: "आपला शालार्थ/कर्मचारी आयडी आणि महिना निवडून वेतन तपशील प्राप्त करा",
+        portal_title: "विवरण पत्रे मिळवा",
+        portal_sub: "आपला कर्मचारी आयडी व पासवर्ड टाकून मासिक वेतन किंवा वार्षिक विवरण पत्र निवडा",
         login_head: "शिक्षक वेतन पत्रक",
         login_sub: "वेतन तपशील पाहण्यासाठी माहिती भरा",
         label_empid: "कर्मचारी आयडी (Employee ID)",
@@ -2255,26 +1752,94 @@
     let currentLang = 'en';
     try {
       const saved = localStorage.getItem('salary_portal_lang');
-      if (saved === 'mr' || saved === 'en') {
-        currentLang = saved;
-      }
+      if (saved === 'mr' || saved === 'en') currentLang = saved;
     } catch(e) {}
 
     let liveNotices = [];
+    let slipData = null;
+    let annualData = null;
+    let currentPortalMode = 'monthly'; // DEFAULT: मासिक वेतन पत्रक
+
+    // API URL
+    const API_URL = 'https://script.google.com/macros/s/AKfycbzHs-X6TtPiAZ6fO_fg6Ug_XMdBWmSCOxzMwWhOROCtZL9-Fk8yj6EiWof5ap0yD_RUmw/exec';
+
+    async function apiRequest(payload){
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      if(!response.ok) throw new Error('HTTP ' + response.status);
+      return await response.json();
+    }
+
+    // TOGGLE MODE (मासिक / वार्षिक)
+    function switchPortalMode(mode) {
+      currentPortalMode = mode;
+      const btnMonthly = document.getElementById('btnMonthlyMode');
+      const btnAnnual = document.getElementById('btnAnnualMode');
+      const monthGroup = document.getElementById('monthGroup');
+      const dateGrid = document.getElementById('dateFilterGrid');
+      const yearLabel = document.getElementById('yearLabel');
+      const submitBtnText = document.getElementById('loginBtnText');
+      const loginSub = document.getElementById('loginSubText');
+      const err = document.getElementById('errorMsg');
+      err.style.display = 'none';
+
+      if (mode === 'monthly') {
+        btnMonthly.classList.add('active');
+        btnAnnual.classList.remove('active');
+        monthGroup.style.display = 'block';
+        dateGrid.className = 'grid-2';
+        yearLabel.textContent = currentLang === 'en' ? 'Year' : 'वर्ष (Year)';
+        submitBtnText.textContent = translations[currentLang].btn_get_slip;
+        loginSub.textContent = currentLang === 'en' ? 'Enter details to view your pay slip' : 'वेतन तपशील पाहण्यासाठी माहिती भरा';
+      } else {
+        btnAnnual.classList.add('active');
+        btnMonthly.classList.remove('active');
+        monthGroup.style.display = 'none';
+        dateGrid.className = 'grid-1';
+        yearLabel.textContent = currentLang === 'en' ? 'Financial Year' : 'आर्थिक वर्ष (Financial Year)';
+        submitBtnText.textContent = currentLang === 'en' ? 'Get Annual Tax Statement' : 'आयकर विवरण पत्र मिळवा';
+        loginSub.textContent = currentLang === 'en' ? 'Select Financial Year to generate tax statement' : 'आयकर विवरण पत्रासाठी आर्थिक वर्ष निवडा';
+      }
+      populateYearOptions();
+    }
+
+    function populateYearOptions() {
+      const yearSelect = document.getElementById('year');
+      if (!yearSelect) return;
+      yearSelect.innerHTML = '';
+      const curYear = new Date().getFullYear();
+
+      if (currentPortalMode === 'monthly') {
+        for (let y = curYear; y >= curYear - 5; y--) {
+          const opt = document.createElement('option');
+          opt.value = String(y);
+          opt.textContent = String(y);
+          yearSelect.appendChild(opt);
+        }
+      } else {
+        // आर्थिक वर्ष पर्याय (2025-2026, 2024-2025...)
+        for (let y = curYear; y >= curYear - 4; y--) {
+          const fyVal = `${y}-${y + 1}`;
+          const opt = document.createElement('option');
+          opt.value = fyVal;
+          opt.textContent = `${y}-${String(y + 1).slice(-2)} (नियम वर्ष ${y + 1}-${String(y + 2).slice(-2)})`;
+          yearSelect.appendChild(opt);
+        }
+      }
+    }
 
     function setLanguage(lang) {
       currentLang = lang;
-      try {
-        localStorage.setItem('salary_portal_lang', lang);
-      } catch(e) {}
+      try { localStorage.setItem('salary_portal_lang', lang); } catch(e) {}
       document.documentElement.lang = lang;
 
       const t = translations[lang];
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-          el.textContent = t[key];
-        }
+        if (t[key]) el.textContent = t[key];
       });
 
       const langBtnText = document.getElementById('langBtnText');
@@ -2288,27 +1853,16 @@
 
       const uInput = document.getElementById('username');
       if (uInput) uInput.placeholder = lang === 'en' ? 'Enter Employee ID' : 'कर्मचारी आयडी टाका';
-      const cEmp = document.getElementById('cEmpId');
-      if (cEmp) cEmp.placeholder = lang === 'en' ? 'Enter Employee ID' : 'कर्मचारी आयडी टाका';
-      const cName = document.getElementById('cName');
-      if (cName) cName.placeholder = lang === 'en' ? 'Enter Full Name' : 'आपले पूर्ण नाव टाका';
-      const cSch = document.getElementById('cSchool');
-      if (cSch) cSch.placeholder = lang === 'en' ? 'Enter School Name' : 'शाळेचे नाव टाका';
-      const cMsg = document.getElementById('cMessage');
-      if (cMsg) cMsg.placeholder = lang === 'en' ? 'Describe the problem, month, or deduction issue...' : 'तफावत, महिना किंवा अडचणीचा सविस्तर तपशील लिहा...';
 
-      if (liveNotices.length > 0) {
-        renderTickerNotices();
-      }
+      switchPortalMode(currentPortalMode);
 
-      if (slipData) {
-        renderSummary(slipData);
-      }
+      if (liveNotices.length > 0) renderTickerNotices();
+      if (slipData && currentPortalMode === 'monthly') renderSummary(slipData);
+      if (annualData && currentPortalMode === 'annual') renderAnnualStatementSummary(annualData);
     }
 
     function toggleLanguage() {
-      const target = currentLang === 'en' ? 'mr' : 'en';
-      setLanguage(target);
+      setLanguage(currentLang === 'en' ? 'mr' : 'en');
     }
 
     // ===== DYNAMIC TICKER NOTICES =====
@@ -2320,22 +1874,19 @@
           renderTickerNotices();
         }
       } catch (err) {
-        console.warn("Could not load dynamic notices from sheet, keeping default.", err);
+        console.warn("Could not load dynamic notices, using default.", err);
       }
     }
 
     function renderTickerNotices() {
       const track = document.getElementById('dynamicTickerTrack');
       if (!track || liveNotices.length === 0) return;
-
       const isEn = (currentLang === 'en');
       let html = '';
-
       liveNotices.forEach(item => {
         const text = isEn ? (item.text_en || item.text_mr) : (item.text_mr || item.text_en);
         const link = item.link || '#';
         const isExternal = link.startsWith('http');
-        
         html += `
           <a href="${link}" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''} class="ticker-item">
             <i class="fa-solid fa-circle-dot" style="font-size:0.5rem; color:#38bdf8;"></i>
@@ -2344,36 +1895,10 @@
           </a>
         `;
       });
-
       track.innerHTML = html;
     }
 
-    // ===== Year Population Logic =====
-    (function fillYears(){
-      const sel = document.getElementById('year');
-      if(!sel) return;
-
-      const cur = new Date().getFullYear();
-      const existing = new Set(Array.from(sel.options).map(o => String(o.value)));
-      for(let y = cur; y >= cur - 5; y--){
-        if(!existing.has(String(y))){
-          const o = document.createElement('option');
-          o.value = String(y);
-          o.textContent = String(y);
-          sel.appendChild(o);
-        }
-      }
-
-      sel.value = String(cur);
-      if(sel.value !== String(cur) && sel.options.length > 1){
-        sel.selectedIndex = 1;
-      }
-    })();
-
-    const footerYear = document.getElementById('footerYear');
-    if(footerYear) footerYear.textContent = new Date().getFullYear();
-
-    // ===== Modern Showcase Slider Logic =====
+    // ===== SHOWCASE SLIDER =====
     let showcaseIndex = 0;
     let showcaseTimer = null;
     let progressTimer = null;
@@ -2384,7 +1909,9 @@
       const track = document.getElementById('showcaseTrack');
       if (!track) return;
       track.style.transform = `translateX(-${showcaseIndex * 100}%)`;
-      resetProgress();
+      progressValue = 0;
+      const bar = document.getElementById('sliderProgress');
+      if (bar) bar.style.width = '0%';
     }
 
     function moveShowcase(dir) {
@@ -2394,12 +1921,6 @@
       showcaseIndex = (showcaseIndex + dir + total) % total;
       updateShowcaseTrack();
       restartShowcaseTimer();
-    }
-
-    function resetProgress() {
-      progressValue = 0;
-      const bar = document.getElementById('sliderProgress');
-      if (bar) bar.style.width = '0%';
     }
 
     function startShowcaseTimer() {
@@ -2425,7 +1946,6 @@
       startShowcaseTimer();
     }
 
-    // ===== Running Counters =====
     function runCounters() {
       const counters = document.querySelectorAll('.counter-number');
       counters.forEach(counter => {
@@ -2433,41 +1953,25 @@
         const isDecimal = target % 1 !== 0;
         const duration = 2000;
         const startTime = performance.now();
-
         function updateCount(currentTime) {
           const progress = Math.min((currentTime - startTime) / duration, 1);
           const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
           const currentVal = easeOut * target;
-
-          counter.textContent = isDecimal 
-            ? currentVal.toFixed(1) 
-            : Math.floor(currentVal).toLocaleString();
-
-          if (progress < 1) {
-            requestAnimationFrame(updateCount);
-          } else {
-            counter.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
-          }
+          counter.textContent = isDecimal ? currentVal.toFixed(1) : Math.floor(currentVal).toLocaleString();
+          if (progress < 1) requestAnimationFrame(updateCount);
+          else counter.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
         }
         requestAnimationFrame(updateCount);
       });
     }
 
-    // ===== Direct WhatsApp Messaging Function =====
     function sendViaWhatsApp(e) {
       e.preventDefault();
-
       const phoneTarget = "917020302223"; 
-
-      const empIdInput = document.getElementById('cEmpId');
-      const nameInput = document.getElementById('cName');
-      const schoolInput = document.getElementById('cSchool');
-      const messageInput = document.getElementById('cMessage');
-
-      const empId = empIdInput.value.trim();
-      const name = nameInput.value.trim();
-      const school = schoolInput.value.trim();
-      const message = messageInput.value.trim();
+      const empId = document.getElementById('cEmpId').value.trim();
+      const name = document.getElementById('cName').value.trim();
+      const school = document.getElementById('cSchool').value.trim();
+      const message = document.getElementById('cMessage').value.trim();
 
       const text = `*Teacher Salary Portal - Inquiry/Grievance*\n\n` +
                    `*Employee ID:* ${empId}\n` +
@@ -2476,91 +1980,20 @@
                    `*Query:* ${message}`;
 
       const targetUrl = `https://api.whatsapp.com/send?phone=${phoneTarget}&text=${encodeURIComponent(text)}`;
-
       document.getElementById('contactForm').reset();
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+    }
 
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
-        setTimeout(() => {
-          window.location.href = targetUrl;
-        }, 150);
+    // ===== MAIN FETCH FUNCTION (मासिक किंवा वार्षिक) =====
+    function fetchData() {
+      if (currentPortalMode === 'monthly') {
+        loginMonthly();
       } else {
-        window.open(targetUrl, '_blank', 'noopener,noreferrer');
+        loginAnnual();
       }
     }
 
-    // ===== Scroll-Triggered Reveal & Initialization =====
-    document.addEventListener('DOMContentLoaded', () => {
-      setLanguage(currentLang);
-      startShowcaseTimer();
-      runCounters();
-      loadDynamicNotices();
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      }, { threshold: 0.15 });
-
-      document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
-    });
-
-    // ===== FLOATING SCROLL-TO-TOP LOGIC =====
-    window.addEventListener('scroll', () => {
-      const scrollBtn = document.getElementById('scrollToTopBtn');
-      const salarySection = document.getElementById('salaryPortal');
-      if (!scrollBtn || !salarySection) return;
-
-      const portalBottom = salarySection.getBoundingClientRect().bottom;
-
-      if (portalBottom < 0) {
-        scrollBtn.classList.add('show');
-      } else {
-        scrollBtn.classList.remove('show');
-      }
-    });
-
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-
-    // ===== Core Authentication & API Code =====
-    let slipData = null;
-
-    const passwordInput = document.getElementById("password");
-    const eyeIcon = document.getElementById("eyeIcon");
-    const eyeOffIcon = document.getElementById("eyeOffIcon");
-
-    eyeIcon.addEventListener("click", () => {
-      passwordInput.type = "text";
-      eyeIcon.style.display = "none";
-      eyeOffIcon.style.display = "block";
-    });
-
-    eyeOffIcon.addEventListener("click", () => {
-      passwordInput.type = "password";
-      eyeOffIcon.style.display = "none";
-      eyeIcon.style.display = "block";
-    });
-
-    const API_URL = 'https://script.google.com/macros/s/AKfycbw-7l-vHQNHWWM9cOgqLg3hLJvvt8NaAjBD2ybA2l36ryNtVeQ-qFZTw1OoUTDOH7RsDw/exec';
-
-    async function apiRequest(payload){
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
-      });
-      if(!response.ok) throw new Error('HTTP ' + response.status);
-      return await response.json();
-    }
-
-    function login(){
+    function loginMonthly() {
       const u = document.getElementById('username').value.trim();
       const p = document.getElementById('password').value.trim();
       const m = document.getElementById('month').value;
@@ -2571,12 +2004,9 @@
       const btnIcon = document.getElementById('loginBtnIcon');
 
       errorBox.style.display = "none";
-      errorBox.textContent = "";
-
-      if(!u || !p || !m || !y){ 
+      if (!u || !p || !m || !y) { 
         errorBox.textContent = currentLang === 'en' ? "⚠️ Please fill all fields" : "⚠️ कृपया सर्व माहिती भरा"; 
         errorBox.style.display = "block"; 
-        document.getElementById(!u ? 'username' : !p ? 'password' : !m ? 'month' : 'year').focus();
         return; 
       }
 
@@ -2584,126 +2014,96 @@
       btnText.textContent = currentLang === 'en' ? "Fetching Slip..." : "पत्रक शोधत आहे...";
       btnIcon.className = "btn-spinner";
 
-      apiRequest({
-        action: 'login',
-        username: u,
-        password: p,
-        month: m,
-        year: y
-      }).then(function(res){
-        btn.disabled = false;
-        btnText.textContent = translations[currentLang].btn_get_slip;
-        btnIcon.className = "fa-solid fa-arrow-right";
-
-        if(!res || !res.success){ 
-          errorBox.textContent = res && res.message ? res.message : (currentLang === 'en' ? "❌ Invalid login or no record found!" : "❌ चुकीचा आयडी/पासवर्ड किंवा माहिती उपलब्ध नाही!");
+      apiRequest({ action: 'login', username: u, password: p, month: m, year: y })
+        .then(res => {
+          btn.disabled = false;
+          btnText.textContent = translations[currentLang].btn_get_slip;
+          btnIcon.className = "fa-solid fa-arrow-right";
+          if (!res || !res.success) { 
+            errorBox.textContent = res && res.message ? res.message : (currentLang === 'en' ? "❌ Invalid login or no record found!" : "❌ चुकीचा आयडी/पासवर्ड किंवा माहिती उपलब्ध नाही!");
+            errorBox.style.display = "block";
+            return; 
+          }
+          slipData = res.record;
+          renderSummary(slipData);
+        })
+        .catch(err => {
+          btn.disabled = false;
+          btnText.textContent = translations[currentLang].btn_get_slip;
+          btnIcon.className = "fa-solid fa-arrow-right";
+          errorBox.textContent = currentLang === 'en' ? "⚠️ Connection error." : "⚠️ सर्व्हरशी संपर्क होऊ शकला नाही.";
           errorBox.style.display = "block";
-          return; 
-        }
-        slipData = res.record;
-        renderSummary(slipData);
-      }).catch(function(err){
-        console.error(err);
-        btn.disabled = false;
-        btnText.textContent = translations[currentLang].btn_get_slip;
-        btnIcon.className = "fa-solid fa-arrow-right";
-        errorBox.textContent = currentLang === 'en' ? "⚠️ Connection error. Please check your connection." : "⚠️ सर्व्हरशी संपर्क होऊ शकला नाही. कृपया पुन्हा प्रयत्न करा.";
-        errorBox.style.display = "block";
-      });
+        });
     }
 
-    function toggleChangePassword(){
-      document.getElementById('loginBox').style.display = "none";
-      document.getElementById('changePasswordBox').style.display = "block";
+    function loginAnnual() {
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value.trim();
+      const fy = document.getElementById('year').value;
+      const errorBox = document.getElementById('errorMsg');
+      const btn = document.getElementById('loginBtn');
+      const btnText = document.getElementById('loginBtnText');
+      const btnIcon = document.getElementById('loginBtnIcon');
 
-      ['empIdPass','oldPass','newPass','confirmPass'].forEach(id => {
-        document.getElementById(id).value = "";
-      });
-      const msgBox = document.getElementById('passMsg');
-      msgBox.style.display = "none";
-      msgBox.textContent = "";
-    }
-
-    function backToLogin(){
-      document.getElementById('changePasswordBox').style.display = "none";
-      document.getElementById('loginBox').style.display = "block";
-    }
-
-    function changePassword(){
-      const u = document.getElementById('empIdPass').value.trim();
-      const oldP = document.getElementById('oldPass').value.trim();
-      const newP = document.getElementById('newPass').value.trim();
-      const confirmP = document.getElementById('confirmPass').value.trim();
-      const msgBox = document.getElementById('passMsg');
-      const btn = document.getElementById('updatePassBtn');
-      const btnText = document.getElementById('updatePassBtnText');
-
-      msgBox.style.display = "none";
-      msgBox.textContent = "";
-
-      if(!u || !oldP || !newP || !confirmP){
-        msgBox.textContent = currentLang === 'en' ? "⚠️ Fill all fields" : "⚠️ सर्व माहिती भरणे आवश्यक आहे"; 
-        msgBox.style.display = "block"; 
-        return;
-      }
-      if(newP !== confirmP){
-        msgBox.textContent = currentLang === 'en' ? "❌ New passwords do not match" : "❌ नवीन पासवर्ड जुळत नाही"; 
-        msgBox.style.display = "block"; 
-        return;
+      errorBox.style.display = "none";
+      if (!u || !p || !fy) { 
+        errorBox.textContent = currentLang === 'en' ? "⚠️ Please fill all fields" : "⚠️ कृपया सर्व माहिती भरा"; 
+        errorBox.style.display = "block"; 
+        return; 
       }
 
       btn.disabled = true;
-      btnText.innerHTML = '<span class="btn-spinner"></span> Updating...';
+      btnText.textContent = currentLang === 'en' ? "Calculating Statement..." : "विवरण तयार होत आहे...";
+      btnIcon.className = "btn-spinner";
 
-      apiRequest({
-        action: 'updatePassword',
-        username: u,
-        oldPassword: oldP,
-        newPassword: newP
-      }).then(function(res){
-        btn.disabled = false;
-        btnText.textContent = translations[currentLang].btn_update_pwd;
-
-        msgBox.textContent = res.message;
-        msgBox.style.display = "block";
-        msgBox.style.color = res.success ? "#16a34a" : "#dc2626";
-
-        if(res.success){
-          ['empIdPass','oldPass','newPass','confirmPass'].forEach(id => {
-            document.getElementById(id).value = "";
-          });
-
-          const modal = document.getElementById("successModal");
-          modal.style.display = "flex";
-
-          setTimeout(() => {
-            modal.style.display = "none";
-            backToLogin();
-          }, 3000);
-        }
-      }).catch(function(err){
-        console.error(err);
-        btn.disabled = false;
-        btnText.textContent = translations[currentLang].btn_update_pwd;
-        msgBox.textContent = currentLang === 'en' ? "⚠️ Connection error." : "⚠️ नेटवर्क त्रुटी. कृपया पुन्हा प्रयत्न करा.";
-        msgBox.style.display = "block";
-        msgBox.style.color = "#dc2626";
-      });
+      apiRequest({ action: 'getAnnualStatement', username: u, password: p, financialYear: fy })
+        .then(res => {
+          btn.disabled = false;
+          btnText.textContent = currentLang === 'en' ? 'Get Annual Tax Statement' : 'आयकर विवरण पत्र मिळवा';
+          btnIcon.className = "fa-solid fa-arrow-right";
+          if (!res || !res.success) { 
+            errorBox.textContent = res && res.message ? res.message : (currentLang === 'en' ? "❌ Record not found!" : "❌ माहिती उपलब्ध नाही!");
+            errorBox.style.display = "block";
+            return; 
+          }
+          annualData = res;
+          renderAnnualStatementSummary(annualData);
+        })
+        .catch(err => {
+          btn.disabled = false;
+          btnText.textContent = currentLang === 'en' ? 'Get Annual Tax Statement' : 'आयकर विवरण पत्र मिळवा';
+          btnIcon.className = "fa-solid fa-arrow-right";
+          errorBox.textContent = currentLang === 'en' ? "⚠️ Connection error." : "⚠️ सर्व्हरशी संपर्क होऊ शकला नाही.";
+          errorBox.style.display = "block";
+        });
     }
 
+    // =========================================================
+    // १. मासिक वेतन पत्रक SUMMARY CARD
+    // =========================================================
     function renderSummary(r){
       document.getElementById('loginBox').style.display = 'none';
       const isEn = (currentLang === 'en');
       const inWords = getNetSalaryInWords(r, currentLang);
 
       const html = `
-        <div class="summary-card" id="summaryInner" role="region" aria-live="polite" aria-label="Salary slip summary">
-          <h3 style="margin:4px 0 12px; font-size:1.15rem; color:var(--text-main); font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">${escapeHtml(r.Name || '')} <span style="font-size:0.85rem; color:var(--text-muted);">(${escapeHtml(r.EmployeeID || '')})</span></h3>
-          <p style="font-size:0.85rem; margin-bottom:6px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;"><strong>${isEn?'Month':'महिना'}:</strong> ${escapeHtml(r.Month||'')} &nbsp;&bull;&nbsp; <strong>${isEn?'Year':'वर्ष'}:</strong> ${escapeHtml(r.Year||'')}</p>
-          <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;"><strong>${isEn?'Gross Salary':'एकूण वेतन'}:</strong> ₹${escapeHtml(formatIndianCurrency(r.GrossSalary))} &nbsp;&bull;&nbsp; <strong>${isEn?'Deductions':'एकूण कपात'}:</strong> ₹${escapeHtml(formatIndianCurrency(r.TotalDeductions))}</p>
+        <div class="summary-card" style="max-width:440px; margin:0 auto;" id="summaryInner" role="region" aria-live="polite">
+          <h3 style="margin:4px 0 12px; font-size:1.15rem; color:var(--text-main); font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
+            ${escapeHtml(r.Name || '')} <span style="font-size:0.85rem; color:var(--text-muted);">(${escapeHtml(r.EmployeeID || '')})</span>
+          </h3>
+          <p style="font-size:0.85rem; margin-bottom:6px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
+            <strong>${isEn?'Month':'महिना'}:</strong> ${escapeHtml(r.Month||'')} &nbsp;&bull;&nbsp; <strong>${isEn?'Year':'वर्ष'}:</strong> ${escapeHtml(r.Year||'')}
+          </p>
+          <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:10px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
+            <strong>${isEn?'Gross Salary':'एकूण वेतन'}:</strong> ₹${escapeHtml(formatIndianCurrency(r.GrossSalary))} &nbsp;&bull;&nbsp; <strong>${isEn?'Deductions':'एकूण कपात'}:</strong> ₹${escapeHtml(formatIndianCurrency(r.TotalDeductions))}
+          </p>
           <div style="background:#f1f5f9; padding:10px; margin:12px 0; border-radius:10px; border: 1px solid var(--border-color);">
-            <h3 style="color:#16a34a; font-size:1.1rem; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">${isEn?'Net Salary':'निव्वळ वेतन'}: ₹${escapeHtml(formatIndianCurrency(r.NetSalary))}</h3>
-            <p style="font-size:0.75rem; color:#475569; margin-top:2px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;"><strong>${isEn?'In Words':'अक्षरी'}:</strong> ${escapeHtml(inWords)}</p>
+            <h3 style="color:#16a34a; font-size:1.1rem; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
+              ${isEn?'Net Salary':'निव्वळ वेतन'}: ₹${escapeHtml(formatIndianCurrency(r.NetSalary))}
+            </h3>
+            <p style="font-size:0.75rem; color:#475569; margin-top:2px; font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', sans-serif;">
+              <strong>${isEn?'In Words':'अक्षरी'}:</strong> ${escapeHtml(inWords)}
+            </p>
           </div>
           <div class="action-group">
             <button onclick="showPrintSlip()" class="btn-action btn-sm" style="background:#16a34a;">
@@ -2723,29 +2123,231 @@
       summaryCard.style.display = 'block';
     }
 
+    // =========================================================
+    // २. वार्षिक आयकर विवरण SUMMARY CARD & A4 DASHBOARD
+    // =========================================================
+    function renderAnnualStatementSummary(data) {
+      document.getElementById('loginBox').style.display = 'none';
+      const t = data.teacher;
+      const st = data.statement;
+
+      let totBasic = 0, tot7th = 0, totDA = 0, totHRA = 0, totTA = 0, totArr = 0, totGross = 0;
+      let totPT = 0, totGIS = 0, totFlag = 0, totGPF = 0, totIT = 0;
+
+      st.forEach(r => {
+        totBasic += r.BasicPay;
+        tot7th += r.SeventhPay;
+        totDA += r.DA;
+        totHRA += r.HRA;
+        totTA += r.TA;
+        totArr += r.Arrears;
+        totGross += r.GrossSalary;
+        totPT += r.ProfessionalTax;
+        totGIS += r.GIS;
+        totFlag += r.FlagFund;
+        totGPF += r.GPF;
+        totIT += r.IncomeTax;
+      });
+
+      const stdDeduction = 50000;
+      const sec80C_Total = Math.min(totGPF + totGIS, 150000);
+      const netTaxableOld = Math.max(totGross - stdDeduction - totPT - sec80C_Total, 0);
+
+      // Tax Calculation Engines
+      function calcOldRegimeTax(taxableIncome) {
+        if (taxableIncome <= 250000) return 0;
+        let tax = 0;
+        if (taxableIncome > 250000) tax += Math.min(taxableIncome - 250000, 250000) * 0.05;
+        if (taxableIncome > 500000) tax += Math.min(taxableIncome - 500000, 500000) * 0.20;
+        if (taxableIncome > 1000000) tax += (taxableIncome - 1000000) * 0.30;
+        if (taxableIncome <= 500000) tax = 0; // Rebate u/s 87A
+        return Math.round(tax * 1.04); // Cess 4%
+      }
+
+      function calcNewRegimeTax(grossIncome) {
+        const taxable = Math.max(grossIncome - 75000, 0);
+        if (taxable <= 300000) return 0;
+        let tax = 0;
+        if (taxable > 300000) tax += Math.min(taxable - 300000, 400000) * 0.05;
+        if (taxable > 700000) tax += Math.min(taxable - 700000, 300000) * 0.10;
+        if (taxable > 1000000) tax += Math.min(taxable - 1000000, 200000) * 0.15;
+        if (taxable > 1200000) tax += Math.min(taxable - 1200000, 300000) * 0.20;
+        if (taxable > 1500000) tax += (taxable - 1500000) * 0.30;
+        if (taxable <= 700000) tax = 0; // Rebate 87A
+        return Math.round(tax * 1.04);
+      }
+
+      const taxOld = calcOldRegimeTax(netTaxableOld);
+      const taxNew = calcNewRegimeTax(totGross);
+      const isNewBetter = taxNew < taxOld;
+      const savings = Math.abs(taxOld - taxNew);
+
+      const html = `
+        <div class="annual-summary-card" id="annualPrintArea">
+          <div class="summary-top-bar">
+            <div class="emp-meta">
+              <span class="badge-fy">आर्थिक वर्ष ${escapeHtml(data.financialYear)}</span>
+              <h3>${escapeHtml(t.Name)}</h3>
+              <p>शालार्थ / Emp ID: <strong>${escapeHtml(t.Shalarth_ID || t.EmployeeID)}</strong> &bull; ${escapeHtml(t.School)} (${escapeHtml(t.ClusterName)})</p>
+            </div>
+            <div class="tax-status-badge">
+              <i class="fa-solid fa-circle-check"></i> १२ महिने हिशोब पत्रक
+            </div>
+          </div>
+
+          <!-- 4 KPI Box Highlights -->
+          <div class="kpi-grid">
+            <div class="kpi-box">
+              <span class="kpi-label">एकूण वेतन (Gross Salary)</span>
+              <span class="kpi-val" style="color:#2563eb;">₹ ${formatIndianCurrency(totGross)}</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">मानक वजावट (Std. Ded.)</span>
+              <span class="kpi-val" style="color:#64748b;">- ₹ ${formatIndianCurrency(stdDeduction)}</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">80C वजावट (GPF/GIS)</span>
+              <span class="kpi-val" style="color:#64748b;">- ₹ ${formatIndianCurrency(sec80C_Total)}</span>
+            </div>
+            <div class="kpi-box highlight">
+              <span class="kpi-label">निव्वळ करपात्र उत्पन्न</span>
+              <span class="kpi-val" style="color:#16a34a;">₹ ${formatIndianCurrency(netTaxableOld)}</span>
+            </div>
+          </div>
+
+          <!-- 12 Months Salary Grid Table -->
+          <div style="overflow-x:auto; margin-bottom:20px; border-radius:12px; border:1px solid #e2e8f0;">
+            <table style="width:100%; border-collapse:collapse; font-size:0.78rem; text-align:right;">
+              <thead>
+                <tr style="background:#0f172a; color:#ffffff;">
+                  <th style="padding:8px 6px; text-align:left;">महिना</th>
+                  <th style="padding:8px 6px;">मूळ वेतन</th>
+                  <th style="padding:8px 6px;">महागाई</th>
+                  <th style="padding:8px 6px;">घरभाडे</th>
+                  <th style="padding:8px 6px;">वा.भत्ता</th>
+                  <th style="padding:8px 6px;">फरक</th>
+                  <th style="padding:8px 6px; background:#1e293b;">एकूण वेतन</th>
+                  <th style="padding:8px 6px;">व्‍य.कर</th>
+                  <th style="padding:8px 6px;">गटविमा</th>
+                  <th style="padding:8px 6px;">भ.नि.नि.</th>
+                  <th style="padding:8px 6px; background:#1e293b;">आयकर</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${st.map((r, i) => `
+                  <tr style="background:${i % 2 === 0 ? '#ffffff' : '#f8fafc'}; border-bottom:1px solid #e2e8f0;">
+                    <td style="padding:6px; text-align:left; font-weight:700; color:#334155;">${escapeHtml(r.label)}</td>
+                    <td style="padding:6px;">₹ ${formatIndianCurrency(r.BasicPay)}</td>
+                    <td style="padding:6px;">₹ ${formatIndianCurrency(r.DA)}</td>
+                    <td style="padding:6px;">₹ ${formatIndianCurrency(r.HRA)}</td>
+                    <td style="padding:6px;">₹ ${formatIndianCurrency(r.TA)}</td>
+                    <td style="padding:6px;">₹ ${formatIndianCurrency(r.Arrears)}</td>
+                    <td style="padding:6px; font-weight:700; color:#1e293b; background:#f1f5f9;">₹ ${formatIndianCurrency(r.GrossSalary)}</td>
+                    <td style="padding:6px;">₹ ${formatIndianCurrency(r.ProfessionalTax)}</td>
+                    <td style="padding:6px;">₹ ${formatIndianCurrency(r.GIS)}</td>
+                    <td style="padding:6px;">₹ ${formatIndianCurrency(r.GPF)}</td>
+                    <td style="padding:6px; font-weight:700; color:#dc2626;">₹ ${formatIndianCurrency(r.IncomeTax)}</td>
+                  </tr>
+                `).join('')}
+                <tr style="background:#e2e8f0; font-weight:800; border-top:2px solid #334155;">
+                  <td style="padding:8px 6px; text-align:left; color:#0f172a;">एकूण बेरीज</td>
+                  <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totBasic)}</td>
+                  <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totDA)}</td>
+                  <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totHRA)}</td>
+                  <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totTA)}</td>
+                  <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totArr)}</td>
+                  <td style="padding:8px 6px; background:#cbd5e1; color:#0f172a;">₹ ${formatIndianCurrency(totGross)}</td>
+                  <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totPT)}</td>
+                  <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totGIS)}</td>
+                  <td style="padding:8px 6px;">₹ ${formatIndianCurrency(totGPF)}</td>
+                  <td style="padding:8px 6px; color:#dc2626; background:#cbd5e1;">₹ ${formatIndianCurrency(totIT)}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Old vs New Tax Regime Comparison Card -->
+          <div class="regime-compare-box">
+            <div class="regime-col ${!isNewBetter ? 'best-choice' : ''}">
+              ${!isNewBetter ? '<div class="best-tag">सर्वात फायदेशीर</div>' : ''}
+              <span class="regime-title">जुनी करप्रणाली (Old Regime)</span>
+              <span class="tax-amount">₹ ${formatIndianCurrency(taxOld)}</span>
+              <small style="color:#64748b;">80C व सर्व वजावटींनंतर</small>
+            </div>
+            <div class="vs-divider">VS</div>
+            <div class="regime-col ${isNewBetter ? 'best-choice' : ''}">
+              ${isNewBetter ? '<div class="best-tag">सर्वात फायदेशीर</div>' : ''}
+              <span class="regime-title">नवीन करप्रणाली (New Regime)</span>
+              <span class="tax-amount text-success">₹ ${formatIndianCurrency(taxNew)}</span>
+              <small style="color:#16a34a;"><strong>₹ ${formatIndianCurrency(savings)}</strong> कर बचत</small>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="action-group" style="justify-content:center;">
+            <button onclick="printAnnualStatement()" class="btn-action btn-sm" style="background:#16a34a; color:#fff;">
+              <i class="fa-solid fa-print"></i> प्रिंट काढा (Print A4)
+            </button>
+            <button onclick="resetForm()" class="btn-action btn-sm btn-secondary">
+              <i class="fa-solid fa-arrow-left"></i> मागे जा (Back)
+            </button>
+          </div>
+        </div>
+      `;
+
+      const summaryCard = document.getElementById('summaryCard');
+      summaryCard.innerHTML = html;
+      summaryCard.style.display = 'block';
+    }
+
+    // PRINT A4 ANNUAL STATEMENT
+    function printAnnualStatement() {
+      const card = document.getElementById('annualPrintArea').innerHTML;
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Annual Income Tax Statement</title>
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
+          <style>
+            @page { size: A4 portrait; margin: 8mm; }
+            * { box-sizing: border-box; font-family: 'Noto Sans Devanagari', sans-serif !important; }
+            body { margin: 0; padding: 0; font-size: 11px; color:#000; }
+            .action-group, .vs-divider { display: none !important; }
+            table th, table td { padding: 4px 5px !important; }
+            .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
+            .kpi-box { border: 1px solid #ccc; padding: 6px; border-radius: 6px; }
+            .regime-compare-box { display: flex; border: 1px solid #ccc; padding: 8px; border-radius: 6px; margin-top: 10px; }
+            .regime-col { flex: 1; text-align: center; }
+          </style>
+        </head>
+        <body>
+          ${card}
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+      setTimeout(() => {
+        printWindow.focus();
+        printWindow.print();
+      }, 350);
+    }
+
     function resetForm(){
       slipData = null;
+      annualData = null;
       document.getElementById('loginBox').style.display = 'block';
-      ['username','password','month'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
-      const yearSelect = document.getElementById('year');
-      if(yearSelect) yearSelect.value = String(new Date().getFullYear());
       document.getElementById('summaryCard').style.display = 'none';
       document.getElementById('summaryCard').innerHTML = '';
       document.getElementById('errorMsg').style.display = "none";
     }
 
     function escapeHtml(s){
-      return String(s).replace(/[&<>"]/g, m => ({
-        '&':'&amp;',
-        '<':'&lt;',
-        '>':'&gt;',
-        '"':'&quot;'
-      }[m]));
+      return String(s || '').replace(/[&<>"]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[m]));
     }
 
-    // ===== DYNAMIC BILINGUAL PRINTABLE & PDF GENERATOR =====
+    // ===== PRINTABLE MONTHLY SLIP =====
     function generatePrintHtml(){
       if(!slipData) return '';
       const now = new Date();
@@ -2753,31 +2355,15 @@
       const isEn = (currentLang === 'en');
 
       const allowances = isEn ? [
-        ['Basic Pay','BasicPay'], 
-        ['Dearness Allowance (DA)','DA'], 
-        ['House Rent Allowance (HRA)','HRA'], 
-        ['Transport Allowance (TA)','TA'], 
-        ['DA Arrears','Arrears'], 
-        ['Pay Arrears','BasicArrears'], 
-        ['NPS Employer','NPS_Employer'], 
-        ['KP Allowance','KPAllowance'],
-        ['Other Allowance','OtherAllowance'], 
-        ['Handicap Allowance','HandicapAllow'], 
-        ['7th Pay Arrears','SeventhPay'], 
-        ['Gross Salary','GrossSalary']
+        ['Basic Pay','BasicPay'], ['Dearness Allowance (DA)','DA'], ['House Rent Allowance (HRA)','HRA'], 
+        ['Transport Allowance (TA)','TA'], ['DA Arrears','Arrears'], ['Pay Arrears','BasicArrears'], 
+        ['NPS Employer','NPS_Employer'], ['KP Allowance','KPAllowance'], ['Other Allowance','OtherAllowance'], 
+        ['Handicap Allowance','HandicapAllow'], ['7th Pay Arrears','SeventhPay'], ['Gross Salary','GrossSalary']
       ] : [
-        ['मूळ वेतन','BasicPay'], 
-        ['महागाई भत्‍ता','DA'], 
-        ['घरभाडे','HRA'], 
-        ['वाहन भत्‍ता','TA'], 
-        ['महागाई फरक','Arrears'], 
-        ['वेतन फरक','BasicArrears'], 
-        ['NPS Employer','NPS_Employer'], 
-        ['के.प्र भत्‍ता','KPAllowance'],
-        ['इतर भत्‍ते','OtherAllowance'], 
-        ['दिव्‍यांग भत्‍ता','HandicapAllow'], 
-        ['७ वा वेतन','SeventhPay'], 
-        ['एकूण वेतन','GrossSalary']
+        ['मूळ वेतन','BasicPay'], ['महागाई भत्‍ता','DA'], ['घरभाडे','HRA'], 
+        ['वाहन भत्‍ता','TA'], ['महागाई फरक','Arrears'], ['वेतन फरक','BasicArrears'], 
+        ['NPS Employer','NPS_Employer'], ['के.प्र भत्‍ता','KPAllowance'], ['इतर भत्‍ते','OtherAllowance'], 
+        ['दिव्‍यांग भत्‍ता','HandicapAllow'], ['७ वा वेतन','SeventhPay'], ['एकूण वेतन','GrossSalary']
       ];
 
       const deductions = isEn ? [
@@ -2798,34 +2384,25 @@
         ['एकूण वजावट','TotalDeductions']  
       ];
 
-      function getVal(key){ 
-        return slipData[key] ? formatIndianCurrency(slipData[key]) : '0'; 
-      }
+      function getVal(key){ return slipData[key] ? formatIndianCurrency(slipData[key]) : '0'; }
 
       let rows = "";
       const maxRows = Math.max(allowances.length, Math.ceil(deductions.length / 3));
       for(let i = 0; i < maxRows; i++){
         const a = allowances[i] ? `<td>${allowances[i][0]}</td><td>₹${escapeHtml(getVal(allowances[i][1]))}</td>` : "<td></td><td></td>";
-        
         const d1 = deductions[i * 3] || [null, null];
         const d2 = deductions[i * 3 + 1] || [null, null];
         const d3 = deductions[i * 3 + 2] || [null, null];
 
         const isLastRow = (d1[0] === 'Total Deductions' || d1[0] === 'एकूण वजावट');
-
         if(isLastRow){
           rows += `<tr>${a}<td colspan="6" style="text-align:center; font-weight:bold;">${escapeHtml(d1[0])}: ₹${escapeHtml(getVal(d1[1]))}</td></tr>`;
-        }
-        else{
+        } else {
           function deductionCell(label, key){
             if(!label) return "<td></td><td></td>";
             return `<td>${escapeHtml(label)}</td><td style="border-right:1px solid #1976d2; text-align:right;">₹${escapeHtml(getVal(key))}</td>`;
           }
-          const d1Cells = deductionCell(d1[0], d1[1]);
-          const d2Cells = deductionCell(d2[0], d2[1]);
-          const d3Cells = deductionCell(d3[0], d3[1]);
-
-          rows += `<tr>${a}${d1Cells}${d2Cells}${d3Cells}</tr>`;
+          rows += `<tr>${a}${deductionCell(d1[0], d1[1])}${deductionCell(d2[0], d2[1])}${deductionCell(d3[0], d3[1])}</tr>`;
         }
       }
 
@@ -2854,23 +2431,23 @@
         <div class="meta" style="margin:10px 0; padding:10px; background:#f9f9f9; border:1px solid #ccc; border-radius:6px; display:flex; justify-content:space-between; font-size:12px;">
           <div style="width:42%;">
             <table style="width:100%; border-collapse:collapse; border:none;">
-              <tr><td style="padding:2px 0; width:105px; font-weight:bold;">Month</td><td style="width:12px; font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.Month||'')} ${escapeHtml(slipData.Year||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Shalarth ID</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.Shalarth_ID||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Name</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.Name||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Designation</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.Designation||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">PF / PRAN No</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.PFNo||'')}</td></tr>
+              <tr><td style="padding:2px 0; width:105px; font-weight:bold;">Month</td><td style="width:12px; font-weight:bold;">:</td><td>${escapeHtml(slipData.Month||'')} ${escapeHtml(slipData.Year||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">Shalarth ID</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Shalarth_ID||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">Name</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Name||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">Designation</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Designation||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">PF / PRAN No</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.PFNo||'')}</td></tr>
             </table>
           </div>
           <div style="width:42%;">
             <table style="width:100%; border-collapse:collapse; border:none;">
-              <tr><td style="padding:2px 0; width:95px; font-weight:bold;">School</td><td style="width:12px; font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.School||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">UDISE</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.UDISE||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Cluster</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.ClusterName||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Account No</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.AccountNumber||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">Bank Name</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.BankName||'')}</td></tr>
+              <tr><td style="padding:2px 0; width:95px; font-weight:bold;">School</td><td style="width:12px; font-weight:bold;">:</td><td>${escapeHtml(slipData.School||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">UDISE</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.UDISE||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">Cluster</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.ClusterName||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">Account No</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.AccountNumber||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">Bank Name</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.BankName||'')}</td></tr>
             </table>
           </div>
-          <div style="width:16%; text-align:center;" class="qr-box">
+          <div style="width:16%; text-align:center;">
             <img src="${qrBase64}" alt="QR Code" style="height:85px; width:85px;">
             <div style="font-size:10px; margin-top:2px;">Scan to verify</div>
           </div>
@@ -2879,115 +2456,73 @@
         <div class="meta" style="margin:10px 0; padding:10px; background:#f9f9f9; border:1px solid #ccc; border-radius:6px; display:flex; justify-content:space-between; font-size:12px;">
           <div style="width:42%;">
             <table style="width:100%; border-collapse:collapse; border:none;">
-              <tr><td style="padding:2px 0; width:110px; font-weight:bold;">महिना</td><td style="width:12px; font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.Month||'')} ${escapeHtml(slipData.Year||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">शालार्थ ID</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.Shalarth_ID||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">नाव</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.Name||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">पद</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.Designation||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">भनिनी / प्रान क्र</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.PFNo||'')}</td></tr>
+              <tr><td style="padding:2px 0; width:110px; font-weight:bold;">महिना</td><td style="width:12px; font-weight:bold;">:</td><td>${escapeHtml(slipData.Month||'')} ${escapeHtml(slipData.Year||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">शालार्थ ID</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Shalarth_ID||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">नाव</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Name||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">पद</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.Designation||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">भनिनी / प्रान क्र</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.PFNo||'')}</td></tr>
             </table>
           </div>
           <div style="width:42%;">
             <table style="width:100%; border-collapse:collapse; border:none;">
-              <tr><td style="padding:2px 0; width:85px; font-weight:bold;">शाळा</td><td style="width:12px; font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.School||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">UDISE</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.UDISE||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">केंद्र</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.ClusterName||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">खाते क्र</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.AccountNumber||'')}</td></tr>
-              <tr><td style="padding:2px 0; font-weight:bold;">बँकेचे नाव</td><td style="font-weight:bold;">:</td><td style="padding:2px 0;">${escapeHtml(slipData.BankName||'')}</td></tr>
+              <tr><td style="padding:2px 0; width:85px; font-weight:bold;">शाळा</td><td style="width:12px; font-weight:bold;">:</td><td>${escapeHtml(slipData.School||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">UDISE</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.UDISE||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">केंद्र</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.ClusterName||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">खाते क्र</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.AccountNumber||'')}</td></tr>
+              <tr><td style="padding:2px 0; font-weight:bold;">बँकेचे नाव</td><td style="font-weight:bold;">:</td><td>${escapeHtml(slipData.BankName||'')}</td></tr>
             </table>
           </div>
-          <div style="width:16%; text-align:center;" class="qr-box">
+          <div style="width:16%; text-align:center;">
             <img src="${qrBase64}" alt="QR Code" style="height:85px; width:85px;">
             <div style="font-size:10px; margin-top:2px;">सत्यता पडताळा</div>
           </div>
         </div>
       `;
 
-      const tableHeadHtml = isEn ? `
-        <thead>
-          <tr>
-            <th colspan="2" style="border-right:1px solid #1976d2">Allowances</th>
-            <th colspan="6">Deductions</th>
-          </tr>
-        </thead>
-      ` : `
-        <thead>
-          <tr>
-            <th colspan="2" style="border-right:1px solid #1976d2">भत्ते</th>
-            <th colspan="6">कपाती</th>
-          </tr>
-        </thead>
-      `;
-
       const dynamicInWords = getNetSalaryInWords(slipData, currentLang);
-
-      const netBoxHtml = isEn ? `
-        <div class="net-box">
-          <h3>Net Salary Payable: ₹${escapeHtml(formatIndianCurrency(slipData.NetSalary))}</h3>
-          <p><strong>In Words:</strong> ${escapeHtml(dynamicInWords)}</p>
-        </div>
-      ` : `
-        <div class="net-box">
-          <h3>निव्‍वळ वेतन: ₹${escapeHtml(formatIndianCurrency(slipData.NetSalary))}</h3>
-          <p><strong>अक्षरी:</strong> ${escapeHtml(dynamicInWords)}</p>
-        </div>
-      `;
-
       const footerNote = isEn ? 
-        `This is a system-generated salary slip and does not require a physical signature.<br><span style="font-size:9px; color:#94a3b8;">Printed / Downloaded on: ${printDateStr}</span>` : 
-        `हे संगणक प्रणालीद्वारे तयार केलेले वेतन पत्रक असल्याने यावर स्वाक्षरीची आवश्यकता नाही.<br><span style="font-size:9px; color:#94a3b8;">डाऊनलोड / प्रिंट दिनांक व वेळ: ${printDateStr}</span>`;
+        `This is a system-generated salary slip and does not require a physical signature.<br><span style="font-size:9px; color:#94a3b8;">Printed: ${printDateStr}</span>` : 
+        `हे संगणक प्रणालीद्वारे तयार केलेले वेतन पत्रक असल्याने यावर स्वाक्षरीची आवश्यकता नाही.<br><span style="font-size:9px; color:#94a3b8;">दिनांक: ${printDateStr}</span>`;
 
       return `
-        <div id="salarySlipContent" style="font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', Arial, sans-serif; font-size:12px; color:#000; background:#fff; padding:10px; width:750px; margin:0 auto; box-sizing:border-box;">
+        <div id="salarySlipContent" style="font-family:'Noto Sans Devanagari', 'Plus Jakarta Sans', Arial, sans-serif; font-size:12px; color:#000; background:#fff; padding:10px; width:750px; margin:0 auto;">
           <style>
-            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
-            #salarySlipContent, #salarySlipContent * { font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', Arial, sans-serif !important; }
-            .pdf-table { width:100%; border-collapse:collapse; border:2px solid #1976d2; margin-top:10px; font-family:'Noto Sans Devanagari', Arial, sans-serif; }
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+            .pdf-table { width:100%; border-collapse:collapse; border:2px solid #1976d2; margin-top:10px; }
             .pdf-table th, .pdf-table td { padding:5px 6px; font-size:11px; }
             .pdf-table thead th { background:#e3f2fd; border-bottom:2px solid #1976d2; text-align:center; font-weight:600; color:#1a237e; }
             .pdf-table tbody td { border-bottom:1px dotted #1976d2; }
-            .pdf-table th, .pdf-table td { border-left:none; border-right:none; }
-            .pdf-table thead th:nth-child(2) { border-right:1px solid #1976d2; }
-            .pdf-table tbody td:nth-child(2) { border-right:1px solid #1976d2; }
+            .pdf-table thead th:nth-child(2), .pdf-table tbody td:nth-child(2) { border-right:1px solid #1976d2; }
             .pdf-table tbody td:nth-child(1), .pdf-table tbody td:nth-child(2) { text-align:left; }
             .pdf-table tbody td:nth-child(n+3) { text-align:right; }
             .pdf-table tbody tr:last-child td { font-weight:700; background:#f1f8ff; border-top:2px solid #1976d2; }
-            .net-box { margin-top:14px; padding:10px; background:#f5f5f5; border:1.5px solid #999; border-radius:6px; text-align:center; font-family:'Noto Sans Devanagari', Arial, sans-serif; }
+            .net-box { margin-top:14px; padding:10px; background:#f5f5f5; border:1.5px solid #999; border-radius:6px; text-align:center; }
             .net-box h3 { margin:0; font-size:15px; font-weight:700; color:#16a34a; }
             .net-box p { margin:4px 0 0; font-size:13px; color:#333; }
-            .footer {
-              margin-top: 20px;
-              font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', Arial, sans-serif;
-              font-size: 10px;
-              color: #64748b;
-              padding-top: 10px;
-              text-align: center;
-              letter-spacing: 0.3px;
-              border-top: 1px dotted #999;
-            }
-            .qr-box { text-align:center; }
-            .qr-box img { height:90px; width:90px; }
+            .footer { margin-top: 20px; font-size: 10px; color: #64748b; padding-top: 10px; text-align: center; border-top: 1px dotted #999; }
           </style>
-
           ${headerHtml}
           ${metaHtml}
-
           <table class="pdf-table">
-            ${tableHeadHtml}
+            <thead>
+              <tr>
+                <th colspan="2" style="border-right:1px solid #1976d2">${isEn?'Allowances':'भत्ते'}</th>
+                <th colspan="6">${isEn?'Deductions':'कपाती'}</th>
+              </tr>
+            </thead>
             <tbody>${rows}</tbody>
           </table>
-
-          ${netBoxHtml}
-
-          <div class="footer">
-            ${footerNote}
+          <div class="net-box">
+            <h3>${isEn?'Net Salary Payable':'निव्‍वळ वेतन'}: ₹${escapeHtml(formatIndianCurrency(slipData.NetSalary))}</h3>
+            <p><strong>${isEn?'In Words':'अक्षरी'}:</strong> ${escapeHtml(dynamicInWords)}</p>
           </div>
+          <div class="footer">${footerNote}</div>
         </div>`;
     }
 
     function showPrintSlip(){
-      if(!slipData){ alert(currentLang === 'en' ? 'No data to print' : 'प्रिंट करण्यासाठी माहिती उपलब्ध नाही'); return; }
+      if(!slipData){ alert('No data to print'); return; }
       const printHtml = generatePrintHtml();
-
       let printIframe = document.getElementById('printIframe');
       if (!printIframe) {
         printIframe = document.createElement('iframe');
@@ -3000,7 +2535,6 @@
         printIframe.style.border = '0';
         document.body.appendChild(printIframe);
       }
-
       const doc = printIframe.contentWindow.document;
       doc.open();
       doc.write(`
@@ -3008,30 +2542,21 @@
         <html>
         <head>
           <title>Print Slip</title>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-          <style>
-            @page { size: A4 portrait; margin: 8mm; }
-            body { margin: 0; padding: 0; font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', Arial, sans-serif; }
-          </style>
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+          <style>@page { size: A4 portrait; margin: 8mm; } body { margin:0; padding:0; }</style>
         </head>
         <body>${printHtml}</body>
         </html>
       `);
       doc.close();
-
       setTimeout(() => {
         printIframe.contentWindow.focus();
         printIframe.contentWindow.print();
       }, 300);
     }
 
-    // ===== 100% BULLETPROOF SERVER-SIDE PDF DOWNLOAD (WITH DEVANAGARI FONT) =====
     async function downloadPdfSlip(btnEl) {
-      if (!slipData) {
-        alert(currentLang === 'en' ? 'No data available to download PDF' : 'PDF साठी माहिती उपलब्ध नाही');
-        return;
-      }
-
+      if (!slipData) return;
       const originalText = btnEl.innerHTML;
       btnEl.disabled = true;
       btnEl.innerHTML = '<span class="btn-spinner"></span> ' + (currentLang === 'en' ? 'Downloading...' : 'डाऊनलोड होत आहे...');
@@ -3044,83 +2569,119 @@
         <html>
         <head>
           <meta charset="utf-8">
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-          <style>
-            @page { size: A4 portrait; margin: 8mm; }
-            * { box-sizing: border-box; }
-            body { margin: 0; padding: 0; font-family: 'Noto Sans Devanagari', 'Plus Jakarta Sans', Arial, sans-serif; background: #ffffff; }
-          </style>
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+          <style>@page { size: A4 portrait; margin: 8mm; } body { margin: 0; background: #fff; }</style>
         </head>
-        <body>
-          ${rawHtml}
-        </body>
+        <body>${rawHtml}</body>
         </html>
       `;
 
       try {
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: JSON.stringify({
-            action: 'generatePdf',
-            html: fullServerHtml,
-            filename: filename
-          })
-        });
-
-        const res = await response.json();
-
+        const res = await apiRequest({ action: 'generatePdf', html: fullServerHtml, filename: filename });
         if (res && res.success && res.pdfBase64) {
           const byteCharacters = atob(res.pdfBase64);
           const byteNumbers = new Array(byteCharacters.length);
-          for (let i = 0; i < byteCharacters.length; i++) {
-            byteNumbers[i] = byteCharacters.charCodeAt(i);
-          }
+          for (let i = 0; i < byteCharacters.length; i++) byteNumbers[i] = byteCharacters.charCodeAt(i);
           const byteArray = new Uint8Array(byteNumbers);
           const blob = new Blob([byteArray], { type: 'application/octet-stream' });
-
           const blobUrl = window.URL.createObjectURL(blob);
           const downloadLink = document.createElement('a');
           downloadLink.style.display = 'none';
           downloadLink.href = blobUrl;
           downloadLink.download = filename;
           document.body.appendChild(downloadLink);
-          
           downloadLink.click();
-
           setTimeout(() => {
             window.URL.revokeObjectURL(blobUrl);
             downloadLink.remove();
             btnEl.disabled = false;
             btnEl.innerHTML = originalText;
           }, 300);
-
         } else {
-          throw new Error(res.message || 'Server PDF conversion failed');
+          throw new Error();
         }
-
       } catch (error) {
-        console.error('Server PDF download failed, falling back:', error);
         btnEl.disabled = false;
         btnEl.innerHTML = originalText;
         showPrintSlip();
       }
     }
 
-    // =========================================================
-    // सुधारणा १: PWA INSTALLATION, SHORTCUT & AUTO-HIDE LOGIC
-    // =========================================================
+    // ===== CHANGE PASSWORD LOGIC =====
+    function toggleChangePassword(){
+      document.getElementById('loginBox').style.display = 'none';
+      document.getElementById('changePasswordBox').style.display = 'block';
+      ['empIdPass','oldPass','newPass','confirmPass'].forEach(id => document.getElementById(id).value = "");
+      const msgBox = document.getElementById('passMsg');
+      msgBox.style.display = "none";
+    }
+
+    function backToLogin(){
+      document.getElementById('changePasswordBox').style.display = 'none';
+      document.getElementById('loginBox').style.display = 'block';
+    }
+
+    function changePassword(){
+      const u = document.getElementById('empIdPass').value.trim();
+      const oldP = document.getElementById('oldPass').value.trim();
+      const newP = document.getElementById('newPass').value.trim();
+      const confirmP = document.getElementById('confirmPass').value.trim();
+      const msgBox = document.getElementById('passMsg');
+      const btn = document.getElementById('updatePassBtn');
+      const btnText = document.getElementById('updatePassBtnText');
+
+      msgBox.style.display = "none";
+      if(!u || !oldP || !newP || !confirmP){
+        msgBox.textContent = currentLang === 'en' ? "⚠️ Fill all fields" : "⚠️ सर्व माहिती भरणे आवश्यक आहे"; 
+        msgBox.style.display = "block"; 
+        return;
+      }
+      if(newP !== confirmP){
+        msgBox.textContent = currentLang === 'en' ? "❌ New passwords do not match" : "❌ नवीन पासवर्ड जुळत नाही"; 
+        msgBox.style.display = "block"; 
+        return;
+      }
+
+      btn.disabled = true;
+      btnText.innerHTML = '<span class="btn-spinner"></span> Updating...';
+
+      apiRequest({ action: 'updatePassword', username: u, oldPassword: oldP, newPassword: newP })
+        .then(res => {
+          btn.disabled = false;
+          btnText.textContent = translations[currentLang].btn_update_pwd;
+          msgBox.textContent = res.message;
+          msgBox.style.display = "block";
+          msgBox.style.color = res.success ? "#16a34a" : "#dc2626";
+
+          if(res.success){
+            ['empIdPass','oldPass','newPass','confirmPass'].forEach(id => document.getElementById(id).value = "");
+            const modal = document.getElementById("successModal");
+            modal.style.display = "flex";
+            setTimeout(() => {
+              modal.style.display = "none";
+              backToLogin();
+            }, 3000);
+          }
+        })
+        .catch(err => {
+          btn.disabled = false;
+          btnText.textContent = translations[currentLang].btn_update_pwd;
+          msgBox.textContent = "⚠️ नेटवर्क त्रुटी.";
+          msgBox.style.display = "block";
+          msgBox.style.color = "#dc2626";
+        });
+    }
+
+    // ===== PWA INSTALLATION LOGIC =====
     let deferredPrompt = null;
     const installBtn = document.getElementById('pwaInstallBtn');
 
-    // ॲप इन्स्टॉल झालेले आहे का हे तपासणे
     function isAppAlreadyInstalled() {
       const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
       const isMarked = localStorage.getItem('pwa_is_installed') === 'true';
       return isStandalone || isMarked;
     }
 
-    // जर ॲपमध्ये उघडले असेल तर सुरुवातीलाच बटण लपवणे
     if (isAppAlreadyInstalled()) {
       if (installBtn) installBtn.style.display = 'none';
     }
@@ -3170,7 +2731,7 @@
       deferredPrompt = null;
     });
 
-    // ===== INLINE SERVICE WORKER =====
+    // INLINE SERVICE WORKER
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         const swScript = `
@@ -3184,33 +2745,60 @@
         `;
         const blob = new Blob([swScript], { type: 'application/javascript' });
         const swBlobUrl = URL.createObjectURL(blob);
-
-        navigator.serviceWorker.register(swBlobUrl)
-          .then((reg) => {
-            console.log('Service Worker Registered Successfully via Blob:', reg.scope);
-          })
-          .catch((err) => {
-            navigator.serviceWorker.register('./sw.js').catch(() => {});
-          });
+        navigator.serviceWorker.register(swBlobUrl).catch(() => {
+          navigator.serviceWorker.register('./sw.js').catch(() => {});
+        });
       });
     }
 
-    // =========================================================
-    // सुधारणा ३: प्रीलोडर फेड-आऊट लॉजिक (PRELOADER AUTO-HIDE)
-    // =========================================================
-    function hidePageLoader() {
-      const loader = document.getElementById('pageLoader');
-      if (loader && !loader.classList.contains('fade-out')) {
-        loader.classList.add('fade-out');
-      }
-    }
+    // SCROLL TO TOP & EYE TOGGLES
+    const passwordInput = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+    const eyeOffIcon = document.getElementById("eyeOffIcon");
+    eyeIcon.addEventListener("click", () => { passwordInput.type = "text"; eyeIcon.style.display = "none"; eyeOffIcon.style.display = "block"; });
+    eyeOffIcon.addEventListener("click", () => { passwordInput.type = "password"; eyeOffIcon.style.display = "none"; eyeIcon.style.display = "block"; });
 
-    window.addEventListener('load', () => {
-      setTimeout(hidePageLoader, 400); // स्मूथ ट्रान्झिशनसाठी ४०० मिलीसेकंद
+    window.addEventListener('scroll', () => {
+      const scrollBtn = document.getElementById('scrollToTopBtn');
+      const salarySection = document.getElementById('salaryPortal');
+      if (!scrollBtn || !salarySection) return;
+      if (salarySection.getBoundingClientRect().bottom < 0) scrollBtn.classList.add('show');
+      else scrollBtn.classList.remove('show');
     });
 
-    // सुरक्षेसाठी: नेटवर्क धीमे असले तरी कमाल २ सेकंदात पेज वापरायला उपलब्ध होईल
-    setTimeout(hidePageLoader, 2000);
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // INITIALIZATION
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+      startShowcaseTimer();
+      runCounters();
+      loadDynamicNotices();
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
+      const footerYear = document.getElementById('footerYear');
+      if (footerYear) footerYear.textContent = new Date().getFullYear();
+    });
+
+    // PRELOADER AUTO HIDE
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loader = document.getElementById('pageLoader');
+        if (loader) loader.classList.add('fade-out');
+      }, 400);
+    });
+    setTimeout(() => {
+      const loader = document.getElementById('pageLoader');
+      if (loader && !loader.classList.contains('fade-out')) loader.classList.add('fade-out');
+    }, 2000);
   </script>
 </body>
 </html>
