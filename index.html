@@ -711,10 +711,11 @@
     .summary-card {
       background: var(--card-bg);
       border-radius: var(--radius);
-      padding: 1.6rem 1.4rem;
+      padding: 1.6rem 1.4rem 1.8rem !important; /* तळाशी पॅडिंग दिल्याने बटणे आत बसतील */
       box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15);
       border: 1px solid var(--border-color);
       text-align: center;
+      box-sizing: border-box !important;
     }
 
     /* ANNUAL SUMMARY CARD STYLES */
@@ -837,33 +838,34 @@
     .vs-divider { font-weight: 800; color: #94a3b8; padding: 0 16px; font-size: 0.95rem; }
 
     /* ===== EQUAL WIDTH ACTION BUTTONS ===== */
-    .action-group {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      width: 100%;
+  .action-group {
+      margin-top: 18px !important;
+      margin-bottom: 2px !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 8px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     .action-group button.btn-sm {
       margin-top: 0 !important;
-      flex: 1;                     /* सर्व बटणे समान रुंदी घेतील */
-      min-width: 110px;           /* किमान रुंदी */
-      max-width: 150px;           /* जास्त पसरणार नाहीत यासाठी कमाल मर्यादा */
-      height: 42px;               /* सर्वांची उंची तंतोतंत एकसारखी */
-      padding: 0 12px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: 10px;
-      gap: 0.5rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      box-sizing: border-box;
+      flex: 1 1 0 !important;             /* तिन्ही बटणे उपलब्ध जागेनुसार समान विभागली जातील */
+      min-width: 0 !important;            /* ओव्हरफ्लो थांबवण्यासाठी किमान मर्यादा काढली */
+      max-width: none !important;
+      height: 42px !important;
+      padding: 0 8px !important;
+      font-size: 0.84rem !important;
+      font-weight: 700 !important;
+      border-radius: 10px !important;
+      gap: 5px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      white-space: nowrap !important;
+      box-sizing: border-box !important;
     }
-
     #successModal {
       display: none;
       position: fixed;
