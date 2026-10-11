@@ -1016,7 +1016,6 @@
       .metrics-container { grid-template-columns: 1fr; }
       .about-portal { grid-template-columns: 1fr; }
     }
-
 @media (max-width: 600px) {
   .news-ticker-wrap { height: 38px; font-size: 0.78rem; }
   .ticker-badge { padding: 0 10px; font-size: 0.72rem; }
@@ -1035,7 +1034,7 @@
   .regime-compare-box { flex-direction: column; gap: 14px; }
   .vs-divider { display: none; }
 
-  /* =====  (Vertical Stack) ===== */
+  /* ===== (Vertical Stack) ===== */
   .portal-mode-toggle {
     flex-direction: column !important;
     gap: 6px !important;
@@ -1046,6 +1045,28 @@
     padding: 10px 14px !important;
     font-size: 0.85rem !important;
     justify-content: center !important;
+  }
+
+  /* ===== हे नवीन ॲड करा (४ बॉक्सेस २x२ रांगेत बसवण्यासाठी) ===== */
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .kpi-box {
+    padding: 8px 6px !important;
+  }
+  .kpi-label {
+    font-size: 0.68rem !important;
+  }
+  .kpi-val {
+    font-size: 1rem !important;
+  }
+
+  /* ===== स्वाक्षरी ब्लॉक सुटसुटीत दिसण्यासाठी ===== */
+  .sign-block {
+    margin-top: 40px !important;
+    padding: 0 5px !important;
+    font-size: 0.78rem !important;
   }
 }
   </style>
@@ -2378,18 +2399,17 @@
             </div>
           </div>
 
-          <!-- स्वाक्षरी व दिनांक ब्लॉक (पुरेशी जागा व खाली घेतलेला) -->
-          <div class="sign-block" style="display:flex; justify-content:space-between; margin-top:55px; padding:0 25px; font-size:0.85rem; font-weight:700; color:#1e293b;">
-            <div style="text-align:center;">
-              <div style="border-top:1.5px dotted #64748b; width:150px; margin-bottom:6px;"></div>
-              <div>कर्मचाऱ्याची स्वाक्षरी</div>
-            </div>
-            <div style="text-align:center;">
-              <div style="border-top:1.5px dotted #64748b; width:200px; margin-bottom:6px;"></div>
-              <div>मुख्याध्यापक स्वाक्षरी व शिक्का</div>
-            </div>
-          </div>
-
+          <!-- स्वाक्षरी व दिनांक ब्लॉक -->
+<div class="sign-block" style="display:flex; justify-content:space-between; margin-top:45px; padding:0 10px; font-size:0.82rem; font-weight:700; color:#1e293b;">
+  <div style="text-align:center; min-width:120px;">
+    <div style="border-top:1.5px dotted #64748b; margin-bottom:6px;"></div>
+    <div>कर्मचाऱ्याची स्वाक्षरी</div>
+  </div>
+  <div style="text-align:center; min-width:150px;">
+    <div style="border-top:1.5px dotted #64748b; margin-bottom:6px;"></div>
+    <div>मुख्याध्यापक स्वाक्षरी व शिक्का</div>
+  </div>
+</div>
           <!-- वेब ॲक्शन बटणे -->
           <div class="action-group" style="margin-top:20px; display:flex; justify-content:center; gap:12px;">
             <button onclick="printAnnualStatement()" class="btn-action btn-sm" style="background:#16a34a; color:#fff; min-width:140px; height:42px; border-radius:10px; font-weight:700; cursor:pointer;">
