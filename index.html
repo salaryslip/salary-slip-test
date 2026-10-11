@@ -1015,24 +1015,37 @@
       .about-portal { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 600px) {
-      .news-ticker-wrap { height: 38px; font-size: 0.78rem; }
-      .ticker-badge { padding: 0 10px; font-size: 0.72rem; }
-      .btn-lang { padding: 3px 8px; font-size: 0.7rem; }
-      .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
-      .btn-hero { width: 100%; max-width: 290px; }
-      .metrics-grid { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .showcase-slide.dev-testimonial-slide { flex-direction: column; text-align: center; padding: 22px 18px; }
-      .dev-divider { margin: 8px auto 10px; }
-      .slider-nav { display: none; }
-      .contact-card { padding: 26px 20px; }
-      .wa-group-card { flex-direction: column; text-align: center; }
-      .wa-group-info { flex-direction: column; text-align: center; }
-      .btn-wa-group { width: 100%; justify-content: center; }
-      .regime-compare-box { flex-direction: column; gap: 14px; }
-      .vs-divider { display: none; }
-    }
+@media (max-width: 600px) {
+  .news-ticker-wrap { height: 38px; font-size: 0.78rem; }
+  .ticker-badge { padding: 0 10px; font-size: 0.72rem; }
+  .btn-lang { padding: 3px 8px; font-size: 0.7rem; }
+  .hero-actions { flex-direction: column; align-items: center; gap: 12px; }
+  .btn-hero { width: 100%; max-width: 290px; }
+  .metrics-grid { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .showcase-slide.dev-testimonial-slide { flex-direction: column; text-align: center; padding: 22px 18px; }
+  .dev-divider { margin: 8px auto 10px; }
+  .slider-nav { display: none; }
+  .contact-card { padding: 26px 20px; }
+  .wa-group-card { flex-direction: column; text-align: center; }
+  .wa-group-info { flex-direction: column; text-align: center; }
+  .btn-wa-group { width: 100%; justify-content: center; }
+  .regime-compare-box { flex-direction: column; gap: 14px; }
+  .vs-divider { display: none; }
+
+  /* =====  (Vertical Stack) ===== */
+  .portal-mode-toggle {
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 6px !important;
+  }
+  .mode-btn {
+    width: 100% !important;
+    padding: 10px 14px !important;
+    font-size: 0.85rem !important;
+    justify-content: center !important;
+  }
+}
   </style>
 </head>
 <body>
