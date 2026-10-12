@@ -1069,6 +1069,235 @@
     font-size: 0.78rem !important;
   }
 }
+    /* ===== A4 एकाच पानात १००% फिट बसवण्यासाठी सुधारित कोड ===== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 3mm 5mm 2mm 5mm !important; /* अचूक A4 मार्जिन */
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #annualPrintArea, #annualPrintArea * {
+    visibility: visible !important;
+  }
+
+  #annualPrintArea {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* १. अधिकृत हेडर */
+  .annual-header-center {
+    border-bottom: 1.2px solid #000 !important;
+    padding-bottom: 1px !important;
+    margin-bottom: 2px !important;
+    text-align: center !important;
+  }
+  .dept-title {
+    font-size: 12px !important;
+    line-height: 1.1 !important;
+    margin: 0 !important;
+    font-weight: 900 !important;
+    color: #000 !important;
+  }
+  .doc-title {
+    font-size: 10px !important;
+    line-height: 1.1 !important;
+    margin: 1px 0 !important;
+    color: #000 !important;
+    font-weight: 800 !important;
+  }
+  .badge-fy {
+    font-size: 8px !important;
+    padding: 1px 8px !important;
+    border: 0.8px solid #000 !important;
+    background: transparent !important;
+    color: #000 !important;
+  }
+
+  /* २. कर्मचारी माहिती */
+  .emp-meta-bar {
+    display: grid !important;
+    grid-template-columns: 1.1fr 0.9fr !important;
+    gap: 1px 8px !important;
+    padding: 2px 6px !important;
+    margin-bottom: 3px !important;
+    font-size: 8px !important;
+    line-height: 1.15 !important;
+    border: 0.8px solid #000 !important;
+    border-radius: 3px !important;
+    background: transparent !important;
+  }
+  .pan-box-container {
+    display: inline-flex !important;
+    gap: 2px !important;
+  }
+  .pan-cell {
+    width: 10px !important;
+    height: 12px !important;
+    border: 0.8px solid #000 !important;
+  }
+
+  /* ३. १२ महिन्यांचा मुख्य तक्ता */
+  #annualPrintArea > div:nth-of-type(2) table,
+  #annualPrintArea table:not(.tax-calc-table) {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-bottom: 3px !important;
+    font-size: 7.2px !important;
+    line-height: 1.1 !important;
+  }
+  #annualPrintArea table:not(.tax-calc-table) th {
+    padding: 1.5px 2px !important;
+    font-size: 7.5px !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    border: 0.6px solid #000 !important;
+  }
+  #annualPrintArea table:not(.tax-calc-table) td {
+    padding: 1px 2px !important;
+    font-size: 7.2px !important;
+    border: 0.5px solid #666 !important;
+  }
+  #annualPrintArea table:not(.tax-calc-table) tr:last-child {
+    background: #e2e8f0 !important;
+    font-weight: 900 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* ४. ४ सारांश चौकोन */
+  .kpi-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 3px !important;
+    margin-bottom: 3px !important;
+  }
+  .kpi-box {
+    padding: 1.5px !important;
+    border: 0.8px solid #000 !important;
+    border-radius: 3px !important;
+    background: transparent !important;
+  }
+  .kpi-label {
+    font-size: 6.5px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    margin-bottom: 1px !important;
+  }
+  .kpi-val {
+    font-size: 8.5px !important;
+    font-weight: 900 !important;
+    color: #000 !important;
+    line-height: 1 !important;
+  }
+
+  /* ५. दोन्ही तक्ते शेजारी-शेजारी (Side-by-Side Flex) */
+  .detailed-regime-wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
+    margin-bottom: 3px !important;
+    width: 100% !important;
+  }
+  .regime-table-card {
+    flex: 1 1 50% !important;
+    width: 49.5% !important;
+  }
+  .tax-calc-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 6.8px !important;
+    border: 0.8px solid #000 !important;
+  }
+  .tax-calc-table th, .tax-calc-table td {
+    padding: 0.8px 2px !important;
+    border: 0.4px solid #444 !important;
+    line-height: 1.05 !important;
+  }
+  .tax-calc-table .th-regime-title th {
+    font-size: 7.5px !important;
+    padding: 1px !important;
+    background: #e2e8f0 !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .tax-calc-table td.num {
+    text-align: right !important;
+    font-size: 6.8px !important;
+  }
+
+  /* ६. तुलनात्मक निष्कर्ष बॉक्स */
+  .regime-compare-box {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    border: 0.8px solid #000 !important;
+    border-radius: 3px !important;
+    padding: 1.5px 4px !important;
+    margin-bottom: 3px !important;
+    background: transparent !important;
+  }
+  .regime-col {
+    flex: 1 !important;
+    text-align: center !important;
+  }
+  .regime-title {
+    font-size: 7px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+  }
+  .tax-amount {
+    font-size: 8.5px !important;
+    font-weight: 900 !important;
+    color: #000 !important;
+    line-height: 1 !important;
+  }
+  .best-tag {
+    font-size: 6px !important;
+    padding: 0.5px 3px !important;
+    border: 0.6px solid #000 !important;
+    background: transparent !important;
+    color: #000 !important;
+  }
+  .vs-divider {
+    display: block !important;
+    font-size: 7.5px !important;
+    font-weight: 900 !important;
+    padding: 0 4px !important;
+  }
+
+  /* ७. स्वाक्षरी ब्लॉक */
+  .sign-block {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: 8px !important;
+    padding: 0 15px !important;
+    font-size: 7.5px !important;
+    font-weight: 700 !important;
+  }
+
+  .action-group {
+    display: none !important;
+  }
+}
   </style>
 </head>
 <body>
@@ -2199,7 +2428,7 @@
    // =========================================================
     // २. सुंदर व अधिकृत वार्षिक आयकर विवरण DASHBOARD
     // =========================================================
-    function renderAnnualStatementSummary(data) {
+function renderAnnualStatementSummary(data) {
       document.getElementById('loginBox').style.display = 'none';
       const t = data.teacher;
       const st = data.statement;
@@ -2222,200 +2451,268 @@
         totIT += Number(r.IncomeTax || 0);
       });
 
-      const stdDeduction = 50000;
-      const sec80C_Total = Math.min(totGPF + totGIS, 150000);
-      const netTaxableOld = Math.max(totGross - stdDeduction - totPT - sec80C_Total, 0);
+      // १. जुनी कर प्रणाली (Old Regime - PT ₹२,५०० सह अचूक हिशोब: ₹११,७९,२५८)
+      const oldStdDed = 50000;
+      const oldPT = totPT; // ₹२,५०० व्यवसाय कर
+      const old80C = Math.min(totGPF + totGIS, 150000);
+      const oldTaxable = Math.max(totGross - oldStdDed - oldPT - old80C, 0); // ₹ ११,७९,२५८
 
-      function calcOldRegimeTax(taxableIncome) {
-        if (taxableIncome <= 250000) return 0;
-        let tax = 0;
-        if (taxableIncome > 250000) tax += Math.min(taxableIncome - 250000, 250000) * 0.05;
-        if (taxableIncome > 500000) tax += Math.min(taxableIncome - 500000, 500000) * 0.20;
-        if (taxableIncome > 1000000) tax += (taxableIncome - 1000000) * 0.30;
-        if (taxableIncome <= 500000) tax = 0;
-        return Math.round(tax * 1.04);
-      }
+      let oldTax2_5to5 = 0;
+      let oldTax5to10 = 0;
+      let oldTaxAbove10 = 0;
 
-     function calcNewRegimeTax(grossIncome) {
-  // पगारदारांसाठी मानक वजावट (Standard Deduction) = ₹75,000
-  const taxable = Math.max(grossIncome - 75000, 0);
+      if (oldTaxable > 250000) oldTax2_5to5 = Math.min(oldTaxable - 250000, 250000) * 0.05;
+      if (oldTaxable > 500000) oldTax5to10 = Math.min(oldTaxable - 500000, 500000) * 0.20;
+      if (oldTaxable > 1000000) oldTaxAbove10 = (oldTaxable - 1000000) * 0.30;
 
-  // ₹12 लाख किंवा त्यापेक्षा कमी करपात्र उत्पन्नावर कलम 87A सवलतीमुळे कर शून्य
-  if (taxable <= 1200000) return 0;
+      let oldSubTotal = oldTax2_5to5 + oldTax5to10 + oldTaxAbove10;
+      let oldRebate87A = (oldTaxable <= 500000) ? oldSubTotal : 0;
+      let oldTaxAfterRebate = Math.max(oldSubTotal - oldRebate87A, 0);
+      let oldCess = Math.round(oldTaxAfterRebate * 0.04);
+      let oldFinalTax = Math.round(oldTaxAfterRebate + oldCess);
 
-  let tax = 0;
+      // २. नवीन कर प्रणाली (New Regime)
+      const newStdDed = 75000;
+      const newTaxable = Math.max(totGross - newStdDed, 0);
 
-  // ₹4,00,001 ते ₹8,00,000 (5%) -> कमाल ₹20,000
-  if (taxable > 400000) {
-    tax += Math.min(taxable - 400000, 400000) * 0.05;
-  }
-  // ₹8,00,001 ते ₹12,00,000 (10%) -> कमाल ₹40,000
-  if (taxable > 800000) {
-    tax += Math.min(taxable - 800000, 400000) * 0.10;
-  }
-  // ₹12,00,001 ते ₹16,00,000 (15%) -> कमाल ₹60,000
-  if (taxable > 1200000) {
-    tax += Math.min(taxable - 1200000, 400000) * 0.15;
-  }
-  // ₹16,00,001 ते ₹20,00,000 (20%) -> कमाल ₹80,000
-  if (taxable > 1600000) {
-    tax += Math.min(taxable - 1600000, 400000) * 0.20;
-  }
-  // ₹20,00,001 ते ₹24,00,000 (25%) -> कमाल ₹1,00,000
-  if (taxable > 2000000) {
-    tax += Math.min(taxable - 2000000, 400000) * 0.25;
-  }
-  // ₹24,00,000 च्या पुढे (30%)
-  if (taxable > 2400000) {
-    tax += (taxable - 2400000) * 0.30;
-  }
+      let newTax4to8 = 0;
+      let newTax8to12 = 0;
+      let newTax12to16 = 0;
+      let newTax16to20 = 0;
+      let newTax20to24 = 0;
+      let newTaxAbove24 = 0;
 
-  // 4% उपकर (Health and Education Cess)
-  return Math.round(tax * 1.04);
-}
+      if (newTaxable > 400000) newTax4to8 = Math.min(newTaxable - 400000, 400000) * 0.05;
+      if (newTaxable > 800000) newTax8to12 = Math.min(newTaxable - 800000, 400000) * 0.10;
+      if (newTaxable > 1200000) newTax12to16 = Math.min(newTaxable - 1200000, 400000) * 0.15;
+      if (newTaxable > 1600000) newTax16to20 = Math.min(newTaxable - 1600000, 400000) * 0.20;
+      if (newTaxable > 2000000) newTax20to24 = Math.min(newTaxable - 2000000, 400000) * 0.25;
+      if (newTaxable > 2400000) newTaxAbove24 = (newTaxable - 2400000) * 0.30;
 
-      const taxOld = calcOldRegimeTax(netTaxableOld);
-      const taxNew = calcNewRegimeTax(totGross);
-      const isNewBetter = taxNew < taxOld;
-      const savings = Math.abs(taxOld - taxNew);
+      let newSubTotal = newTax4to8 + newTax8to12 + newTax12to16 + newTax16to20 + newTax20to24 + newTaxAbove24;
+      let newRebate87A = (newTaxable <= 1200000) ? newSubTotal : 0;
+      let newTaxAfterRebate = Math.max(newSubTotal - newRebate87A, 0);
+      let newCess = Math.round(newTaxAfterRebate * 0.04);
+      let newFinalTax = Math.round(newTaxAfterRebate + newCess);
 
-      // १. अचूक वर्षाचे लॉजिक (const html च्या आधी टाका)
+      const isNewBetter = newFinalTax < oldFinalTax;
+      const savings = Math.abs(oldFinalTax - newFinalTax);
+
       const startYear = parseInt(String(data.financialYear).split('-')[0], 10) || new Date().getFullYear();
       const fyDisplay = `${startYear}-${startYear + 1}`;
       const ayDisplay = `${startYear + 1}-${String(startYear + 2).slice(-2)}`;
 
       const html = `
-        <div class="annual-summary-card" id="annualPrintArea">
+        <div class="annual-summary-card" id="annualPrintArea" style="padding: 8px 12px; background: #fff; font-family: 'Noto Sans Devanagari', sans-serif;">
           
-          <!-- स्वच्छ अधिकृत हेडर (कोणताही चुकीचा मजकूर नाही) -->
-          <div class="annual-header-center">
-            <h2 class="dept-title">पंचायत समिती (शिक्षण विभाग), दक्षिण सोलापूर</h2>
-            <h3 class="doc-title">वार्षिक आयकर वेतन विवरण पत्र</h3>
-            <div class="fy-badge-wrap">
-              <span class="badge-fy">आर्थिक वर्ष : ${fyDisplay} &nbsp;—&nbsp; कर निर्धारण वर्ष : ${ayDisplay}</span>
+          <!-- अधिकृत शासकीय हेडर -->
+          <div class="annual-header-center" style="text-align:center; border-bottom:1.2px solid #000; padding-bottom:1px; margin-bottom:3px;">
+            <h2 class="dept-title" style="font-size:13px; font-weight:900; margin:0; color:#000;">पंचायत समिती (शिक्षण विभाग), दक्षिण सोलापूर</h2>
+            <h3 class="doc-title" style="font-size:11px; font-weight:800; margin:1px 0; color:#1e3a8a;">वार्षिक आयकर वेतन विवरण पत्र</h3>
+            <div>
+              <span class="badge-fy" style="border:0.8px solid #000; padding:1px 8px; border-radius:999px; font-size:8px; font-weight:700; color:#000;">आर्थिक वर्ष : ${fyDisplay} &nbsp;|&nbsp; कर निर्धारण वर्ष : ${ayDisplay}</span>
             </div>
           </div>
 
           <!-- कर्मचारी माहिती ग्रीड -->
-          <div class="emp-meta-bar">
-            <div><span>कर्मचाऱ्याचे नाव:</span> <strong>${escapeHtml(t.Name)}</strong></div>
-            <div><span>शाळा / केंद्र:</span> <strong>${escapeHtml(t.School)}${t.ClusterName ? `(${escapeHtml(t.ClusterName)})` : ''}</strong></div>
-            <div><span>शालार्थ / Emp ID:</span> <strong>${escapeHtml(t.Shalarth_ID || t.EmployeeID || '-')}</strong></div>
-            <div><span>भ.नि.नि. / PRAN No:</span> <strong>${escapeHtml(t.PFNo || t.PRAN || '-')}</strong></div>
-            <div style="grid-column: 1 / -1; display:flex; align-items:center; gap:8px;">
-              <span>PAN No:</span> 
-              <span class="pan-box-container">
-                <span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span>
-                <span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span><span class="pan-cell"></span>
+          <div class="emp-meta-bar" style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:1px 8px; border:0.8px solid #000; border-radius:3px; padding:2px 6px; margin-bottom:3px; font-size:8px; color:#000;">
+            <div><strong>कर्मचाऱ्याचे नाव:</strong> ${escapeHtml(t.Name)}</div>
+            <div><strong>शाळा / केंद्र:</strong> ${escapeHtml(t.School)} ${t.ClusterName ? `(${escapeHtml(t.ClusterName)})` : ''}</div>
+            <div><strong>शालार्थ / Emp ID:</strong> ${escapeHtml(t.Shalarth_ID || t.EmployeeID || '-')}</div>
+            <div><strong>भ.नि.नि. / PRAN No:</strong> ${escapeHtml(t.PFNo || t.PRAN || '-')}</div>
+            <div style="grid-column: 1 / -1; display:flex; align-items:center; gap:5px;">
+              <strong>PAN No:</strong> 
+              <span class="pan-box-container" style="display:inline-flex; gap:2px;">
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
+                <span class="pan-cell" style="display:inline-block; width:10px; height:12px; border:0.8px solid #000; background:#fff;"></span>
               </span>
             </div>
           </div>
 
-          <!-- १२ महिन्यांचा सुबक वेतन तक्ता -->
-          <div style="overflow-x:auto; margin-bottom:15px; border-radius:10px; border:1.5px solid #94a3b8;">
-            <table style="width:100%; border-collapse:collapse; font-size:0.77rem; text-align:right;">
+          <!-- १२ महिन्यांचा मुख्य वेतन तक्ता -->
+          <div style="overflow-x:auto; margin-bottom:3px; border:0.8px solid #000; border-radius:3px;">
+            <table style="width:100%; border-collapse:collapse; font-size:7.2px; text-align:right;">
               <thead>
                 <tr style="background:#0f172a; color:#ffffff;">
-                  <th style="padding:7px 5px; text-align:left; font-weight:800; border:1px solid #334155;">महिना</th>
-                  <th style="padding:7px 5px; font-weight:800; border:1px solid #334155;">मूळ वेतन</th>
-                  <th style="padding:7px 5px; font-weight:800; border:1px solid #334155;">महागाई</th>
-                  <th style="padding:7px 5px; font-weight:800; border:1px solid #334155;">घरभाडे</th>
-                  <th style="padding:7px 5px; font-weight:800; border:1px solid #334155;">वा.भत्ता</th>
-                  <th style="padding:7px 5px; font-weight:800; border:1px solid #334155;">फरक</th>
-                  <th style="padding:7px 5px; font-weight:800; background:#1e293b; color:#38bdf8; border:1px solid #334155;">एकूण वेतन</th>
-                  <th style="padding:7px 5px; font-weight:800; border:1px solid #334155;">गटविमा</th>
-                  <th style="padding:7px 5px; font-weight:800; border:1px solid #334155;">भ.नि.नि.</th>
-                  <th style="padding:7px 5px; font-weight:800; border:1px solid #334155;">व्य.कर</th>
-                  <th style="padding:7px 5px; font-weight:800; background:#1e293b; color:#f87171; border:1px solid #334155;">आयकर</th>
+                  <th style="padding:1.5px; text-align:left; border:0.5px solid #334155;">महिना</th>
+                  <th style="padding:1.5px; border:0.5px solid #334155;">मूळ वेतन</th>
+                  <th style="padding:1.5px; border:0.5px solid #334155;">महागाई</th>
+                  <th style="padding:1.5px; border:0.5px solid #334155;">घरभाडे</th>
+                  <th style="padding:1.5px; border:0.5px solid #334155;">वा.भत्ता</th>
+                  <th style="padding:1.5px; border:0.5px solid #334155;">फरक</th>
+                  <th style="padding:1.5px; background:#1e293b; color:#38bdf8; border:0.5px solid #334155;">एकूण वेतन</th>
+                  <th style="padding:1.5px; border:0.5px solid #334155;">गटविमा</th>
+                  <th style="padding:1.5px; border:0.5px solid #334155;">भ.नि.नि.</th>
+                  <th style="padding:1.5px; border:0.5px solid #334155;">व्य.कर</th>
+                  <th style="padding:1.5px; background:#1e293b; color:#f87171; border:0.5px solid #334155;">आयकर</th>
                 </tr>
               </thead>
               <tbody>
                 ${st.map((r, i) => `
-                  <tr style="background:${i % 2 === 0 ? '#ffffff' : '#f8fafc'}; border-bottom:1px solid #e2e8f0;">
-                    <td style="padding:5px 6px; text-align:left; font-weight:700; color:#0f172a; border-right:1px solid #cbd5e1;">${escapeHtml(r.label)}</td>
-                    <td style="padding:5px 6px; border-right:1px solid #e2e8f0;">${formatIndianCurrency(r.BasicPay)}</td>
-                    <td style="padding:5px 6px; border-right:1px solid #e2e8f0;">${formatIndianCurrency(r.DA)}</td>
-                    <td style="padding:5px 6px; border-right:1px solid #e2e8f0;">${formatIndianCurrency(r.HRA)}</td>
-                    <td style="padding:5px 6px; border-right:1px solid #e2e8f0;">${formatIndianCurrency(r.TA)}</td>
-                    <td style="padding:5px 6px; border-right:1px solid #e2e8f0;">${formatIndianCurrency(r.Arrears)}</td>
-                    <td style="padding:5px 6px; font-weight:800; color:#0f172a; background:#f1f5f9; border-right:1px solid #cbd5e1;">${formatIndianCurrency(r.GrossSalary)}</td>
-                    <td style="padding:5px 6px; border-right:1px solid #e2e8f0;">${formatIndianCurrency(r.GIS)}</td>
-                    <td style="padding:5px 6px; border-right:1px solid #e2e8f0;">${formatIndianCurrency(r.GPF)}</td>
-                    <td style="padding:5px 6px; border-right:1px solid #e2e8f0;">${formatIndianCurrency(r.ProfessionalTax)}</td>
-                    <td style="padding:5px 6px; font-weight:700; color:#dc2626; background:#fef2f2;">${formatIndianCurrency(r.IncomeTax)}</td>
+                  <tr style="background:${i % 2 === 0 ? '#ffffff' : '#f8fafc'}; border-bottom:0.4px solid #cbd5e1;">
+                    <td style="padding:1.2px 2px; text-align:left; font-weight:700; border-right:0.4px solid #cbd5e1;">${escapeHtml(r.label)}</td>
+                    <td style="padding:1.2px 2px; border-right:0.4px solid #e2e8f0;">${formatIndianCurrency(r.BasicPay)}</td>
+                    <td style="padding:1.2px 2px; border-right:0.4px solid #e2e8f0;">${formatIndianCurrency(r.DA)}</td>
+                    <td style="padding:1.2px 2px; border-right:0.4px solid #e2e8f0;">${formatIndianCurrency(r.HRA)}</td>
+                    <td style="padding:1.2px 2px; border-right:0.4px solid #e2e8f0;">${formatIndianCurrency(r.TA)}</td>
+                    <td style="padding:1.2px 2px; border-right:0.4px solid #e2e8f0;">${formatIndianCurrency(r.Arrears)}</td>
+                    <td style="padding:1.2px 2px; font-weight:800; background:#f1f5f9; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(r.GrossSalary)}</td>
+                    <td style="padding:1.2px 2px; border-right:0.4px solid #e2e8f0;">${formatIndianCurrency(r.GIS)}</td>
+                    <td style="padding:1.2px 2px; border-right:0.4px solid #e2e8f0;">${formatIndianCurrency(r.GPF)}</td>
+                    <td style="padding:1.2px 2px; border-right:0.4px solid #e2e8f0;">${formatIndianCurrency(r.ProfessionalTax)}</td>
+                    <td style="padding:1.2px 2px; font-weight:700; color:#dc2626; background:#fef2f2;">${formatIndianCurrency(r.IncomeTax)}</td>
                   </tr>
                 `).join('')}
-                <tr style="background:#e2e8f0; font-weight:900; border-top:2px solid #0f172a; color:#0f172a;">
-                  <td style="padding:7px 6px; text-align:left; border-right:1px solid #94a3b8;">एकूण बेरीज</td>
-                  <td style="padding:7px 6px; border-right:1px solid #cbd5e1;">${formatIndianCurrency(totBasic)}</td>
-                  <td style="padding:7px 6px; border-right:1px solid #cbd5e1;">${formatIndianCurrency(totDA)}</td>
-                  <td style="padding:7px 6px; border-right:1px solid #cbd5e1;">${formatIndianCurrency(totHRA)}</td>
-                  <td style="padding:7px 6px; border-right:1px solid #cbd5e1;">${formatIndianCurrency(totTA)}</td>
-                  <td style="padding:7px 6px; border-right:1px solid #cbd5e1;">${formatIndianCurrency(totArr)}</td>
-                  <td style="padding:7px 6px; background:#cbd5e1; font-weight:900; border-right:1px solid #94a3b8;">${formatIndianCurrency(totGross)}</td>
-                  <td style="padding:7px 6px; border-right:1px solid #cbd5e1;">${formatIndianCurrency(totGIS)}</td>
-                  <td style="padding:7px 6px; border-right:1px solid #cbd5e1;">${formatIndianCurrency(totGPF)}</td>
-                  <td style="padding:7px 6px; border-right:1px solid #cbd5e1;">${formatIndianCurrency(totPT)}</td>
-                  <td style="padding:7px 6px; color:#dc2626; background:#fee2e2;">${formatIndianCurrency(totIT)}</td>
+                <tr style="background:#e2e8f0; font-weight:900; border-top:1.2px solid #000; color:#000;">
+                  <td style="padding:2px; text-align:left; border-right:0.4px solid #94a3b8;">एकूण बेरीज</td>
+                  <td style="padding:2px; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(totBasic)}</td>
+                  <td style="padding:2px; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(totDA)}</td>
+                  <td style="padding:2px; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(totHRA)}</td>
+                  <td style="padding:2px; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(totTA)}</td>
+                  <td style="padding:2px; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(totArr)}</td>
+                  <td style="padding:2px; background:#cbd5e1; font-weight:900; border-right:0.4px solid #94a3b8;">${formatIndianCurrency(totGross)}</td>
+                  <td style="padding:2px; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(totGIS)}</td>
+                  <td style="padding:2px; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(totGPF)}</td>
+                  <td style="padding:2px; border-right:0.4px solid #cbd5e1;">${formatIndianCurrency(totPT)}</td>
+                  <td style="padding:2px; color:#dc2626; background:#fee2e2;">${formatIndianCurrency(totIT)}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- ४ सारांश चौकोन -->
-          <div class="kpi-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin-bottom:14px;">
-            <div class="kpi-box" style="border:1.5px solid #cbd5e1; border-radius:10px; padding:10px; background:#f8fafc; text-align:center;">
-              <span class="kpi-label" style="font-size:0.72rem; font-weight:800; color:#475569; display:block;">एकूण वेतन (Gross)</span>
-              <span class="kpi-val" style="font-size:1.15rem; font-weight:800; color:#2563eb;">₹ ${formatIndianCurrency(totGross)}</span>
+          <!-- ४ मुख्य सारांश बॉक्स (KPIs) -->
+          <div class="kpi-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:3px; margin-bottom:3px;">
+            <div class="kpi-box" style="border:0.8px solid #000; border-radius:3px; padding:1.5px; text-align:center;">
+              <span class="kpi-label" style="font-size:6.8px; font-weight:800; display:block; color:#475569;">एकूण वेतन (Gross)</span>
+              <span class="kpi-val" style="font-size:8.8px; font-weight:900; color:#2563eb;">₹ ${formatIndianCurrency(totGross)}</span>
             </div>
-            <div class="kpi-box" style="border:1.5px solid #cbd5e1; border-radius:10px; padding:10px; background:#f8fafc; text-align:center;">
-              <span class="kpi-label" style="font-size:0.72rem; font-weight:800; color:#475569; display:block;">मानक वजावट (Std. Ded.)</span>
-              <span class="kpi-val" style="font-size:1.15rem; font-weight:800; color:#64748b;">- ₹ ${formatIndianCurrency(stdDeduction)}</span>
+            <div class="kpi-box" style="border:0.8px solid #000; border-radius:3px; padding:1.5px; text-align:center;">
+              <span class="kpi-label" style="font-size:6.8px; font-weight:800; display:block; color:#475569;">मानक वजावट (Std.)</span>
+              <span class="kpi-val" style="font-size:8.8px; font-weight:900; color:#475569;">- ₹ ${formatIndianCurrency(oldStdDed)}</span>
             </div>
-            <div class="kpi-box" style="border:1.5px solid #cbd5e1; border-radius:10px; padding:10px; background:#f8fafc; text-align:center;">
-              <span class="kpi-label" style="font-size:0.72rem; font-weight:800; color:#475569; display:block;">80C वजावट (GPF/GIS)</span>
-              <span class="kpi-val" style="font-size:1.15rem; font-weight:800; color:#64748b;">- ₹ ${formatIndianCurrency(sec80C_Total)}</span>
+            <div class="kpi-box" style="border:0.8px solid #000; border-radius:3px; padding:1.5px; text-align:center;">
+              <span class="kpi-label" style="font-size:6.8px; font-weight:800; display:block; color:#475569;">80C वजावट (GPF/GIS)</span>
+              <span class="kpi-val" style="font-size:8.8px; font-weight:900; color:#475569;">- ₹ ${formatIndianCurrency(old80C)}</span>
             </div>
-            <div class="kpi-box highlight" style="border:1.5px solid #86efac; border-radius:10px; padding:10px; background:#f0fdf4; text-align:center;">
-              <span class="kpi-label" style="font-size:0.72rem; font-weight:800; color:#15803d; display:block;">निव्वळ करपात्र उत्पन्न</span>
-              <span class="kpi-val" style="font-size:1.15rem; font-weight:800; color:#16a34a;">₹ ${formatIndianCurrency(netTaxableOld)}</span>
-            </div>
-          </div>
-
-          <!-- करप्रणाली तुलना बॉक्स -->
-          <div class="regime-compare-box" style="border:1.5px solid #cbd5e1; border-radius:10px; padding:12px; margin-bottom:14px; background:#ffffff; display:flex; justify-content:space-around; align-items:center;">
-            <div class="regime-col ${!isNewBetter ? 'best-choice' : ''}" style="text-align:center;">
-              ${!isNewBetter ? '<span style="background:#16a34a; color:#fff; font-size:0.65rem; font-weight:800; padding:2px 8px; border-radius:999px;">सर्वात फायदेशीर</span>' : ''}
-              <div style="font-size:0.82rem; font-weight:700; color:#475569; margin-top:3px;">जुनी करप्रणाली (Old Regime)</div>
-              <div style="font-size:1.25rem; font-weight:900; color:#0f172a;">₹ ${formatIndianCurrency(taxOld)}</div>
-              <small style="color:#64748b; font-size:0.7rem;">80C व सर्व वजावटींनंतर</small>
-            </div>
-            <div class="vs-divider" style="font-weight:900; color:#94a3b8; font-size:0.9rem;">VS</div>
-            <div class="regime-col ${isNewBetter ? 'best-choice' : ''}" style="text-align:center;">
-              ${isNewBetter ? '<span style="background:#16a34a; color:#fff; font-size:0.65rem; font-weight:800; padding:2px 8px; border-radius:999px;">सर्वात फायदेशीर</span>' : ''}
-              <div style="font-size:0.82rem; font-weight:700; color:#475569; margin-top:3px;">नवीन करप्रणाली (New Regime)</div>
-              <div style="font-size:1.25rem; font-weight:900; color:#16a34a;">₹ ${formatIndianCurrency(taxNew)}</div>
-              <small style="color:#16a34a; font-size:0.7rem;"><strong>₹ ${formatIndianCurrency(savings)}</strong> निव्वळ कर बचत</small>
+            <div class="kpi-box highlight" style="border:0.8px solid #16a34a; border-radius:3px; padding:1.5px; text-align:center; background:#f0fdf4;">
+              <span class="kpi-label" style="font-size:6.8px; font-weight:800; display:block; color:#15803d;">निव्वळ करपात्र उत्पन्न</span>
+              <span class="kpi-val" style="font-size:8.8px; font-weight:900; color:#16a34a;">₹ ${formatIndianCurrency(oldTaxable)}</span>
             </div>
           </div>
 
-          <!-- स्वाक्षरी व दिनांक ब्लॉक -->
-<div class="sign-block" style="display:flex; justify-content:space-between; margin-top:45px; padding:0 10px; font-size:0.82rem; font-weight:700; color:#1e293b;">
-  <div style="text-align:center; min-width:120px;">
-    <div style="border-top:1.5px dotted #64748b; margin-bottom:6px;"></div>
-    <div>कर्मचाऱ्याची स्वाक्षरी</div>
-  </div>
-  <div style="text-align:center; min-width:150px;">
-    <div style="border-top:1.5px dotted #64748b; margin-bottom:6px;"></div>
-    <div>मुख्याध्यापक स्वाक्षरी व शिक्का</div>
-  </div>
-</div>
+          <!-- ५. दोन्ही तक्ते समोरासमोर आणि तंतोतंत समान १३ ओळींचे -->
+          <div class="detailed-regime-wrap" style="display:flex; flex-direction:row; gap:4px; width:100%; margin-bottom:3px;">
+            
+            <!-- Old Tax Regime Table (१३ ओळी) -->
+            <div class="regime-table-card" style="flex:1; width:50%;">
+              <table class="tax-calc-table" style="width:100%; border-collapse:collapse; font-size:6.8px; border:0.8px solid #000;">
+                <thead>
+                  <tr style="background:#e2e8f0; color:#000;"><th colspan="3" style="padding:1px; border:0.4px solid #444; text-align:center; font-weight:900;">Old Tax Regime</th></tr>
+                  <tr style="background:#f8fafc;">
+                    <th style="padding:1px 2px; border:0.4px solid #444; text-align:left;">Slab</th>
+                    <th style="padding:1px 2px; border:0.4px solid #444; width:22%; text-align:center;">Percent %</th>
+                    <th style="padding:1px 2px; border:0.4px solid #444; width:35%; text-align:right;">Calculation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Gross Salary</td><td style="border:0.4px solid #444;"></td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(totGross)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Standard Deduction</td><td style="border:0.4px solid #444;"></td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(oldStdDed)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Professional Tax (व्यवसाय कर)</td><td style="border:0.4px solid #444;"></td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(oldPT)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">80C &amp; Other Deduction</td><td style="border:0.4px solid #444;"></td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(old80C)}</td></tr>
+                  <tr style="font-weight:700; background:#f1f5f9;"><td style="padding:1px 2px; border:0.4px solid #444;">Taxable Salary</td><td style="border:0.4px solid #444;"></td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(oldTaxable)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Up to 2.5 Lakh</td><td style="border:0.4px solid #444; text-align:center;">Nil</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">0</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">2.5 Lakh to 5 Lakh</td><td style="border:0.4px solid #444; text-align:center;">5%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(oldTax2_5to5)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">5 Lakh to 10 Lakh</td><td style="border:0.4px solid #444; text-align:center;">20%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(oldTax5to10)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Above 10 Lakh</td><td style="border:0.4px solid #444; text-align:center;">30%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(oldTaxAbove10)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444; color:#64748b;">[ इतर कोणताही स्लॅब नाही ]</td><td style="border:0.4px solid #444; text-align:center; color:#64748b;">-</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right; color:#64748b;">0</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Health &amp; Edu. Cess</td><td style="border:0.4px solid #444; text-align:center;">4%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(oldCess)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Rebate u/s 87A</td><td style="border:0.4px solid #444; text-align:center;">${oldTaxable <= 500000 ? '12500' : '0'}</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">-${formatIndianCurrency(oldRebate87A)}</td></tr>
+                  <tr style="background:#ffedd5; font-weight:900;"><td style="padding:1px 2px; border:0.5px solid #444;">Final Tax</td><td style="border:0.5px solid #444;"></td><td style="padding:1px 2px; border:0.5px solid #444; text-align:right;">₹ ${formatIndianCurrency(oldFinalTax)}</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- New Tax Regime Table (१३ ओळी) -->
+            <div class="regime-table-card" style="flex:1; width:50%;">
+              <table class="tax-calc-table" style="width:100%; border-collapse:collapse; font-size:6.8px; border:0.8px solid #000;">
+                <thead>
+                  <tr style="background:#e2e8f0; color:#000;"><th colspan="3" style="padding:1px; border:0.4px solid #444; text-align:center; font-weight:900;">New Tax Regime</th></tr>
+                  <tr style="background:#f8fafc;">
+                    <th style="padding:1px 2px; border:0.4px solid #444; text-align:left;">Slab</th>
+                    <th style="padding:1px 2px; border:0.4px solid #444; width:22%; text-align:center;">Percent %</th>
+                    <th style="padding:1px 2px; border:0.4px solid #444; width:35%; text-align:right;">Calculation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Gross Salary</td><td style="border:0.4px solid #444;"></td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(totGross)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Standard Deduction</td><td style="border:0.4px solid #444;"></td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(newStdDed)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Professional Tax</td><td style="border:0.4px solid #444; text-align:center;">NA</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">0</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">80C &amp; Other Deduction</td><td style="border:0.4px solid #444; text-align:center;">NA</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">0</td></tr>
+                  <tr style="font-weight:700; background:#f1f5f9;"><td style="padding:1px 2px; border:0.4px solid #444;">Taxable Salary</td><td style="border:0.4px solid #444;"></td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(newTaxable)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Up to 4 Lakh</td><td style="border:0.4px solid #444; text-align:center;">Nil</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">0</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">4 Lakh to 8 Lakh</td><td style="border:0.4px solid #444; text-align:center;">5%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(newTax4to8)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">8 Lakh to 12 Lakh</td><td style="border:0.4px solid #444; text-align:center;">10%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(newTax8to12)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">12 Lakh to 16 Lakh</td><td style="border:0.4px solid #444; text-align:center;">15%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(newTax12to16)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">16 Lakh to 20 Lakh</td><td style="border:0.4px solid #444; text-align:center;">20%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(newTax16to20)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Health &amp; Edu. Cess</td><td style="border:0.4px solid #444; text-align:center;">4%</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">${formatIndianCurrency(newCess)}</td></tr>
+                  <tr><td style="padding:1px 2px; border:0.4px solid #444;">Rebate u/s 87A (Up to 12L)</td><td style="border:0.4px solid #444; text-align:center;">60000</td><td style="padding:1px 2px; border:0.4px solid #444; text-align:right;">-${formatIndianCurrency(newRebate87A)}</td></tr>
+                  <tr style="background:#dcfce7; font-weight:900;"><td style="padding:1px 2px; border:0.5px solid #444;">Final Tax</td><td style="border:0.5px solid #444;"></td><td style="padding:1px 2px; border:0.5px solid #444; text-align:right;">₹ ${formatIndianCurrency(newFinalTax)}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ६. अंतिम सारांश व कर बचत बॉक्स -->
+          <div class="regime-compare-box" style="border:0.8px solid #000; border-radius:4px; padding:3px 8px; margin-bottom:3px; display:flex; justify-content:space-around; align-items:center;">
+            <div style="text-align:center;">
+              ${!isNewBetter ? '<span style="background:#16a34a; color:#ffffff; font-size:6.5px; font-weight:800; padding:1px 6px; border-radius:999px; display:inline-block; margin-bottom:1px; -webkit-print-color-adjust:exact; print-color-adjust:exact;">सर्वात फायदेशीर</span>' : ''}
+              <div style="font-size:7.2px; font-weight:700;">जुनी करप्रणाली (Old): <strong>₹ ${formatIndianCurrency(oldFinalTax)}</strong></div>
+            </div>
+            <div style="font-weight:900; font-size:7.5px;">VS</div>
+            <div style="text-align:center;">
+              ${isNewBetter ? '<span style="background:#16a34a; color:#ffffff; font-size:6.5px; font-weight:800; padding:1px 6px; border-radius:999px; display:inline-block; margin-bottom:1px; -webkit-print-color-adjust:exact; print-color-adjust:exact;">सर्वात फायदेशीर</span>' : ''}
+              <div style="font-size:7.2px; font-weight:700;">नवीन करप्रणाली (New): <strong>₹ ${formatIndianCurrency(newFinalTax)}</strong> (बचत: ₹ ${formatIndianCurrency(savings)})</div>
+            </div>
+          </div>
+
+          <!-- ७. कर्मचारी स्वयंघोषणा (Self Declaration) -->
+          <div style="border:0.6px dashed #000; padding:2px 5px; font-size:6.8px; line-height:1.2; text-align:center; margin-bottom:4px; background:#fafafa;">
+            मी असे प्रमाणित व घोषित करतो/करते की, वरील करगणनेची मी पडताळणी केली असून वित्तीय वर्ष २०२६-२७ करिता मी 
+            <strong>जुनी कर प्रणाली (Old Regime) [ &nbsp; ] &nbsp;/&nbsp; नवीन कर प्रणाली (New Regime) [ &nbsp; ]</strong> 
+            (लागू पर्यायावर ✓ करावे) चा अधिकृतपणे स्वीकार करत आहे.
+          </div>
+
+          <!-- ८. स्वाक्षरी व शिक्का ब्लॉक -->
+          <div class="sign-block" style="display:flex; justify-content:space-between; margin-top:8px; padding:0 20px; font-size:7.5px; font-weight:700;">
+            <div style="text-align:center; min-width:130px;">
+              <div style="border-top:0.8px dotted #000; margin-bottom:2px;"></div>
+              <div>कर्मचाऱ्याची स्वाक्षरी</div>
+            </div>
+            <div style="text-align:center; min-width:170px;">
+              <div style="border-top:0.8px dotted #000; margin-bottom:2px;"></div>
+              <div>मुख्याध्यापक स्वाक्षरी व शिक्का</div>
+            </div>
+          </div>
+
+          <!-- ९. करगणनेबाबत अधिकृत टीप (Disclaimer) -->
+          <div style="text-align:center; font-size:6px; color:#555; margin-top:3px; border-top:0.5px solid #ccc; padding-top:1px;">
+            *टीप: सदर विवरण पत्र हे संगणकीय प्रणालीद्वारे तयार केलेले असून, वैयक्तिक कर कपातीचे प्रत्यक्ष पुरावे, इतर उत्पन्न व बदलत्या आयकर नियमांनुसार अंतिम करगणनेत तफावत आढळू शकते.
+          </div>
+
           <!-- वेब ॲक्शन बटणे -->
-          <div class="action-group" style="margin-top:20px; display:flex; justify-content:center; gap:12px;">
-            <button onclick="printAnnualStatement()" class="btn-action btn-sm" style="background:#16a34a; color:#fff; min-width:140px; height:42px; border-radius:10px; font-weight:700; cursor:pointer;">
+          <div class="action-group" style="margin-top:12px; display:flex; justify-content:center; gap:8px;">
+            <button type="button" onclick="printAnnualStatement()" class="btn-action btn-sm" style="background:#16a34a; color:#fff; min-width:130px; height:38px; border-radius:8px; font-weight:700; cursor:pointer;">
               <i class="fa-solid fa-print"></i> प्रिंट काढा (Print A4)
             </button>
-            <button onclick="resetForm()" class="btn-action btn-sm btn-secondary" style="min-width:140px; height:42px; border-radius:10px; font-weight:700; cursor:pointer;">
+            <button type="button" onclick="resetForm()" class="btn-action btn-sm btn-secondary" style="min-width:130px; height:38px; border-radius:8px; font-weight:700; cursor:pointer;">
               <i class="fa-solid fa-arrow-left"></i> मागे जा (Back)
             </button>
           </div>
