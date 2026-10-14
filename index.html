@@ -522,58 +522,64 @@
       animation: fadeIn 0.3s ease;
     }
 
-    /* ===== MODERN PROFESSIONAL SEGMENTED TOGGLE ===== */
+/* ===== Modern Compact Segmented Toggle ===== */
 .portal-mode-toggle {
   display: flex;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  border-radius: 14px;
-  padding: 5px;
-  margin-bottom: 1.35rem;
-  gap: 6px;
-  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.05);
+  align-items: center;
+  background: #f1f5f9;                 /* फिकट हलकी राखाडी पार्श्वभूमी */
+  padding: 4px;                        /* कॉम्पॅक्ट इनर पॅडिंग */
+  border-radius: 12px;                 /* स्मूथ गोल कोपरे */
+  border: 1px solid #e2e8f0;           /* अतिशय सौम्य बॉर्डर */
+  max-width: 420px;                    /* कार्डच्या रुंदीनुसार संतुलित */
+  margin: 0 auto 16px auto;            /* तळाशी कमी केलेली रिकामी जागा */
+  position: relative;
+  box-sizing: border-box;
+  gap: 4px;
 }
 
 .mode-btn {
-  flex: 1;
-  padding: 10px 12px;
-  border: none;
-  background: transparent;
-  color: #64748b;
-  font-weight: 700;
-  font-size: 0.82rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
+  flex: 1 1 50%;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.mode-btn:not(.active):hover {
-  color: #1e293b;
-  background: rgba(255, 255, 255, 0.7);
-}
-
-.mode-btn.active {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  color: #ffffff !important;
-  box-shadow: 0 4px 14px -2px rgba(37, 99, 235, 0.45), 0 2px 4px rgba(0, 0, 0, 0.05);
-  transform: translateY(-1px);
+  gap: 7px;
+  height: 38px;                        /* १५-२०% कमी केलेली कॉम्पॅक्ट उंची */
+  padding: 0 10px;
+  border: none;
+  background: transparent;
+  color: #64748b;                      /* Unselected: गडद राखाडी मजकूर */
+  font-size: 0.84rem;
+  font-weight: 700;
+  font-family: inherit;
+  border-radius: 9px;
+  cursor: pointer;
+  white-space: nowrap;                 /* मजकूर दोन ओळींत तुटू नये म्हणून */
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mode-btn i {
-  font-size: 0.95rem;
-  transition: transform 0.2s ease;
+  font-size: 0.92rem;
+  color: #94a3b8;                      /* Unselected: राखाडी आयकॉन */
+  transition: color 0.2s ease;
+}
+
+.mode-btn:hover:not(.active) {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Selected Active State */
+.mode-btn.active {
+  background: #245DE8 !important;      /* आकर्षक आधुनिक निळा रंग */
+  color: #ffffff !important;           /* पांढरा मजकूर */
+  box-shadow: 0 3px 10px rgba(36, 93, 232, 0.28) !important; /* अतिशय सौम्य प्रीमियम शॅडो */
 }
 
 .mode-btn.active i {
-  color: #ffffff;
-  transform: scale(1.08);
+  color: #ffffff !important;           /* Selected: पांढरा आयकॉन */
 }
-
     .brand-header { text-align: center; margin-bottom: 1.2rem; }
     .brand-icon {
       width: 44px;
@@ -1035,17 +1041,26 @@
   .vs-divider { display: none; }
 
   /* ===== (Vertical Stack) ===== */
+  @media (max-width: 600px) {
+  /* मोबाईल स्क्रीनवरही आडवा सेग्मेंटेड टॉगल सुबक राहण्यासाठी */
   .portal-mode-toggle {
-    flex-direction: column !important;
-    gap: 6px !important;
-    padding: 6px !important;
+    max-width: 100% !important;
+    padding: 3.5px !important;
+    margin-bottom: 14px !important;
+    flex-direction: row !important;     /* उभी मांडणी रद्द करून एकाच ओळीत आडवी ठेवली */
   }
+
   .mode-btn {
-    width: 100% !important;
-    padding: 10px 14px !important;
-    font-size: 0.85rem !important;
-    justify-content: center !important;
+    height: 36px !important;           /* मोबाईलवर अधिक कॉम्पॅक्ट */
+    padding: 0 6px !important;
+    font-size: 0.76rem !important;     /* मराठी शब्द न कापता पूर्ण दिसतील असा फॉन्ट */
+    gap: 5px !important;
   }
+
+  .mode-btn i {
+    font-size: 0.82rem !important;
+  }
+}
 
   /* ===== हे नवीन ॲड करा (४ बॉक्सेस २x२ रांगेत बसवण्यासाठी) ===== */
   .kpi-grid {
@@ -1551,14 +1566,24 @@
     <!-- Login Box -->
     <div id="loginBox" class="login-box" role="main" aria-labelledby="loginTitle">
       
-      <!-- TOGGLE BUTTONS (मासिक / वार्षिक) -->
-<div class="portal-mode-toggle" role="tablist">
-  <button type="button" class="mode-btn active" id="btnMonthlyMode" onclick="switchPortalMode('monthly')" role="tab" aria-selected="true">
-    <i class="fa-solid fa-file-invoice"></i> 
+<!-- Modern Segmented Toggle Bar -->
+<div class="portal-mode-toggle" id="portalModeToggle" role="tablist" aria-label="Portal Mode">
+  <button type="button" 
+          id="btnModeMonthly" 
+          class="mode-btn active" 
+          role="tab" 
+          aria-selected="true" 
+          onclick="switchPortalMode('monthly')">
+    <i class="fa-regular fa-file-lines"></i>
     <span>मासिक वेतन पत्रक</span>
   </button>
-  <button type="button" class="mode-btn" id="btnAnnualMode" onclick="switchPortalMode('annual')" role="tab" aria-selected="false">
-    <i class="fa-solid fa-chart-pie"></i> 
+  <button type="button" 
+          id="btnModeAnnual" 
+          class="mode-btn" 
+          role="tab" 
+          aria-selected="false" 
+          onclick="switchPortalMode('annual')">
+    <i class="fa-solid fa-chart-pie"></i>
     <span>वार्षिक आयकर विवरण</span>
   </button>
 </div>
