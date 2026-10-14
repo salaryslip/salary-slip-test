@@ -1040,29 +1040,26 @@
   .regime-compare-box { flex-direction: column; gap: 14px; }
   .vs-divider { display: none; }
 
-  /* ===== (Vertical Stack) ===== */
-  @media (max-width: 600px) {
-  /* मोबाईल स्क्रीनवरही आडवा सेग्मेंटेड टॉगल सुबक राहण्यासाठी */
+  /* मोबाईलवर सेग्मेंटेड टॉगल आडवा व सुबक ठेवणे */
   .portal-mode-toggle {
     max-width: 100% !important;
     padding: 3.5px !important;
     margin-bottom: 14px !important;
-    flex-direction: row !important;     /* उभी मांडणी रद्द करून एकाच ओळीत आडवी ठेवली */
+    flex-direction: row !important;
   }
 
   .mode-btn {
-    height: 36px !important;           /* मोबाईलवर अधिक कॉम्पॅक्ट */
+    height: 36px !important;
     padding: 0 6px !important;
-    font-size: 0.76rem !important;     /* मराठी शब्द न कापता पूर्ण दिसतील असा फॉन्ट */
+    font-size: 0.76rem !important;
     gap: 5px !important;
   }
 
   .mode-btn i {
     font-size: 0.82rem !important;
   }
-}
 
-  /* ===== हे नवीन ॲड करा (४ बॉक्सेस २x२ रांगेत बसवण्यासाठी) ===== */
+  /* ४ बॉक्सेस २x२ रांगेत बसवणे */
   .kpi-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
@@ -1077,7 +1074,7 @@
     font-size: 1rem !important;
   }
 
-  /* ===== स्वाक्षरी ब्लॉक सुटसुटीत दिसण्यासाठी ===== */
+  /* स्वाक्षरी ब्लॉक */
   .sign-block {
     margin-top: 40px !important;
     padding: 0 5px !important;
@@ -1569,7 +1566,7 @@
 <!-- Modern Segmented Toggle Bar -->
 <div class="portal-mode-toggle" id="portalModeToggle" role="tablist" aria-label="Portal Mode">
   <button type="button" 
-          id="btnModeMonthly" 
+          id="btnMonthlyMode" 
           class="mode-btn active" 
           role="tab" 
           aria-selected="true" 
@@ -1578,7 +1575,7 @@
     <span>मासिक वेतन पत्रक</span>
   </button>
   <button type="button" 
-          id="btnModeAnnual" 
+          id="btnAnnualMode" 
           class="mode-btn" 
           role="tab" 
           aria-selected="false" 
