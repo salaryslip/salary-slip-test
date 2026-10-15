@@ -2142,30 +2142,66 @@
       populateYearOptions();
     }
 
-    function populateYearOptions() {
-      const yearSelect = document.getElementById('year');
-      if (!yearSelect) return;
-      yearSelect.innerHTML = '';
-      const curYear = new Date().getFullYear();
+function populateYearOptions() {
+  const yearSelect = document.getElementById('year');
+  const monthSelect = document.getElementById('month');
+  if (!yearSelect) return;
+  yearSelect.innerHTML = '';
 
-      if (currentPortalMode === 'monthly') {
-        for (let y = curYear; y >= curYear - 5; y--) {
-          const opt = document.createElement('option');
-          opt.value = String(y);
-          opt.textContent = String(y);
-          yearSelect.appendChild(opt);
-        }
-      } else {
-        // फक्त आर्थिक वर्षे (मागील ४ वर्षांसह)
-        for (let y = curYear; y >= curYear - 4; y--) {
-          const fyVal = `${y}-${y + 1}`; // किंवा व्हॅल्यूसाठी `${y}-${String(y + 1).slice(-2)}`
-          const opt = document.createElement('option');
-          opt.value = fyVal;
-          opt.textContent = `${y}-${String(y + 1).slice(-2)}`; // स्क्रीनवर फक्त 2026-27 असे दिसेल
-          yearSelect.appendChild(opt);
-        }
-      }
+  const today = new Date();
+  const curCalYear = today.getFullYear();
+  const curMonthIdx = today.getMonth(); // 0 = Jan, 1 = Feb ... 9 = Oct, 11 = Dec
+
+  // HTML मधील महिन्यांच्या value शी तंतोतंत जुळणारी नावे
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  // १. मागील महिना ठरवणे (उदा. ऑक्टोबर असेल तर सप्टेंबर)
+  let defaultMonthIdx = curMonthIdx - 1;
+  let defaultSalaryYear = curCalYear;
+
+  // जर चालू महिना जानेवारी (0) असेल, तर मागील महिना डिसेंबर (11) आणि वर्ष मागील राहील
+  if (defaultMonthIdx < 0) {
+    defaultMonthIdx = 11; // December
+    defaultSalaryYear = curCalYear - 1;
+  }
+
+  if (currentPortalMode === 'monthly') {
+    // मासिक मोड: मागील महिना आपोआप सिलेक्ट करणे
+    if (monthSelect) {
+      monthSelect.value = monthNames[defaultMonthIdx];
     }
+
+    // वर्षे भरणे आणि देय महिन्याचे वर्ष आपोआप सिलेक्ट ठेवणे
+    for (let y = curCalYear; y >= curCalYear - 5; y--) {
+      const opt = document.createElement('option');
+      opt.value = String(y);
+      opt.textContent = String(y);
+      if (y === defaultSalaryYear) {
+        opt.selected = true; // योग्य वर्ष निवडले जाईल
+      }
+      yearSelect.appendChild(opt);
+    }
+  } else {
+    // वार्षिक विवरण मोड: १ एप्रिलच्या नियमानुसार आर्थिक वर्ष ठरवणे
+    let currentFYStart = curCalYear;
+    // जर चालू महिना जानेवारी, फेब्रुवारी किंवा मार्च असेल, तर आर्थिक वर्ष मागील वर्षाचे असते
+    if (curMonthIdx < 3) {
+      currentFYStart = curCalYear - 1;
+    }
+
+    // आर्थिक वर्षे भरणे (उदा. 2026-27)
+    for (let y = currentFYStart; y >= currentFYStart - 4; y--) {
+      const fyVal = `${y}-${y + 1}`;
+      const opt = document.createElement('option');
+      opt.value = fyVal;
+      opt.textContent = `${y}-${String(y + 1).slice(-2)}`;
+      yearSelect.appendChild(opt);
+    }
+  }
+}
 
     function setLanguage(lang) {
       currentLang = lang;
